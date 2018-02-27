@@ -1,7 +1,14 @@
 class WeekendsController < ApplicationController
 
   def index
-    @response = Wknd::ApiResponse.new("Friday")
+    # Renvoi vers initialize de api_response.rb
+    @response = Wknd::ApiResponse.new(
+    "Friday", # Jour aller
+    "Sunday", # Jour retour
+    {from: "18%3A00",to: "23%3A59"}, # Range heures aller
+    {from: "18%3A00",to: "23%3A59"}, # Range heures retour
+    "PAR", # From
+    "MAD") # To
   end
 
   def show

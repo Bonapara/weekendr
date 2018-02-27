@@ -4,8 +4,13 @@ require 'open-uri'
 
 module Wknd
   class ApiResponse
-    def initialize(go_day)
+    def initialize(go_day, return_day, go_hours_range, return_hours_range, city_from, city_to)
       @go_day = go_day
+      @return_day = return_day
+      @go_hours_range = go_hours_range
+      @return_hours_range = return_hours_range
+      @city_from = city_from
+      @city_to = city_to
     end
 
     def date_of_next(day)
@@ -16,37 +21,32 @@ module Wknd
     # Parameters of the search
 
     def wknd_instances_creation
-      return_day = "Sunday"
-      go_hours_range = {from: "18%3A00",to: "23%3A59"}
-      return_hours_range = {from: "18%3A00",to: "23%3A59"}
-      city_from = "PAR"
-      city_to = "MAD"
       weekends_number = 10
       # day => date using date_of_next method make it understandable for URL
       go_date = date_of_next(@go_day)
-      return_date = date_of_next(return_day)
+      return_date = date_of_next(@return_day)
       # Start time calculation
       request_start = Time.now
       weekends_table = []
       # Start LOOP
       weekends_number.times do
       # Call API
-      url = "https://api.skypicker.com/flights?
-flyFrom=#{city_from}
-&to=#{city_to}
+url = "https://api.skypicker.com/flights?
+flyFrom=#{@city_from}
+&to=#{@city_to}
 &dateFrom=#{go_date.strftime("%d/%m/%Y")}
 &dateTo=#{go_date.strftime("%d/%m/%Y")}
-&dtimefrom=#{go_hours_range[:from]}
-&dtimeto=#{go_hours_range[:to]}
+&dtimefrom=#{@go_hours_range[:from]}
+&dtimeto=#{@go_hours_range[:to]}
 &returnFrom=#{return_date.strftime("%d/%m/%Y")}
 &returnTo=#{return_date.strftime("%d/%m/%Y")}
-&returndtimefrom=#{return_hours_range[:from]}
-&returndtimeto=#{return_hours_range[:to]}
+&returndtimefrom=#{@return_hours_range[:from]}
+&returndtimeto=#{@return_hours_range[:to]}
 &directFlights=1
 &partner=picky
 &partner_market=eu
 &limit=1"
-      # CALL API
+      # CALL API with gsub because of lines return
       weekends_serialized = open(url.gsub!(/\n/,'')).read
       weekends_json = JSON.parse(weekends_serialized)
       weekends = weekends_json["data"]
@@ -76,7 +76,7 @@ flyFrom=#{city_from}
         weekend_attr[:return_flight][:airport_to]   = weekend["route"][1][1]
         weekend_attr[:return_flight][:dTime]        = DateTime.strptime("#{weekend["route"][1]["dTime"]}",'%s')
         weekend_attr[:return_flight][:aTime]        = DateTime.strptime("#{weekend["route"][1]["aTime"]}",'%s')
-        weekend_attr[:go_flight][:airline]          = weekend["airlines"][1]
+        weekend_attr[:return_flight][:airline]          = weekend["airlines"][1]
         weekends_table << weekend_attr
       end
       # NEXT WEEKEND
@@ -84,7 +84,7 @@ flyFrom=#{city_from}
       return_date = return_date + 7
       end
       request_end = Time.now
-      "#{request_end - request_start} seconds"
+      "#{request_end} - #{request_start} seconds"
       return weekends_table
     end
   end
