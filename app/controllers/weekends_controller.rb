@@ -1,6 +1,7 @@
 class WeekendsController < ApplicationController
 
   def index
+    skip_before_action :authenticate_user!
     @response = Wknd::ApiResponse.new("Friday")
   end
 
