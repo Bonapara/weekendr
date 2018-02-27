@@ -1,0 +1,2 @@
+class Weekend < ApplicationRecord
+end

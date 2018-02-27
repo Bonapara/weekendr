@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  city_from: MyString
+  country_from: MyString
+  city_to: MyString
+  country_to: MyString
+  price: 1
+  booking_token: MyText
+  booking_link: MyText
+  go_flight: MyText
+  return_flight: MyText
+
+two:
+  city_from: MyString
+  country_from: MyString
+  city_to: MyString
+  country_to: MyString
+  price: 1
+  booking_token: MyText
+  booking_link: MyText
+  go_flight: MyText
+  return_flight: MyText

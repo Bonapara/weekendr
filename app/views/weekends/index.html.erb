@@ -1,0 +1,9 @@
+<h2>Voici les prix pour les 10 prochains weekends :</h2>
+    <% @response.wknd_instances_creation.each_with_index do |weekend, index| %>
+    <ul>
+      <li>Weekend n°: <%= index + 1%></li>
+      <li>From: <%= weekend[:city_from] %></li>
+      <li>To: <%= weekend[:city_to]%></li>
+      <li>Price: <%= weekend[:price]%></li>
+    </ul>
+    <% end %>
