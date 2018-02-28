@@ -3,15 +3,18 @@ const inputFrom = document.querySelector('#search-from');
 const inputTo = document.querySelector('#search-to');
 const resultsTo = document.querySelector('#results-to');
 const resultsFrom = document.querySelector('#results-from');
-const iata = document.querySelector('#iata');
+const iataFrom = document.querySelector('#iataFrom');
+const iataTo = document.querySelector('#iataTo');
+
 
 
 // On ecoute le clic sur la liste de resultats FROM
 resultsFrom.addEventListener('click', (event) => {
   // On renseigne la valeur dans le champ du formulaire
-  inputFrom.value = event.target.innerText;
+  console.log(event.target.parentNode); // attention faut que levent soit le li et pas le span
+  inputFrom.value = event.target.parentNode.innerText;
   // On insere le code IATA dans un champ cache du formulaire pour le rendre disponible dans les params
-  iataFrom.value = event.target.getAttribute('data-iota');
+  iataFrom.value = event.target.parentNode.getAttribute('data-iota');
   // On efface la liste de resultats
   resultsFrom.innerHTML = '';
   // resultsFrom.classList.remove("visible");
@@ -19,8 +22,8 @@ resultsFrom.addEventListener('click', (event) => {
 
 // On ecoute le clic sur la liste de resultats TO
 resultsTo.addEventListener('click', (event) => {
-  inputTo.value = event.target.innerText;
-  iataTo.value = event.target.getAttribute('data-iota');
+  inputTo.value = event.target.parentNode.innerText;
+  iataTo.value = event.target.parentNode.getAttribute('data-iota');
   resultsTo.innerHTML = '';
   // resultsTo.classList.remove("visible");
 });
@@ -44,22 +47,25 @@ const drawResponseList = (data, results) => {
       country = "";
     } else if (location.type == "city") {
       countryCode = location.country.code;
-      country = location.country.name;
+      country = ", " + location.country.name;
+      // country = "Tous les aéroports";
     } else if (location.type == "airport") {
       countryCode = location.city.country.code;
-      country = location.city.country.name;
+      country = ", " + location.city.country.name;
     } else if (location.type == "subdivision") {
       countryCode = location.country.code;
-      country = location.country.name;
+      country = ", " + location.country.name;
     } else {
       countryCode = "NF";
       country = "";
     };
     results.insertAdjacentHTML('beforeend',
-      `<li class="result" data-iota = "${iota}"> <img src="http://www.countryflags.io/${countryCode}/flat/24.png"> <span class="location-name">${location.name}</span> <span class="country-name">${country}</span></li>`);
+      `<li class="result" data-iota = "${iota}"> <img src="https://lipis.github.io/flag-icon-css/flags/4x3/${countryCode.toLowerCase()}.svg" alt="flag" style="height:18px;border-radius:2px;"> <span class="location-name">${location.name}</span><span class="country-name">${country}</span></li>`);
   });
 };
 
+// <img src="https://lipis.github.io/flag-icon-css/flags/4x3/${city[2].toLowerCase()}.svg" alt="flag" style="height:18px;border-radius:2px;">
+// <img src="https://lipis.github.io/flag-icon-css/flags/4x3/${countryCode.toLowerCase()}.svg" alt="flag" style="height:18px;border-radius:2px;">
 
 
 // Autocomplete function (to)
@@ -85,10 +91,10 @@ inputTo.addEventListener('keyup', autocompleteTo);
 
 // Definition des top cities
 const topCities = [
-  ["Lisbonne", "LIS", "PT", "Portugal"],
-  ["Madrid", "MAD", "ES", "Espagne"],
-  ["Rome", "ROM", "IT", "Italie"],
-  ["Budapest", "BUD", "HU", "Hongrie"]
+  ["Lisbonne, ", "LIS", "PT", "Portugal"],
+  ["Madrid, ", "MAD", "ES", "Espagne"],
+  ["Rome, ", "ROM", "IT", "Italie"],
+  ["Budapest, ", "BUD", "HU", "Hongrie"]
 ];
 
 
@@ -103,14 +109,13 @@ const drawTopCities = () => {
   // Boucle sur l'array top cities et creation des li correspondantes
   topCities.forEach((city) => {
     resultsTo.insertAdjacentHTML('beforeend',
-      `<li class="result" data-iota = "${city[1]}"> <img src="http://www.countryflags.io/${city[2]}/flat/24.png"> <span class="location-name">${city[0]}</span> <span class="country-name">${city[3]}</span></li>`);
+      `<li class="result" data-iota = "${city[1]}"> <img src="https://lipis.github.io/flag-icon-css/flags/4x3/${city[2].toLowerCase()}.svg" alt="flag" style="height:18px;border-radius:2px;"> <span class="location-name">${city[0]}</span> <span class="country-name">${city[3]}</span></li>`);
   });
 };
 
-// let focus = false;
+
 // Affichage des top cities lorsque le champ "To" est focus par l'utilisateur
 inputTo.addEventListener('focus', function(){
-  // focus = true;
   // On efface les listes de resultats
   resultsTo.innerHTML = '';
   resultsFrom.innerHTML = '';
@@ -120,10 +125,9 @@ inputTo.addEventListener('focus', function(){
   // Boucle sur l'array top cities et creation des li correspondantes
   topCities.forEach((city) => {
     resultsTo.insertAdjacentHTML('beforeend',
-      `<li class="result" data-iota = "${city[1]}"> <img src="http://www.countryflags.io/${city[2]}/flat/24.png"> <span class="location-name">${city[0]}</span> <span class="country-name">${city[3]}</span></li>`);
+      `<li class="result" data-iota = "${city[1]}"> <img src="https://lipis.github.io/flag-icon-css/flags/4x3/${city[2].toLowerCase()}.svg" alt="flag" style="height:18px;border-radius:2px;"> <span class="location-name">${city[0]}</span> <span class="country-name">${city[3]}</span></li>`);
   });
 });
-
 
 
 
