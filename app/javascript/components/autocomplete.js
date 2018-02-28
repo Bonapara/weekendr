@@ -29,9 +29,10 @@ resultsTo.addEventListener('click', (event) => {
 
 // Results construction function
 const drawResponseList = (data, results) => {
+  // On efface les deux listes de resultats
   resultsTo.innerHTML = '';
   resultsFrom.innerHTML = '';
-  // results.classList.add("visible");
+  // On boucle sur les donnes recus de l'API pour afficher une liste de resultats
   data.locations.forEach((location) => {
     let countryCode;
     let icon;
@@ -40,23 +41,18 @@ const drawResponseList = (data, results) => {
     // Gestion des cas necessaire car les donnees de l'API sont structurees differemment suivant le location.type renvoye
     if (location.type == "country") {
       countryCode = location.code;
-      icon = `<i class="fas fa-globe"></i>`;
       country = "";
     } else if (location.type == "city") {
       countryCode = location.country.code;
-      icon = `<i class="fas fa-building"></i>`;
       country = location.country.name;
     } else if (location.type == "airport") {
       countryCode = location.city.country.code;
-      icon = `<i class="fas fa-plane"></i>`;
       country = location.city.country.name;
     } else if (location.type == "subdivision") {
       countryCode = location.country.code;
-      icon = `<i class="fas fa-globe"></i>`;
       country = location.country.name;
     } else {
       countryCode = "NF";
-      icon = `<i class="fas fa-globe"></i>`;
       country = "";
     };
     results.insertAdjacentHTML('beforeend',
@@ -92,20 +88,42 @@ const topCities = [
   ["Lisbonne", "LIS", "PT", "Portugal"],
   ["Madrid", "MAD", "ES", "Espagne"],
   ["Rome", "ROM", "IT", "Italie"],
+  ["Budapest", "BUD", "HU", "Hongrie"]
 ];
 
 
-inputTo.addEventListener('focus', function(){
+
+const drawTopCities = () => {
+  // On efface les listes de resultats
   resultsTo.innerHTML = '';
   resultsFrom.innerHTML = '';
   // Header destination populaire
   resultsTo.insertAdjacentHTML('beforeend',
   `<li class="top-cities"> <i class="fas fa-star"></i> Destinations populaires </li>`);
-  // Boucle sur l'array top cities
+  // Boucle sur l'array top cities et creation des li correspondantes
+  topCities.forEach((city) => {
+    resultsTo.insertAdjacentHTML('beforeend',
+      `<li class="result" data-iota = "${city[1]}"> <img src="http://www.countryflags.io/${city[2]}/flat/24.png"> <span class="location-name">${city[0]}</span> <span class="country-name">${city[3]}</span></li>`);
+  });
+};
+
+// let focus = false;
+// Affichage des top cities lorsque le champ "To" est focus par l'utilisateur
+inputTo.addEventListener('focus', function(){
+  // focus = true;
+  // On efface les listes de resultats
+  resultsTo.innerHTML = '';
+  resultsFrom.innerHTML = '';
+  // Header destination populaire
+  resultsTo.insertAdjacentHTML('beforeend',
+  `<li class="top-cities"> <i class="fas fa-star"></i> Destinations populaires </li>`);
+  // Boucle sur l'array top cities et creation des li correspondantes
   topCities.forEach((city) => {
     resultsTo.insertAdjacentHTML('beforeend',
       `<li class="result" data-iota = "${city[1]}"> <img src="http://www.countryflags.io/${city[2]}/flat/24.png"> <span class="location-name">${city[0]}</span> <span class="country-name">${city[3]}</span></li>`);
   });
 });
+
+
 
 
