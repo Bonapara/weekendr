@@ -1,0 +1,54 @@
+#results-to, #results-from {
+  margin-top: 4px;
+  width: 300px;
+  border-radius: 3px;
+  background-color: white;
+  padding-left: 0px;
+}
+
+.result {
+  margin: 0px 20px;
+  padding: 10px 0px;
+  border-bottom: 1px solid hsl(0, 0%, 90%);
+  list-style-type: none;
+  font-size: 14px;
+  img {
+    margin-right: 4px;
+  }
+}
+
+.result:last-child {
+  border-bottom: none;
+}
+
+.result:hover {
+  background-color: hsl(0, 0%, 97%);
+  margin: 0px 0px;
+  padding-left: 20px;
+}
+
+.location-name {
+  font-weight: bold;
+}
+
+.country-name {
+  color: gray;
+}
+
+.visible {
+  border: 1px solid hsl(0, 0%, 90%);
+}
+
+.top-cities {
+  letter-spacing: 1px;
+  margin-left: 20px;
+  list-style-type: none;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: grey;
+  padding: 10px;
+}
+
+li.top-cities {
+  padding-left: 0px;
+}
