@@ -1,39 +1,33 @@
-<h1>Weekender</h1>
-<!-- <form class="form-inline">
-    <div class="form-group">
-        <label class="sr-only" for="inputEmail">Email</label>
-        <input type="to" class="form-control" id="inputEmail" placeholder="Départ">
+<div class="home_container" style="background-image: linear-gradient(150deg, rgba(0, 91, 234, 0.8), rgba(0, 198, 251, 0.5)), url('http://e-sushi.fr/imagearticle/2015/08/norway_fjord-wide.jpg');background-repeat:no-repeat;background-position: center; ">
+  <div class="search_bar_container">
+    <div class="search_bar_from">
+      <%= form_tag weekends_path, method: :get do %>
+      <%= text_field_tag :from,
+      params[:from],
+      class: "search-form-inline",
+        id: "search-from",
+        placeholder: "Départ"
+        %>
+      </div>
+      <div class="search_bar_to">
+        <%= text_field_tag :to,
+        params[:to],
+        class: "search-form-inline",
+          id: "search-to",
+          placeholder: "Où allez-vous ?"
+          %>
+        </div>
+        <%= hidden_field_tag 'code_from', '', id: "iataFrom" %>
+        <%= hidden_field_tag 'code_to', '', id: "iataTo" %>
+      </div>
+      <div class="research_button_container">
+        <%= submit_tag 'Rechercher', class: "research-button" %>
+        <ul id="results-from">
+
+        </ul>
+        <ul id="results-to">
+
+        </ul>
+        <% end %>
+      </div>
     </div>
-    <div class="form-group">
-        <label class="sr-only" for="inputPassword">Password</label>
-        <input type="from" class="form-control" id="inputPassword" placeholder="Arrivée">
-    </div>
-
-    <button type="submit" class="btn btn-primary">Yes week-end !</button>
-</form> -->
-
-
-<%= form_tag weekends_path, method: :get do %>
-  <%= text_field_tag :from,
-    params[:from],
-    class: "form-inline",
-    id: "search-from",
-    placeholder: "Départ"
-  %>
-  <%= text_field_tag :to,
-    params[:to],
-    class: "form-inline",
-    id: "search-to",
-    placeholder: "Arrivée"
-  %>
-  <%= hidden_field_tag 'code_from', '', id: "iataFrom" %>
-  <%= hidden_field_tag 'code_to', '', id: "iataTo" %>
-
-  <%= submit_tag 'Weekend' %>
-    <ul id="results-from">
-
-    </ul>
-    <ul id="results-to">
-
-    </ul>
-<% end %>
