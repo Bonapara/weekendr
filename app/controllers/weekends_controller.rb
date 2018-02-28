@@ -7,8 +7,8 @@ class WeekendsController < ApplicationController
     "Sunday", # Jour retour
     {from: "18%3A00",to: "23%3A59"}, # Range heures aller
     {from: "18%3A00",to: "23%3A59"}, # Range heures retour
-    "PAR", # From
-    "MAD") # To
+    "#{params[:code_from]}", # From
+    "#{params[:code_to]}") # To
   end
 
   def show
@@ -27,6 +27,12 @@ class WeekendsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+   def weekend_params
+    params.require(:weekend).permit(:code_from, :code_to)
   end
 end
 
