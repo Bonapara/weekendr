@@ -1,2 +1,39 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Weekender</h1>
+<!-- <form class="form-inline">
+    <div class="form-group">
+        <label class="sr-only" for="inputEmail">Email</label>
+        <input type="to" class="form-control" id="inputEmail" placeholder="Départ">
+    </div>
+    <div class="form-group">
+        <label class="sr-only" for="inputPassword">Password</label>
+        <input type="from" class="form-control" id="inputPassword" placeholder="Arrivée">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Yes week-end !</button>
+</form> -->
+
+
+<%= form_tag weekends_path, method: :get do %>
+  <%= text_field_tag :from,
+    params[:from],
+    class: "form-inline",
+    id: "search-from",
+    placeholder: "Départ"
+  %>
+  <%= text_field_tag :to,
+    params[:to],
+    class: "form-inline",
+    id: "search-to",
+    placeholder: "Arrivée"
+  %>
+  <%= hidden_field_tag 'code_from', '', id: "iataFrom" %>
+  <%= hidden_field_tag 'code_to', '', id: "iataTo" %>
+
+  <%= submit_tag 'Weekend' %>
+    <ul id="results-from">
+
+    </ul>
+    <ul id="results-to">
+
+    </ul>
+<% end %>
