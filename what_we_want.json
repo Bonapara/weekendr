@@ -1,0 +1,64 @@
+"data":
+[
+  {
+      "mapIdfrom": "paris",
+      "return_duration": "2h 10m",
+      "flyTo": "MAD",
+      "conversion": {
+        "EUR": 182
+        },
+      "deep_link": "https://www.kiwi.com/deep?from=ORY&to=MAD&departure=03-03-2018&return=05-03-2018&flightsId=365009883%7C334170732&price=182&passengers=1&affilid=picky&lang=en&currency=EUR&booking_token=DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCc8rLxIJMQHBHGbzaoxEUpcpjYD324YzM9mjkmdZCC5ainc7zIZMb2/XaaEtaZVJpXR2qOlKsXATfj6tjdSf+gRCWa+5wCPNsPW6QV45xSEZNtW6gCMHhE36pftl9ps0bwlEWp8+f7zja9XVoyOOFpfIm/equaGrbwri4O/cr9GnIk9VG+G8Ys6Gn0q+Ezjry4CRUXMyH26/576gHghXQ0ZTQO8ynx9F8N/rIrTsRx5ry2EloJeB66CT5h4KsD1mTBzL20229lgGioTTWzBsp3ngJSJLFlR9O8dZQSRRy/5+0AjQyGFaTJkWcdHAdJuekIB20YiTPE3TaQYwnJwoLdlKR3Bjt3xWt5xY+xS7u9h7sthwrIFRQw/4dtVe8FzaXUJmgha5pQCxWl12OPl4/nrw1TAJBGP4tohNzAD37mCpwW0kxHSqljo8bt7H/LKm0dnZqi8fdKAs6ZEtMvnjiox1tLuwu3FJeEp1J3ZMTBdwP9IGtLYlAyVKnsBNURxfcdYU+lFAfrtEs8WOVdQIgbJfW3mfjXNFELg/knt8EXSI13nf9vWvwpMi30MJVvckLYQgMtgZfLWuGchx+Cua0IKeGRgoKRzYioR+c6173HLTFvbWFlF9vdUpB4rd1I88FzpamARtO1rDERtfAbBePjK8aIyLzaEJ0Uj4eYMi7Q6Gf5eYIxVRyxT3DuyLvBYITS",
+      "mapIdto": "madrid",
+      "nightsInDest": 2,
+      "airlines": [
+        "TO",
+        "FR"
+        ],
+      "fly_duration": "2h 10m",
+      "countryTo": {
+        "code": "ES",
+        "name": "Spain"
+        },
+      "price": 182,
+      "cityTo": "Madrid",
+      "dTimeUTC": 1520054400,
+      "p2": 1,
+      "countryFrom": {
+        "code": "FR",
+        "name": "France"
+        },
+      "booking_token": "DHMwfZ9w9ZvT1CVktnOdJjHNSOOh4rh+/KRZU8WZ87h+3gQhR6aISlqLNwiB1mCc8rLxIJMQHBHGbzaoxEUpcpjYD324YzM9mjkmdZCC5ainc7zIZMb2/XaaEtaZVJpXR2qOlKsXATfj6tjdSf+gRCWa+5wCPNsPW6QV45xSEZNtW6gCMHhE36pftl9ps0bwlEWp8+f7zja9XVoyOOFpfIm/equaGrbwri4O/cr9GnIk9VG+G8Ys6Gn0q+Ezjry4CRUXMyH26/576gHghXQ0ZTQO8ynx9F8N/rIrTsRx5ry2EloJeB66CT5h4KsD1mTBzL20229lgGioTTWzBsp3ngJSJLFlR9O8dZQSRRy/5+0AjQyGFaTJkWcdHAdJuekIB20YiTPE3TaQYwnJwoLdlKR3Bjt3xWt5xY+xS7u9h7sthwrIFRQw/4dtVe8FzaXUJmgha5pQCxWl12OPl4/nrw1TAJBGP4tohNzAD37mCpwW0kxHSqljo8bt7H/LKm0dnZqi8fdKAs6ZEtMvnjiox1tLuwu3FJeEp1J3ZMTBdwP9IGtLYlAyVKnsBNURxfcdYU+lFAfrtEs8WOVdQIgbJfW3mfjXNFELg/knt8EXSI13nf9vWvwpMi30MJVvckLYQgMtgZfLWuGchx+Cua0IKeGRgoKRzYioR+c6173HLTFvbWFlF9vdUpB4rd1I88FzpamARtO1rDERtfAbBePjK8aIyLzaEJ0Uj4eYMi7Q6Gf5eYIxVRyxT3DuyLvBYITS",
+      "routes": [["ORY","MAD"],["MAD","BVA"]],
+      "cityFrom": "Paris",
+      "route": [
+        {
+        "mapIdfrom": "paris",
+        "flight_no": 3180,
+        "cityTo": "Madrid",
+        "vehicle_type": "aircraft",
+        "flyFrom": "ORY",
+        "mapIdto": "madrid",
+        "dTime": 1520058000,
+        "airline": "TO",
+        "cityFrom": "Paris",
+        "aTime": 1520065800
+        },
+        {
+
+        "mapIdfrom": "madrid",
+        "flight_no": 5444,
+        "flyTo": "BVA",
+        "latFrom": 40.493611,
+        "lngTo": 2.112778,
+        "cityTo": "Paris",
+        "flyFrom": "MAD",
+        "mapIdto": "paris",
+        "dTime": 1520258100,
+        "airline": "FR",
+        "cityFrom": "Madrid",
+        "aTime": 1520265900
+        }
+        ],
+      "distance": 1029.42
+  }
+]
