@@ -1,31 +1,3 @@
-<!-- <h2 class="h2">Meilleurs prix pour les 10 prochains weekends :</h2>
-<br>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Weekend du</th>
-      <th scope="col">N° vol aller</th>
-      <th scope="col">N° vol retour</th>
-      <th scope="col">Comp aller</th>
-      <th scope="col">Comp retour</th>
-      <th scope="col">Prix</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @response.wknd_instances_creation.each_with_index do |weekend, index| %>
-    <tr>
-      <th scope="row"><%= weekend[:go_flight][:dTime].strftime("%d/%m") %> au <%= weekend[:return_flight][:dTime].strftime("%d/%m") %></th>
-      <td><%= weekend[:go_flight][:flight_no] %></td>
-      <td><%= weekend[:return_flight][:flight_no]%></td>
-      <td><%= weekend[:go_flight][:airline] %></td>
-      <td><%= weekend[:return_flight][:airline]%></td>
-      <td><%= weekend[:price]%> €</td>
-    </tr>
-    <% end %>
-  </tbody>
-</table> -->
-
-
 <div class="weekends-wrapper">
   <div class="weekends-container">
     <div class="row">
@@ -57,7 +29,7 @@
                   <p><%= weekend[:return_flight][:dTime].strftime("%H:%M") %></p>
                 </div>
                 <div class="column-two">
-                  <p><i class="fas fa-plane"></i></p>
+                  <p><i class="fas fa-plane fa-rotate-180"></i></p>
                   <p><img src=<%="https://images.kiwi.com/airlines/64/#{weekend[:return_flight][:airline]}.png"%> alt=<%=  weekend[:return_flight][:airline]%> class="airline-img"></p>
                 </div>
                 <div class="column-three">
@@ -66,9 +38,11 @@
                 </div>
               </div>
             </div>
-            <div class="card-footer">
-              <h1><%= weekend[:price]%> €</h1>
-            </div>
+              <%= link_to(weekend[:booking_link], class: "card-footer") do%>
+              <div>
+                <h1><%= weekend[:price]%> €</h1>
+              </div>
+              <% end %>
           </div>
         </div>
       <% end %>
