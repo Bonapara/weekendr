@@ -68,7 +68,7 @@ flyFrom=#{@city_from}
         weekend_attr[:go_flight][:airport_to]       = weekend["routes"][0][1]
         weekend_attr[:go_flight][:dTime]            = DateTime.strptime("#{weekend["route"][0]["dTime"]}",'%s')
         weekend_attr[:go_flight][:aTime]            = DateTime.strptime("#{weekend["route"][0]["aTime"]}",'%s')
-        weekend_attr[:go_flight][:airline]          = weekend["airlines"][0]
+        weekend_attr[:go_flight][:airline]          = weekend["route"][0]["airline"]
         # RETURN_FLIGHT HASH
         weekend_attr[:return_flight]                = {}
         weekend_attr[:return_flight][:flight_no]    = weekend["route"][1]["flight_no"]
@@ -76,7 +76,7 @@ flyFrom=#{@city_from}
         weekend_attr[:return_flight][:airport_to]   = weekend["routes"][1][1]
         weekend_attr[:return_flight][:dTime]        = DateTime.strptime("#{weekend["route"][1]["dTime"]}",'%s')
         weekend_attr[:return_flight][:aTime]        = DateTime.strptime("#{weekend["route"][1]["aTime"]}",'%s')
-        weekend_attr[:return_flight][:airline]      = weekend["airlines"][1]
+        weekend_attr[:return_flight][:airline]      = weekend["route"][1]["airline"]
         weekends_table << weekend_attr
       end
       # NEXT WEEKEND

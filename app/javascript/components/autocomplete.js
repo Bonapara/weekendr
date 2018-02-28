@@ -57,7 +57,7 @@ const drawResponseList = (data, results) => {
       country = "";
     };
     results.insertAdjacentHTML('beforeend',
-      `<li class="result" data-iota = "${iota}"> ${icon} <img src="http://www.countryflags.io/${countryCode}/flat/24.png"> ${location.name}, ${country}</li>`);
+      `<li class="result" data-iota = "${iota}"> ${icon} <img src="https://lipis.github.io/flag-icon-css/flags/4x3/${countryCode.toLowerCase()}.svg" alt="flag" style="height:18px;border-radius:2px;"> ${location.name}, ${country}</li>`);
   });
 };
 
