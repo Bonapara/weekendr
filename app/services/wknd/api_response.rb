@@ -82,6 +82,7 @@ flyFrom=#{@city_from}
         weekend_attr[:return_flight][:airline]      = weekend["route"][1]["airline"]
         weekends_table << weekend_attr
       end
+
       # NEXT WEEKEND
       go_date = go_date + 7
       return_date = return_date + 7
