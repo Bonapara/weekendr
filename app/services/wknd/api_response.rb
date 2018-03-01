@@ -25,6 +25,9 @@ module Wknd
       # day => date using date_of_next method make it understandable for URL
       go_date = date_of_next(@go_day)
       return_date = date_of_next(@return_day)
+      if go_date > return_date
+        return_date = return_date + 7
+      end
       # Start time calculation
       request_start = Time.now
       weekends_table = []
@@ -79,6 +82,7 @@ flyFrom=#{@city_from}
         weekend_attr[:return_flight][:airline]      = weekend["route"][1]["airline"]
         weekends_table << weekend_attr
       end
+
       # NEXT WEEKEND
       go_date = go_date + 7
       return_date = return_date + 7
@@ -86,6 +90,7 @@ flyFrom=#{@city_from}
       request_end = Time.now
       "#{request_end} - #{request_start} seconds"
       return weekends_table
+
     end
   end
 end
