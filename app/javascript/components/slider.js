@@ -1,5 +1,4 @@
 const slider = () => {
-  console.log("hello");
   $("#slider-range").slider({
       range: true,
       min: 0,

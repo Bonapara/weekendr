@@ -8,6 +8,14 @@
   </div>
 </div>
 
+<div class="filter-form" style="margin-top: 20px">
+  <%= form_tag weekends_path, method: :get do%>
+  <%= hidden_field_tag 'go_time_from', '', id: "go_time_from"%>
+  <%= hidden_field_tag 'go_time_to', '', id: "go_time_to"%>
+  <%= submit_tag "filtrer", class: "research-button" %>
+  <% end %>
+</div>
+
 <div class="weekends-wrapper">
   <div class="weekends-container">
   <div class="filters">
@@ -75,6 +83,15 @@
     </div>
   </div>
 </div>
+<script>
+  const go_time_fr = document.querySelector('.slider-time');
+  const go_time_t = document.querySelector('.slider-time2');
+  const filter_button = document.querySelector('.research-button');
+  filter_button.addEventListener("click", function() {
+   go_time_from.value = go_time_fr.innerText;
+   go_time_to.value = go_time_t.innerText
+ });
+</script>
 
 <!-- <div class="wrapper">
   <div class="container">
