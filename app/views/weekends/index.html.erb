@@ -1,18 +1,10 @@
 <div class="weekends-wrapper">
   <div class="weekends-container">
   <div class="filters">
-<!--       <div class="col-12 col-sm-6 col-md-4">
- -->
-          <div class="filter">
+    <div class="filter">
 
-          </div>
-
-          <div class="filter">
-
-          </div>
-
- <!--      </div> -->
     </div>
+  </div>
 
     <div class="row">
       <% @response.wknd_instances_creation.each_with_index do |weekend, index| %>
@@ -54,7 +46,7 @@
             </div>
               <%= link_to(weekend[:booking_link], class: "card-footer") do%>
               <div>
-                <h1><%= weekend[:price]%> €</h1>
+              <h1><%= weekend[:price] %> €</h1>
               </div>
               <% end %>
           </div>
