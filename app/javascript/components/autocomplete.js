@@ -1,10 +1,8 @@
 // Search bar, results, and hidden taglist selection
 const inputFrom = document.querySelector('#search-from');
 const inputTo = document.querySelector('#search-to');
-
 const resultsTo = document.querySelector('#results-to');
 const resultsFrom = document.querySelector('#results-from');
-
 const iataFrom = document.querySelector('#iataFrom');
 const iataTo = document.querySelector('#iataTo');
 
