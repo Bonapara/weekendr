@@ -1,6 +1,7 @@
 class WeekendsController < ApplicationController
 
   def index
+    # Set up des filtres
     # Renvoi vers initialize de api_response.rb
     @response = Wknd::ApiResponse.new(
     "Friday", # Jour aller

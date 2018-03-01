@@ -1,50 +1,62 @@
+<div class="weekends-filtres">
+  <div id="time-range">
+    <p>Time range: <span id="stuff" class="slider-time">6:00 PM</span> - <span class="slider-time2">11:59 PM</span>
+    </p>
+    <div class="sliders_step1">
+      <div id="slider-range"></div>
+    </div>
+  </div>
+</div>
+
 <div class="weekends-wrapper">
   <div class="weekends-container">
     <div class="row">
       <% @response.wknd_instances_creation.each_with_index do |weekend, index| %>
 
-        <div class="col-xs-6 col-sm-3 col-md-2">
-          <div class="card">
-            <div class="card-header">
-              <h1 class="card-title"><%= weekend[:go_flight][:dTime].strftime("%d/%m") %> - <%= weekend[:return_flight][:dTime].strftime("%d/%m") %></h1>
-            </div>
-            <div class="card-body">
-              <div class="card-body-element">
-                <div class="column-one">
-                  <p><%= weekend[:go_flight][:airport_from] %></p>
-                  <p><%= weekend[:go_flight][:dTime].strftime("%H:%M") %></p>
-                </div>
-                <div class="column-two">
-                  <p><i class="fas fa-plane"></i></p>
-                  <p><img src=<%="https://images.kiwi.com/airlines/64/#{weekend[:go_flight][:airline]}.png"%> alt=<%=  weekend[:go_flight][:airline]%> class="airline-img"></p>
-                </div>
-                <div class="column-three">
-                  <p><%= weekend[:go_flight][:airport_to] %></p>
-                  <p><%= weekend[:go_flight][:aTime].strftime("%H:%M") %></p>
-                </div>
-              </div>
-              <div class="card-body-element">
-                <div class="column-one">
-                  <p><%= weekend[:return_flight][:airport_from] %></p>
-                  <p><%= weekend[:return_flight][:dTime].strftime("%H:%M") %></p>
-                </div>
-                <div class="column-two">
-                  <p><i class="fas fa-plane fa-rotate-180"></i></p>
-                  <p><img src=<%="https://images.kiwi.com/airlines/64/#{weekend[:return_flight][:airline]}.png"%> alt=<%=  weekend[:return_flight][:airline]%> class="airline-img"></p>
-                </div>
-                <div class="column-three">
-                  <p><%= weekend[:return_flight][:airport_to] %></p>
-                  <p><%= weekend[:return_flight][:aTime].strftime("%H:%M") %></p>
-                </div>
-              </div>
-            </div>
-              <%= link_to(weekend[:booking_link], class: "card-footer") do%>
-              <div>
-                <h1><%= weekend[:price]%> €</h1>
-              </div>
-              <% end %>
+      <div class="col-xs-6 col-sm-3 col-md-2">
+        <div class="card">
+          <div class="card-header">
+            <h1 class="card-title"><%= weekend[:go_flight][:dTime].strftime("%d/%m") %> - <%= weekend[:return_flight][:dTime].strftime("%d/%m") %></h1>
           </div>
+          <div class="card-body">
+            <div class="card-body-element">
+              <div class="column-one">
+                <p><%= weekend[:go_flight][:airport_from] %></p>
+                <p><%= weekend[:go_flight][:dTime].strftime("%H:%M") %></p>
+              </div>
+              <div class="column-two">
+                <p><i class="fas fa-plane"></i></p>
+                <p><img src=<%="https://images.kiwi.com/airlines/64/#{weekend[:go_flight][:airline]}.png"%> alt=<%=  weekend[:go_flight][:airline]%> class="airline-img"></p>
+              </div>
+              <div class="column-three">
+                <p><%= weekend[:go_flight][:airport_to] %></p>
+                <p><%= weekend[:go_flight][:aTime].strftime("%H:%M") %></p>
+              </div>
+            </div>
+            <div class="card-body-element">
+              <div class="column-one">
+                <p><%= weekend[:return_flight][:airport_from] %></p>
+                <p><%= weekend[:return_flight][:dTime].strftime("%H:%M") %></p>
+              </div>
+              <div class="column-two">
+                <p><i class="fas fa-plane fa-rotate-180"></i></p>
+                <p><img src=<%="https://images.kiwi.com/airlines/64/#{weekend[:return_flight][:airline]}.png"%> alt=<%=  weekend[:return_flight][:airline]%> class="airline-img"></p>
+              </div>
+              <div class="column-three">
+                <p><%= weekend[:return_flight][:airport_to] %></p>
+                <p><%= weekend[:return_flight][:aTime].strftime("%H:%M") %></p>
+              </div>
+            </div>
+          </div>
+          <div class="card_cut_left"></div>
+          <div class="card_cut_right"></div>
+          <%= link_to(weekend[:booking_link], class: "card-footer") do%>
+          <div>
+            <h1><%= weekend[:price]%> €</h1>
+          </div>
+          <% end %>
         </div>
+      </div>
       <% end %>
     </div>
   </div>
@@ -96,5 +108,5 @@
     </div>
   </div>
 </div>
- -->
+-->
 

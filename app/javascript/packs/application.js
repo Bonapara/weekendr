@@ -1,2 +1,5 @@
 import "bootstrap";
-import '../components/autocomplete';
+import "jquery-ui/ui/widgets/slider"
+import { slider } from '../components/slider';
+slider();
+// import '../components/autocomplete';

@@ -21,7 +21,7 @@ module Wknd
     # Parameters of the search
 
     def wknd_instances_creation
-      weekends_number = 12
+      weekends_number = 2
       # day => date using date_of_next method make it understandable for URL
       go_date = date_of_next(@go_day)
       return_date = date_of_next(@return_day)
