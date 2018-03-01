@@ -4,7 +4,7 @@ class WeekendsController < ApplicationController
 
   def index
     # Renvoi vers initialize de api_response.rb
-    WeekendJob.perform_now
+    WeekendJob.perform_later
     # @response = Wknd::ApiResponse.new(
     # "Friday", # Jour aller
     # "Sunday", # Jour retour
