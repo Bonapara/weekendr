@@ -1,2 +1,2 @@
 import "bootstrap";
-import '../components/autocomplete';
+// import '../components/autocomplete';
