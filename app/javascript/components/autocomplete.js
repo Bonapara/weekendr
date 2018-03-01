@@ -11,7 +11,6 @@ const iataTo = document.querySelector('#iataTo');
 // On ecoute le clic sur la liste de resultats FROM
 resultsFrom.addEventListener('click', (event) => {
   // On renseigne la valeur dans le champ du formulaire
-  console.log(event.target.parentNode); // attention faut que levent soit le li et pas le span
   inputFrom.value = event.target.parentNode.innerText;
   // On insere le code IATA dans un champ cache du formulaire pour le rendre disponible dans les params
   iataFrom.value = event.target.parentNode.getAttribute('data-iota');
