@@ -17,8 +17,12 @@ class WeekendsController < ApplicationController
 
       @results = response.wknd_instances_creation
 
+      # @results.each do |we|
+      #   return we[:price].sort_by
+      # end
 
-
+      @results.sort_by { |we| we[:price] }.each do |we|
+      end
 
     else
 
