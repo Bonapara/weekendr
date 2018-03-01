@@ -29,7 +29,8 @@
 }
 .ui-slider .ui-slider-handle {
     border-radius: 50%;
-    background: #ffffff;
+    border: 1px solid #BABABA !important;
+    background: #ffffff !important;
     width: 22px;
     height: 22px;
 }
@@ -69,4 +70,8 @@
 }
 #time-range {
   width: 400px;
+}
+
+.ui-state-focus {
+ outline:none !important;
 }

@@ -4,11 +4,10 @@ class WeekendsController < ApplicationController
     if params[:format] == "2"
       @results = []
     # Renvoi vers initialize de api_response.rb
-
       response = Wknd::ApiResponse.new(
       "Friday", # Jour aller
       "Sunday", # Jour retour
-      {from: params[:from] || "18%3A00", to: params[:to] || "23%3A59"}, # Range heures aller
+      {from: "18%3A00",to: "23%3A59"},
       {from: "18%3A00",to: "23%3A59"}, # Range heures retour
       "#{params[:code_from]}", # From
       "#{params[:code_to]}") # To
