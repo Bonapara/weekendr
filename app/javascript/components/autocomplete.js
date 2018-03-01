@@ -95,6 +95,7 @@ const topCities = [
   ["Lisbonne, ", "LIS", "PT", "Portugal"],
   ["Madrid, ", "MAD", "ES", "Espagne"],
   ["Rome, ", "ROM", "IT", "Italie"],
+  ["Londres, ", "LON", "GB", "Royaume-Uni"],
   ["Budapest, ", "BUD", "HU", "Hongrie"]
 ];
 
