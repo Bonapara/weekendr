@@ -1,26 +1,100 @@
-<h2 class="h2">Meilleurs prix pour les 10 prochains weekends :</h2>
-<br>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Weekend du</th>
-      <th scope="col">N° vol aller</th>
-      <th scope="col">N° vol retour</th>
-      <th scope="col">Comp aller</th>
-      <th scope="col">Comp retour</th>
-      <th scope="col">Prix</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @response.wknd_instances_creation.each_with_index do |weekend, index| %>
-    <tr>
-      <th scope="row"><%= weekend[:go_flight][:dTime].strftime("%d/%m") %> au <%= weekend[:return_flight][:dTime].strftime("%d/%m") %></th>
-      <td><%= weekend[:go_flight][:flight_no] %></td>
-      <td><%= weekend[:return_flight][:flight_no]%></td>
-      <td><%= weekend[:go_flight][:airline] %></td>
-      <td><%= weekend[:return_flight][:airline]%></td>
-      <td><%= weekend[:price]%> €</td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="weekends-wrapper">
+  <div class="weekends-container">
+    <div class="row">
+      <% @response.wknd_instances_creation.each_with_index do |weekend, index| %>
+
+        <div class="col-xs-6 col-sm-3 col-md-2">
+          <div class="card">
+            <div class="card-header">
+              <h1 class="card-title"><%= weekend[:go_flight][:dTime].strftime("%d/%m") %> - <%= weekend[:return_flight][:dTime].strftime("%d/%m") %></h1>
+            </div>
+            <div class="card-body">
+              <div class="card-body-element">
+                <div class="column-one">
+                  <p><%= weekend[:go_flight][:airport_from] %></p>
+                  <p><%= weekend[:go_flight][:dTime].strftime("%H:%M") %></p>
+                </div>
+                <div class="column-two">
+                  <p><i class="fas fa-plane"></i></p>
+                  <p><img src=<%="https://images.kiwi.com/airlines/64/#{weekend[:go_flight][:airline]}.png"%> alt=<%=  weekend[:go_flight][:airline]%> class="airline-img"></p>
+                </div>
+                <div class="column-three">
+                  <p><%= weekend[:go_flight][:airport_to] %></p>
+                  <p><%= weekend[:go_flight][:aTime].strftime("%H:%M") %></p>
+                </div>
+              </div>
+              <div class="card-body-element">
+                <div class="column-one">
+                  <p><%= weekend[:return_flight][:airport_from] %></p>
+                  <p><%= weekend[:return_flight][:dTime].strftime("%H:%M") %></p>
+                </div>
+                <div class="column-two">
+                  <p><i class="fas fa-plane fa-rotate-180"></i></p>
+                  <p><img src=<%="https://images.kiwi.com/airlines/64/#{weekend[:return_flight][:airline]}.png"%> alt=<%=  weekend[:return_flight][:airline]%> class="airline-img"></p>
+                </div>
+                <div class="column-three">
+                  <p><%= weekend[:return_flight][:airport_to] %></p>
+                  <p><%= weekend[:return_flight][:aTime].strftime("%H:%M") %></p>
+                </div>
+              </div>
+            </div>
+              <%= link_to(weekend[:booking_link], class: "card-footer") do%>
+              <div>
+                <h1><%= weekend[:price]%> €</h1>
+              </div>
+              <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="wrapper">
+  <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-3 col-md-2">
+          <div class="card">
+            <div class="card-header">
+              <h1 class="card-title">05/03 - 07/03</h1>
+            </div>
+            <div class="card-body">
+              <div class="card-body-element">
+                <div class="column-one">
+                  <p>ORY</p>
+                  <p>20:05</p>
+                </div>
+                <div class="column-two">
+                  <p><i class="fas fa-plane"></i></p>
+                  <p>AF</p>
+                </div>
+                <div class="column-three">
+                  <p>MAD</p>
+                  <p>22:05</p>
+                </div>
+              </div>
+              <div class="card-body-element">
+                <div class="column-one">
+                  <p>MAD</p>
+                  <p>21:05</p>
+                </div>
+                <div class="column-two">
+                  <p><i class="fas fa-plane"></i></p>
+                  <p>VY</p>
+                </div>
+                <div class="column-three">
+                  <p>CDG</p>
+                  <p>23:05</p>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <h1>220 €</h1>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+ -->
+
