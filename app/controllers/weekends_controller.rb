@@ -1,4 +1,5 @@
 class WeekendsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
 
   def index
 
@@ -9,7 +10,8 @@ class WeekendsController < ApplicationController
     # needed to initialize filter
     @go_time_from_minutes = (Time.strptime(params[:go_time_from], "%I:%M %p").hour * 60) + (Time.strptime(params[:go_time_from], "%I:%M %p").min )
     @go_time_to = Time.strptime(params[:go_time_to], "%I:%M %p").strftime("%H:%M") || "23%3A59"
-    if @format == "2"
+
+    if params[:format] == "2"
       @results = []
     # Renvoi vers initialize de api_response.rb
       response = Wknd::ApiResponse.new(
@@ -21,6 +23,7 @@ class WeekendsController < ApplicationController
       @code_to) # To
       @results = response.wknd_instances_creation
       render :index
+
 
     else
 

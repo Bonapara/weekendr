@@ -31,18 +31,10 @@
 <div class="weekends-wrapper">
   <div class="weekends-container">
   <div class="filters">
-<!--       <div class="col-12 col-sm-6 col-md-4">
- -->
-          <div class="filter">
+    <div class="filter">
 
-          </div>
-
-          <div class="filter">
-
-          </div>
-
- <!--      </div> -->
     </div>
+  </div>
 
     <div class="row">
       <% @results.each_with_index do |weekend, index| %>
@@ -67,6 +59,7 @@
                 <p><%= weekend[:go_flight][:aTime].strftime("%H:%M") %></p>
               </div>
             </div>
+
             <div class="card-body-element">
               <div class="column-one">
                 <p><%= weekend[:return_flight][:airport_from] %></p>
@@ -85,12 +78,15 @@
           <div class="bpk-ticket__notch">
             <div class="bpk-ticket__notch--left"></div>
             <div class="bpk-ticket__notch--right"></div>
+
+              <%= link_to(weekend[:booking_link], class: "card-footer") do%>
+            <div class="price">
+              <h1><%= weekend[:price] %> €</h1>
+            </div>
+            <% end %>
+
           </div>
-          <%= link_to(weekend[:booking_link], class: "card-footer") do%>
-          <div>
-            <h1><%= weekend[:price]%> €</h1>
-          </div>
-          <% end %>
+
         </div>
       </div>
       <% end %>
