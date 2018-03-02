@@ -15,13 +15,6 @@ class WeekendsController < ApplicationController
 
       @results = response.wknd_instances_creation
 
-      # @results.each do |we|
-      #   return we[:price].sort_by
-      # end
-
-      # @sorted_results = @results.sort_by { |we| we[:price] }
-      # return @sorted_results
-
     else
 
       response1 = Wknd::ApiResponse.new(

@@ -9,3 +9,14 @@
   height: 100vh;
   width: 100vw;
 }
+
+.banner-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+  h1{
+    color: $white;
+    font-size: 58px;
+  }
+}
