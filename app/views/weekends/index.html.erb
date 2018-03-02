@@ -4,79 +4,31 @@
     <div class="row">
 <!--       @response.wknd_instances_creation.each_with_index do |weekend, index|
  -->
-        <div class="col-xs-6 col-sm-3 col-md-2">
-          <ul id="test">
+        <div class="col-xs-6 col-sm-3 col-md-2" id="test2">
 
-          </ul>
+
 
           <% content_for(:after_js) do %>
             <script>
-              ul = document.querySelector('#test');
+              ul = document.querySelector('#test2');
               App.cable.subscriptions.create(
                 { channel: 'WeekendsChannel' },
                 { received: (data) => {
-                  // ul.insertAdjacentHTML('beforeend', '<li> Ouiiii </li>');
-                  console.log(data);
+                  ul.insertAdjacentHTML('beforeend', 'test');
                   }
                 }
               )
             </script>
           <% end %>
 
-
-
-
         </div>
+
+
+
       <!-- end -->
     </div>
   </div>
 </div>
 
-<!-- <div class="wrapper">
-  <div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-3 col-md-2">
-          <div class="card">
-            <div class="card-header">
-              <h1 class="card-title">05/03 - 07/03</h1>
-            </div>
-            <div class="card-body">
-              <div class="card-body-element">
-                <div class="column-one">
-                  <p>ORY</p>
-                  <p>20:05</p>
-                </div>
-                <div class="column-two">
-                  <p><i class="fas fa-plane"></i></p>
-                  <p>AF</p>
-                </div>
-                <div class="column-three">
-                  <p>MAD</p>
-                  <p>22:05</p>
-                </div>
-              </div>
-              <div class="card-body-element">
-                <div class="column-one">
-                  <p>MAD</p>
-                  <p>21:05</p>
-                </div>
-                <div class="column-two">
-                  <p><i class="fas fa-plane"></i></p>
-                  <p>VY</p>
-                </div>
-                <div class="column-three">
-                  <p>CDG</p>
-                  <p>23:05</p>
-                </div>
-              </div>
-            </div>
-            <div class="card-footer">
-              <h1>220 €</h1>
-            </div>
-          </div>
-        </div>
-    </div>
-  </div>
-</div>
- -->
+
 
