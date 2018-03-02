@@ -21,8 +21,8 @@ class WeekendsController < ApplicationController
       #   return we[:price].sort_by
       # end
 
-      @results.sort_by { |we| we[:price] }.each do |we|
-      end
+      # @sorted_results = @results.sort_by { |we| we[:price] }
+      # return @sorted_results
 
     else
 
