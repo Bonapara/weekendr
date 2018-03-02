@@ -1,21 +1,26 @@
 class WeekendsController < ApplicationController
 
   def index
-    if params[:format] == "2"
+
+    @format = params[:format]
+    @code_from = params[:from]
+    @code_to = params[:to]
+    @go_time_from = Time.strptime(params[:go_time_from], "%I:%M %p").strftime("%H:%M") || "18%3A00"
+    # needed to initialize filter
+    @go_time_from_minutes = (Time.strptime(params[:go_time_from], "%I:%M %p").hour * 60) + (Time.strptime(params[:go_time_from], "%I:%M %p").min )
+    @go_time_to = Time.strptime(params[:go_time_to], "%I:%M %p").strftime("%H:%M") || "23%3A59"
+    if @format == "2"
       @results = []
     # Renvoi vers initialize de api_response.rb
       response = Wknd::ApiResponse.new(
       "Friday", # Jour aller
       "Sunday", # Jour retour
-      {from: "18%3A00",to: "23%3A59"},
+      {from: @go_time_from, to: @go_time_to},
       {from: "18%3A00",to: "23%3A59"}, # Range heures retour
-      "#{params[:code_from]}", # From
-      "#{params[:code_to]}") # To
-
+      @code_from, # From
+      @code_to) # To
       @results = response.wknd_instances_creation
-
-
-
+      render :index
 
     else
 
@@ -26,7 +31,6 @@ class WeekendsController < ApplicationController
       {from: "18%3A00",to: "23%3A59"}, # Range heures retour
       "#{params[:code_from]}", # From
       "#{params[:code_to]}") # To
-
 
       @results = response1.wknd_instances_creation
 
