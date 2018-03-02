@@ -1,9 +1,7 @@
 class WeekendsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
 
   def index
-
-
-
     if params[:format] == "2"
       @results = []
     # Renvoi vers initialize de api_response.rb
