@@ -98,14 +98,20 @@
     background-color: rgba(80, 201, 195, 0.1);
     text-decoration: none;
     h1 {
-      color: rgba(80, 201, 195, 1);;
+      color: rgba(80, 201, 195, 1);
     }
   }
 
 }
 
 .lower-price {
-  border: 3px solid #04DEAD;
+  // border: 3px solid #04DEAD;
+  background-color: #04DEAD!important;
+}
+.lower-price:hover {
+  h1 {
+    color: white !important;
+  }
 }
 
 // background-color: #04DEAD;
