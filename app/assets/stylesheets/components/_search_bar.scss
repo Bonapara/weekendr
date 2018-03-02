@@ -48,18 +48,12 @@
   outline:none;
   padding: 10px 15px;
   opacity: 0.8;
-  color: white;
   margin: 10px;
 }
 
 .search-form-inline::placeholder {
   color:  rgba(255, 255, 255, 0.7);
   caret-color: white;
-}
-
-
-.dropdown-button {
-
 }
 
 
@@ -71,3 +65,19 @@ input:focus {
   color: white;
   opacity: 1;
 }
+
+.format-button {
+  background-color: #2770E8;
+  color: white;
+  opacity: 0.6;
+  height: 45px ;
+  width: 184px ;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 2px;
+}
+
+.format-button:focus {
+  opacity: 1;
+}
+
