@@ -6,16 +6,19 @@ class WeekendsController < ApplicationController
     @format = params[:format]
     @code_from = params[:from]
     @code_to = params[:to]
+
     if params[:go_time_from]
       @go_time_from_minutes = (Time.strptime(params[:go_time_from], "%I:%M %p").hour * 60)
+      @go_time_from = Time.strptime(params[:go_time_from], "%I:%M %p").strftime("%H:%M")
     else
-      "18%3A00"
+      @go_time_from = "16%3A00"
     end
+
     # needed to initialize filter
-if params[:go_time_from]
+    if params[:go_time_to]
       @go_time_to = Time.strptime(params[:go_time_to], "%I:%M %p").strftime("%H:%M")
     else
-      "23%3A59"
+      @go_time_to = "23%3A59"
     end
 
     if params[:format] == "2"

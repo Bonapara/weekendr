@@ -50,7 +50,7 @@ flyFrom=#{@city_from}
 &partner_market=eu
 &limit=1"
       # CALL API with gsub because of lines return
-      weekends_serialized = open(url.gsub!(/\n/,'')).read
+      weekends_serialized = open(url.gsub!(/(\n|\s)/,'')).read
       weekends_json = JSON.parse(weekends_serialized)
       weekends = weekends_json["data"]
       # RETRIEVE DATA FROM JSON
