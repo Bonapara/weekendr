@@ -62,7 +62,6 @@ class WeekendsController < ApplicationController
       @results = response.wknd_instances_creation
       render :index
 
-
     else
 
       response1 = Wknd::ApiResponse.new(
