@@ -15,27 +15,22 @@
  <!--      </div> -->
     </div>
 
-    <div class="row">
-
-        <div class="col-xs-6 col-sm-3 col-md-2" id="test2">
-
-
-
-
+    <div class="row" id="test">
           <% content_for(:after_js) do %>
             <script>
-              ul = document.querySelector('#test2');
+
+              ul = document.querySelector('#test');
               App.cable.subscriptions.create(
                 { channel: 'WeekendsChannel' },
                 { received: (data) => {
-                  ul.insertAdjacentHTML('beforeend', 'test');
+                  console.log(data.content);
+                  ul.insertAdjacentHTML('beforeend', data.content );
                   }
                 }
               )
             </script>
           <% end %>
 
-        </div>
 
 
 

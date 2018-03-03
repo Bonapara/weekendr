@@ -9,16 +9,16 @@ class WeekendsController < ApplicationController
     if params[:format] == "2"
       @results = []
       # Renvoi vers initialize de api_response.rb
-      WeekendJob.perform_later
-      response = Wknd::ApiResponse.new(
-      "Friday", # Jour aller
-      "Sunday", # Jour retour
-      {from: "18%3A00",to: "23%3A59"}, # Range heures aller
-      {from: "18%3A00",to: "23%3A59"}, # Range heures retour
-      "#{params[:code_from]}", # From
-      "#{params[:code_to]}") # To
+      WeekendJob.perform_later(params[:code_from], params[:code_to])
+      # response = Wknd::ApiResponse.new(
+      # "Friday", # Jour aller
+      # "Sunday", # Jour retour
+      # {from: "18%3A00",to: "23%3A59"}, # Range heures aller
+      # {from: "18%3A00",to: "23%3A59"}, # Range heures retour
+      # "#{params[:code_from]}", # From
+      # "#{params[:code_to]}") # To
 
-      @results = response.wknd_instances_creation
+      # @weekend = response.call
 
 
 
@@ -58,7 +58,6 @@ class WeekendsController < ApplicationController
       #   end
       # end
     end
->>>>>>> master
   end
 
   def show
