@@ -1,7 +1,7 @@
 <div class="weekends-filtres">
   <h2>go</h2>
   <div id="time-range">
-    <p>Time range: <span id="stuff" class="slider-time" data-go-time-from-minutes="<%= @go_time_from_minutes %>">
+    <p>Time range: <span class="slider-time" data-go-time-from-minutes="<%= @go_time_from_minutes %>">
     <% if params[:go_time_from] %>
         <%= params[:go_time_from] %>
     <% else %>
@@ -22,11 +22,25 @@
   </div>
   <h2>return</h2>
   <div id="time-range">
-    <p>Time range: <span id="stuff" class="return-slider-time">6:00 PM</span> - <span class="return-slider-time2">11:59 PM</span>
+    <p>Time range: <span class="return-slider-time" data-return-time-from-minutes="<%= @return_time_from_minutes %>">
+    <% if params[:return_time_from] %>
+        <%= params[:return_time_from] %>
+    <% else %>
+        6:00 PM
+    <% end %>
+      </span> -
+      <span  class="return-slider-time2" data-return-time-to-minutes="<%= @return_time_to_minutes %>">
+    <% if params[:return_time_to] %>
+        <%= params[:return_time_to] %>
+    <% else %>
+        11:59 PM
+    <% end %>
+      </span>
     </p>
     <div class="sliders_step1">
       <div id="return-slider-range"></div>
     </div>
+
   </div>
 </div>
 
@@ -34,6 +48,9 @@
   <%= form_tag weekends_path, method: :get do%>
   <%= hidden_field_tag 'go_time_from', '', id: "go_time_from"%>
   <%= hidden_field_tag 'go_time_to', '', id: "go_time_to"%>
+   <%= hidden_field_tag 'return_time_from', '', id: "return_time_from"%>
+  <%= hidden_field_tag 'return_time_to', '', id: "return_time_to"%>
+
   <%= hidden_field_tag :from, @code_from%>
   <%= hidden_field_tag :to, @code_to%>
   <%= hidden_field_tag :format, @format %>

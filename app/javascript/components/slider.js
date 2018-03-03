@@ -1,8 +1,11 @@
 const slider = () => {
   const initGoTimeFrom = document.querySelector('.slider-time').dataset.goTimeFromMinutes;
   const initGoTimeTo = document.querySelector('.slider-time2').dataset.goTimeToMinutes;
-  console.log(initGoTimeTo);
-  console.log(initGoTimeFrom);
+  const initReturnTimeFrom = document.querySelector('.return-slider-time').dataset.returnTimeFromMinutes;
+  const initReturnTimeTo = document.querySelector('.return-slider-time2').dataset.returnTimeToMinutes;
+  console.log(initReturnTimeTo);
+  console.log(initReturnTimeFrom);
+
   $("#slider-range").slider({
       range: true,
       min: 0,
@@ -68,7 +71,7 @@ const slider = () => {
       min: 0,
       max: 1440,
       step: 15,
-      values: [540, 1020],
+      values: [initReturnTimeFrom, initReturnTimeTo],
       slide: function (e, ui) {
           var hours1 = Math.floor(ui.values[0] / 60);
           var minutes1 = ui.values[0] - (hours1 * 60);
@@ -124,15 +127,23 @@ const slider = () => {
   });
 }
 
-const go_time_fr = document.querySelector('.slider-time');
+  const go_time_fr = document.querySelector('.slider-time');
   const go_time_t = document.querySelector('.slider-time2');
+  const return_time_fr = document.querySelector('.return-slider-time');
+  const return_time_t = document.querySelector('.return-slider-time2');
+
   const filter_button = document.querySelector('.research-button');
   const go_time_from = document.getElementById('go_time_from');
   const go_time_to = document.getElementById('go_time_to');
+  const return_time_from = document.getElementById('return_time_from');
+  const return_time_to = document.getElementById('return_time_to');
   filter_button.addEventListener("click", function(e) {
     e.preventDefault;
     go_time_from.value = go_time_fr.innerText;
     go_time_to.value = go_time_t.innerText;
+    return_time_from.value = return_time_fr.innerText;
+    return_time_to.value = return_time_t.innerText;
+
    });
 
 export { slider };

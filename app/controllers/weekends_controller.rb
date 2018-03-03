@@ -7,16 +7,19 @@ class WeekendsController < ApplicationController
     @code_from = params[:from]
     @code_to = params[:to]
 
+    # go time slide
+    # from
+    # params de l'index vs params de la home attention attention
     if params[:go_time_from]
+      # initialisation curseur @go_time_from_minutes
       @go_time_from_minutes = (Time.strptime(params[:go_time_from], "%I:%M %p").hour * 60)
+      # requête URL
       @go_time_from = Time.strptime(params[:go_time_from], "%I:%M %p").strftime("%H:%M")
     else
       @go_time_from_minutes = 1080
       @go_time_from = "18%3A00"
     end
-
-    # needed to initialize filter
-
+    # to
     if params[:go_time_to]
       @go_time_to_minutes = (Time.strptime(params[:go_time_to], "%I:%M %p").hour * 60)
       @go_time_to = Time.strptime(params[:go_time_to], "%I:%M %p").strftime("%H:%M")
@@ -25,6 +28,27 @@ class WeekendsController < ApplicationController
       @go_time_to = "11%3A59"
     end
 
+    # return time slide
+    # from
+    if params[:return_time_from]
+      @return_time_from_minutes = (Time.strptime(params[:return_time_from], "%I:%M %p").hour * 60)
+      @return_time_from = Time.strptime(params[:return_time_from], "%I:%M %p").strftime("%H:%M")
+    else
+      @return_time_from_minutes = 1080
+      @return_time_from = "18%3A00"
+    end
+    # to
+    if params[:return_time_to]
+      @return_time_to_minutes = (Time.strptime(params[:return_time_to], "%I:%M %p").hour * 60)
+      @return_time_to = Time.strptime(params[:return_time_to], "%I:%M %p").strftime("%H:%M")
+    else
+      @return_time_to_minutes = 1439
+      @return_time_to = "11%3A59"
+    end
+
+
+
+
     if params[:format] == "2"
       @results = []
     # Renvoi vers initialize de api_response.rb
@@ -32,7 +56,7 @@ class WeekendsController < ApplicationController
       "Friday", # Jour aller
       "Sunday", # Jour retour
       {from: @go_time_from, to: @go_time_to},
-      {from: "18%3A00",to: "23%3A59"}, # Range heures retour
+      {from: @return_time_from,to: @return_time_to}, # Range heures retour
       @code_from, # From
       @code_to) # To
       @results = response.wknd_instances_creation
