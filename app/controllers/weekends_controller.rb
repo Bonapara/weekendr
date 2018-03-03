@@ -11,14 +11,18 @@ class WeekendsController < ApplicationController
       @go_time_from_minutes = (Time.strptime(params[:go_time_from], "%I:%M %p").hour * 60)
       @go_time_from = Time.strptime(params[:go_time_from], "%I:%M %p").strftime("%H:%M")
     else
-      @go_time_from = "16%3A00"
+      @go_time_from_minutes = 1080
+      @go_time_from = "18%3A00"
     end
 
     # needed to initialize filter
+
     if params[:go_time_to]
+      @go_time_to_minutes = (Time.strptime(params[:go_time_to], "%I:%M %p").hour * 60)
       @go_time_to = Time.strptime(params[:go_time_to], "%I:%M %p").strftime("%H:%M")
     else
-      @go_time_to = "23%3A59"
+      @go_time_to_minutes = 1439
+      @go_time_to = "11%3A59"
     end
 
     if params[:format] == "2"

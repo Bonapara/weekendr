@@ -1,11 +1,14 @@
 const slider = () => {
   const initGoTimeFrom = document.querySelector('.slider-time').dataset.goTimeFromMinutes;
+  const initGoTimeTo = document.querySelector('.slider-time2').dataset.goTimeToMinutes;
+  console.log(initGoTimeTo);
+  console.log(initGoTimeFrom);
   $("#slider-range").slider({
       range: true,
       min: 0,
       max: 1440,
       step: 15,
-      values: [initGoTimeFrom, 1020],
+      values: [initGoTimeFrom, initGoTimeTo],
       slide: function (e, ui) {
           var hours1 = Math.floor(ui.values[0] / 60);
           var minutes1 = ui.values[0] - (hours1 * 60);
