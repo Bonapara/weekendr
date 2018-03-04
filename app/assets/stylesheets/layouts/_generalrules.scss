@@ -3,7 +3,7 @@ body {
 }
 
 h1 {
-  color: $blue;
+  color: $dark-blue;
 }
 
 h2 {
@@ -35,4 +35,11 @@ h1, h2, h3 {
   display: flex;
 }
 
+input {
+  border: 0px;
+}
 
+input:focus {
+  color: white;
+  opacity: 1;
+}

@@ -25,7 +25,7 @@ class WeekendsController < ApplicationController
       @go_time_to = Time.strptime(params[:go_time_to], "%I:%M %p").strftime("%H:%M")
     else
       @go_time_to_minutes = 1439
-      @go_time_to = "11%3A59"
+      @go_time_to = "23%3A59"
     end
 
     # return time slide
@@ -43,7 +43,7 @@ class WeekendsController < ApplicationController
       @return_time_to = Time.strptime(params[:return_time_to], "%I:%M %p").strftime("%H:%M")
     else
       @return_time_to_minutes = 1439
-      @return_time_to = "11%3A59"
+      @return_time_to = "23%3A59"
     end
 
 
