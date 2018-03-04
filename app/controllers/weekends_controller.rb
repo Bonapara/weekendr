@@ -1,5 +1,5 @@
 class WeekendsController < ApplicationController
-
+  skip_before_action :authenticate_user!, only: [:index]
   # after_action :display_weekends, only: [:index]
 
   def index
