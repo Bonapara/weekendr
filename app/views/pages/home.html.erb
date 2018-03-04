@@ -1,7 +1,8 @@
 <div class="home_container" style="background-image: linear-gradient(150deg, rgba(48, 67, 82, 0.6), rgba(215, 210, 251, 0.3)), url('https://static1.squarespace.com/static/54fc349ae4b038725a4b7000/586960592e69cfb167728dea/5883ea7715d5dbbc792d68d6/1485088935496/untitled-0671.jpg?format=2500w');background-repeat:no-repeat;background-position: center; ">
 
   <div class="banner-title">
-    <h1>WeekendR</h1>
+    <h1>Weekendr</h1>
+    <h2>Trouvez le weekend le moins cher pour aller à ...</h3>
   </div>
 
   <div class="search_bar_container">
@@ -24,24 +25,35 @@
         placeholder: "Où allez-vous ?"
         %>
     </div>
+    <div class="search_options">
+      <div class="select_duration">
+      <%= select_tag 'format',
+      options_for_select([['2 jours', 2], ['3 jours', 3]],
+      {:class => 'format-button-option'} ),
+      {:class => 'format-button'}
+      %>
+    </div>
+    <div class="select_people_num">
+      <%= select_tag 'pers',
+      options_for_select([['1 pers', 1], ['2 pers', 2]],
+      {:class => 'format-button-option'} ),
+      {:class => 'format-button'}
+      %>
+    </div>
+    </div>
+
+    <div class="research_button_container">
+      <%= submit_tag 'Rechercher', class: "research-button" %>
+      <ul id="results-from">
+      </ul>
+      <ul id="results-to">
+      </ul>
+      <% end %>
+    </div>
+
     <%= hidden_field_tag 'code_from', '', id: "iataFrom" %>
     <%= hidden_field_tag 'code_to', '', id: "iataTo" %>
-    <div class="select_duration">
-    <%= select_tag 'format', options_for_select([['Weekend de 2 jours', 2], ['Weekend de 3 jours', 3]], {:class => 'format-button-option'} ) ,{:class => 'format-button'}%>
-    <!-- <select class="dropdown-weekend-type">
-      <option value="2" selected="selected">WE de 2 jours</option>
-      <option value="3">WE de 3 jours</option>
-    </select> -->
-    </div>
   </div>
 
-  <div class="research_button_container">
-    <%= submit_tag 'Rechercher', class: "research-button" %>
-    <ul id="results-from">
-    </ul>
-    <ul id="results-to">
-    </ul>
-    <% end %>
-  </div>
 
 </div>
