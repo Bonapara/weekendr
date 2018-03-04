@@ -3,8 +3,6 @@ const slider = () => {
   const initGoTimeTo = document.querySelector('.slider-time2').dataset.goTimeToMinutes;
   const initReturnTimeFrom = document.querySelector('.return-slider-time').dataset.returnTimeFromMinutes;
   const initReturnTimeTo = document.querySelector('.return-slider-time2').dataset.returnTimeToMinutes;
-  console.log(initReturnTimeTo);
-  console.log(initReturnTimeFrom);
 
   $("#slider-range").slider({
       range: true,
@@ -137,6 +135,13 @@ const slider = () => {
   const go_time_to = document.getElementById('go_time_to');
   const return_time_from = document.getElementById('return_time_from');
   const return_time_to = document.getElementById('return_time_to');
+
+  // const go_day = document.getElementById('go_day');
+
+  // const go_d = document.querySelector('.go_d');
+  // console.log(go_day);
+  // csonsole.log(go_d);
+
   filter_button.addEventListener("click", function(e) {
     e.preventDefault;
     go_time_from.value = go_time_fr.innerText;
