@@ -2,10 +2,35 @@ class WeekendsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-
+    @go_days = %w(Vendredi Samedi)
+    @return_days = %w(Dimanche Lundi)
     @format = params[:format]
     @code_from = params[:from]
     @code_to = params[:to]
+
+    # go day
+    # button Go day
+    if params[:go_day]
+      if params[:go_day] == 'Vendredi'
+        @go_day = 'Friday'
+      else
+        @go_day = 'Saturday'
+      end
+    else
+      @go_day = "Friday"
+    end
+
+    # return day
+    # button Return day
+    if params[:return_day]
+      if params[:go_day] == 'Dimanche'
+        @return_day = 'Sunday'
+      else
+        @return_day = 'Monday'
+      end
+    else
+      @return_day = "Sunday"
+    end
 
     # go time slide
     # from
@@ -25,7 +50,7 @@ class WeekendsController < ApplicationController
       @go_time_to = Time.strptime(params[:go_time_to], "%I:%M %p").strftime("%H:%M")
     else
       @go_time_to_minutes = 1439
-      @go_time_to = "11%3A59"
+      @go_time_to = "23%3A59"
     end
 
     # return time slide
@@ -43,7 +68,7 @@ class WeekendsController < ApplicationController
       @return_time_to = Time.strptime(params[:return_time_to], "%I:%M %p").strftime("%H:%M")
     else
       @return_time_to_minutes = 1439
-      @return_time_to = "11%3A59"
+      @return_time_to = "23%3A59"
     end
 
 
@@ -53,8 +78,8 @@ class WeekendsController < ApplicationController
       @results = []
     # Renvoi vers initialize de api_response.rb
       response = Wknd::ApiResponse.new(
-      "Friday", # Jour aller
-      "Sunday", # Jour retour
+      @go_day, # Jour aller
+      @return_day, # Jour retour
       {from: @go_time_from, to: @go_time_to},
       {from: @return_time_from,to: @return_time_to}, # Range heures retour
       @code_from, # From
