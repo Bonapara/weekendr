@@ -6,6 +6,9 @@
   </div>
 
   <div class="search_bar_container">
+    <div class="icon">
+      <img src="http://www.gstatic.com/images/icons/material/system/2x/location_on_white_24dp.png" alt="">
+    </div>
     <div class="search_bar_from">
       <%= form_tag weekends_path, method: :get do %>
       <%= text_field_tag :from,
@@ -16,6 +19,9 @@
         placeholder: "Départ"
         %>
     </div>
+    <div class="icon">
+      <img src="http://www.gstatic.com/images/icons/material/system/2x/location_on_white_24dp.png" alt="">
+    </div>
     <div class="search_bar_to">
       <%= text_field_tag :to,
       params[:to],
@@ -25,6 +31,9 @@
         placeholder: "Où allez-vous ?"
         %>
     </div>
+    <div class="icon">
+      <img src="http://www.gstatic.com/images/icons/material/system/2x/event_white_24dp.png" alt="">
+    </div>
     <div class="search_options">
       <div class="select_duration">
       <%= select_tag 'format',
@@ -32,6 +41,9 @@
       {:class => 'format-button-option'} ),
       {:class => 'format-button'}
       %>
+    </div>
+
+    <div class="icon">
     </div>
     <div class="select_people_num">
       <%= select_tag 'pers',
