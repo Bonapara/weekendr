@@ -2,11 +2,37 @@ class WeekendsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   # after_action :display_weekends, only: [:index]
 
-
   def index
+    @go_days = %w(Vendredi Samedi)
+    @return_days = %w(Dimanche Lundi)
     @format = params[:format]
     @code_from = params[:code_from]
     @code_to = params[:code_to]
+
+    # go day
+    # button Go day
+    if params[:go_day]
+      if params[:go_day] == 'Vendredi'
+        @go_day = 'Friday'
+      else
+        @go_day = 'Saturday'
+      end
+    else
+      @go_day = "Friday"
+    end
+
+    # return day
+    # button Return day
+    if params[:return_day]
+      if params[:go_day] == 'Dimanche'
+        @return_day = 'Sunday'
+      else
+        @return_day = 'Monday'
+      end
+    else
+      @return_day = "Sunday"
+    end
+
     # go time slide
     # from
     # params de l'index vs params de la home attention attention
@@ -47,48 +73,9 @@ class WeekendsController < ApplicationController
     end
 
 
+
+
     if params[:format] == "2"
-
-      @go_days = %w(Vendredi Samedi)
-      @return_days = %w(Dimanche Lundi)
-
-      # go day
-      # button Go day
-      if params[:go_day]
-        if params[:go_day] == 'Vendredi'
-          @go_day = 'Friday'
-        else
-          @go_day = 'Saturday'
-        end
-      else
-        @go_day = "Friday"
-      end
-
-      # return day
-      # button Return day
-      if params[:return_day]
-        if params[:go_day] == 'Dimanche'
-          @return_day = 'Sunday'
-        else
-          @return_day = 'Monday'
-        end
-      else
-        @return_day = "Sunday"
-      end
-
-      # Renvoi vers initialize de api_response.rb
-      # response = Wknd::ApiResponse.new(
-      # "Friday", # Jour aller
-      # "Sunday", # Jour retour
-      # {from: "18%3A00",to: "23%3A59"}, # Range heures aller
-      # {from: "18%3A00",to: "23%3A59"}, # Range heures retour
-      # "#{params[:code_from]}", # From
-      # "#{params[:code_to]}") # To
-
-      # @weekend = response.call
-
-
-
     # Renvoi vers initialize de api_response.rb
       input_attributes = {}
       input_attributes[:go_day]             = @go_day                                       # Jour aller
@@ -144,11 +131,9 @@ class WeekendsController < ApplicationController
       input_attributes[:go_hours_range]     = {from: @go_time_from, to: @go_time_to}        # Range heures retour
       input_attributes[:return_hours_range] = {from: @return_time_from,to: @return_time_to} # Range heures retour
       input_attributes[:city_from]          = @code_from                                    # From
-      input_attributes[:city_to]            = @code_to                                      # To
-      response = Wknd::ApiResponse.new(input_attributes)
-
-      @results = response.wknd_instances_creation
-      render :index
+      input_attributes[:city_to]            = @code_to
+                                            # To
+      WeekendJob.perform_later(input_attributes)
     end
   end
 
