@@ -27,9 +27,9 @@ class WeekendJob < ApplicationJob
       #     </div>
       #   </div>
       # </div>"
-      # @weekend = response.call(go_date, return_date)
-      sleep(1)
-      @weekend = "test magle"
+      @weekend = response.call_date(go_date, return_date)
+      # sleep(1)
+      # @weekend = "test !!!!"
       weekend_card = ApplicationController.renderer.render(partial: "shared/weekendcard", locals: { weekend: @weekend })
 
       # content = response.call(go_date, return_date)
