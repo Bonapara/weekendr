@@ -11,10 +11,21 @@
 }
 
 .banner-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
   height: 90px;
+  margin-bottom: 100px;
   h1{
     color: $white;
     font-size: 58px;
+  }
+  h2 {
+    font-weight: lighter;
+    color: $white;
+    opacity: 0.8;
+    font-size: 30px;
   }
 }
 
