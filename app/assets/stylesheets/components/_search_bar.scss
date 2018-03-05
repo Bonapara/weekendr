@@ -1,73 +1,139 @@
+.banner-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  margin-bottom: 100px;
+  h2 {
+    font-weight: lighter;
+    color: $white;
+    opacity: 0.8;
+    font-size: 30px;
+  }
+}
+
 .search_bar_container {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top:50px;
-  padding-bottom: 50px;
-  margin: 20px;
-  background-color: #005bea;
-  border-radius: 5px;
-  width: 80%;
-  box-shadow: 0px 9px 31px -13px rgba(0,0,0,0.75);
-  h3 {
-    color : rgba(255, 255, 255, 0.9);
-    font-size: 24px;
+  background-color: rgba(25, 42, 86,0.9);
+  padding: 10px;
+  border-radius: 2px;
+  box-shadow: 0px 9px 31px -13px $box-shadow;
+
+  .search-form-inline {
+    flex: 0 0 40%;
+    color: rgba(255, 255, 255, 1);
+    background-color: $medium-blue;
+    outline:none;
+    padding: 10px 15px;
+    opacity: 1;
+    box-shadow: 0px 9px 31px -13px $box-shadow;
+
+  }
+
+  .search-form-inline::placeholder {
+    color: rgba(245, 246, 250,0.6);
+    caret-color: white;
+  }
+
+  #search-from {
+      margin-left: 0px;
+      margin-right: 5px;
+      padding-left: 5px;
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+  }
+
+  #search-to {
+      margin-left: 0px;
+      margin-right: 5px;
+      padding-left: 5px;
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+  }
+
+  .search_options {
+    display: flex;
+    margin: 0px 5px 0px 0px;
+    box-shadow: 0px 9px 31px -13px $box-shadow;
+
+    .format-button {
+      background-color: $medium-blue;
+      color:  #ffffff;
+      opacity: 0.9;
+      height: 45px ;
+      width: 90px ;
+      border: none;
+      padding: 10px 15px;
+      appearance: none;
+    }
+    #format {
+      padding-left: 5px;
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+    }
+
+    #pers {
+      margin-left: 1px;
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+    }
+
+
+
+    .format-button:focus {
+      outline:0;
+    }
+  }
+
+  .research_button_container {
+    position: relative;
+    text-align: center;
+    margin: 0px 5px;
+    margin-right: 0px;
+    .research-button {
+      color: #ffffff;
+      background-color: $red;
+      border-bottom-left-radius:2px ;
+      border-bottom-right-radius:2px ;
+      border-top-left-radius:2px ;
+      border-top-right-radius:2px ;
+      height: 45px ;
+      width: 154px ;
+      box-shadow: 0px 9px 31px -13px $box-shadow;
+    }
   }
 }
 
-.research_button_container {
-  position: relative;
-  text-align: center;
-  margin-top: -40px;
-}
-
-.research-button {
-  color: #005bea;
-  background-color: #ffffff;
-  border-bottom-left-radius:20px ;
-  border-bottom-right-radius:20px ;
-  border-top-left-radius:20px ;
-  border-top-right-radius:20px ;
-  height: 40px ;
-  width: 154px ;
-  box-shadow: 0px 9px 31px -13px rgba(0,0,0,0.75);
-}
-
-#search-from {
-  margin-right: 5px;
-}
-#search-to {
-  margin-left: 5px;
-}
-
-.search-form-inline {
-  flex: 0 0 40%;
-  color: white;
-  background-color:   #2770E8;
-  border-radius: 2px;
-  outline:none;
-  padding: 10px 15px;
-  opacity: 0.8;
-  color: white;
-  margin: 10px;
-}
-
-.search-form-inline::placeholder {
-  color:  rgba(255, 255, 255, 0.7);
-  caret-color: white;
+.icon {
+  background-color: $medium-blue;
+  height: 45px ;
+  padding: 10px;
+  // box-shadow: 0px 9px 31px -13px $box-shadow;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  img {
+    height: 24px;
+    width: auto;
+    opacity: 0.8;
+  }
+  i {
+    color: white;
+    opacity: 0.8;
+  }
 }
 
 
-.dropdown-button {
-
-}
 
 
-input {
-  border: 0px;
-}
-
-input:focus {
-  color: white;
-  opacity: 1;
-}

@@ -1,8 +1,10 @@
 // Define variables for your color scheme
 
 // For example:
-$red: #EE5F5B;
-$blue: #469AE0;
+$red: rgba(255, 71, 87, 1.0);
+$medium-blue: rgba(39, 60, 117, 1.0);
+$dark-blue: rgba(25, 42, 86, 1.0);
+$blue: #0097e6;
 $yellow: #FDB631;
 $orange: #E67E22;
 $green: #32B796;
@@ -11,3 +13,4 @@ $medium-gray: #CDCDCD;
 $dark-gray: #484848;
 $light-gray: #F4F4F4;
 $white: #ffffff;
+$box-shadow: rgba(0,0,0,0.75);

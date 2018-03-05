@@ -3,26 +3,100 @@ class WeekendsController < ApplicationController
   # after_action :display_weekends, only: [:index]
 
   def index
+    @go_days = %w(Vendredi Samedi)
+    @return_days = %w(Dimanche Lundi)
+    @format = params[:format]
+    @code_from = params[:from]
+    @code_to = params[:to]
+
+    # go day
+    # button Go day
+    if params[:go_day]
+      if params[:go_day] == 'Vendredi'
+        @go_day = 'Friday'
+      else
+        @go_day = 'Saturday'
+      end
+    else
+      @go_day = "Friday"
+    end
+
+    # return day
+    # button Return day
+    if params[:return_day]
+      if params[:go_day] == 'Dimanche'
+        @return_day = 'Sunday'
+      else
+        @return_day = 'Monday'
+      end
+    else
+      @return_day = "Sunday"
+    end
+
+    # go time slide
+    # from
+    # params de l'index vs params de la home attention attention
+    if params[:go_time_from]
+      # initialisation curseur @go_time_from_minutes
+      @go_time_from_minutes = (Time.strptime(params[:go_time_from], "%I:%M %p").hour * 60)
+      # requête URL
+      @go_time_from = Time.strptime(params[:go_time_from], "%I:%M %p").strftime("%H:%M")
+    else
+      # Placement par defaut en cas d'absence de params
+      @go_time_from_minutes = 1080
+      @go_time_from = "18%3A00"
+    end
+    # to
+    if params[:go_time_to]
+      @go_time_to_minutes = (Time.strptime(params[:go_time_to], "%I:%M %p").hour * 60)
+      @go_time_to = Time.strptime(params[:go_time_to], "%I:%M %p").strftime("%H:%M")
+    else
+      # Placement par defaut en cas d'absence de params
+      @go_time_to_minutes = 1439
+      @go_time_to = "23%3A59"
+    end
+
+    # return time slide
+    # from
+    if params[:return_time_from]
+      @return_time_from_minutes = (Time.strptime(params[:return_time_from], "%I:%M %p").hour * 60)
+      @return_time_from = Time.strptime(params[:return_time_from], "%I:%M %p").strftime("%H:%M")
+    else
+      @return_time_from_minutes = 1080
+      @return_time_from = "18%3A00"
+    end
+    # to
+    if params[:return_time_to]
+      @return_time_to_minutes = (Time.strptime(params[:return_time_to], "%I:%M %p").hour * 60)
+      @return_time_to = Time.strptime(params[:return_time_to], "%I:%M %p").strftime("%H:%M")
+    else
+      @return_time_to_minutes = 1439
+      @return_time_to = "23%3A59"
+    end
+
 
 
 
     if params[:format] == "2"
-      @results = []
-      # Renvoi vers initialize de api_response.rb
-      WeekendJob.perform_later(params[:code_from], params[:code_to])
-      # response = Wknd::ApiResponse.new(
-      # "Friday", # Jour aller
-      # "Sunday", # Jour retour
-      # {from: "18%3A00",to: "23%3A59"}, # Range heures aller
-      # {from: "18%3A00",to: "23%3A59"}, # Range heures retour
-      # "#{params[:code_from]}", # From
-      # "#{params[:code_to]}") # To
-
-      # @weekend = response.call
-
-
-
-
+      WeekendJob.perform_later(
+        params[:code_from],
+        params[:code_to],
+        @go_day,
+        @return_day,
+        {from: @go_time_from, to: @go_time_to},
+        {from: @return_time_from,to: @return_time_to}
+        )
+    # # Renvoi vers initialize de api_response.rb
+    #   @results = []
+    #   response = Wknd::ApiResponse.new(
+    #   @go_day, # Jour aller
+    #   @return_day, # Jour retour
+    #   {from: @go_time_from, to: @go_time_to},
+    #   {from: @return_time_from,to: @return_time_to}, # Range heures retour
+    #   @code_from, # From
+    #   @code_to) # To
+    #   @results = response.wknd_instances_creation
+    #   render :index
     else
 
       response1 = Wknd::ApiResponse.new(
@@ -32,7 +106,6 @@ class WeekendsController < ApplicationController
       {from: "18%3A00",to: "23%3A59"}, # Range heures retour
       "#{params[:code_from]}", # From
       "#{params[:code_to]}") # To
-
 
       @results = response1.wknd_instances_creation
 
