@@ -4,26 +4,26 @@
     <div class="row" id="test">
 
 
-            <% content_for(:after_js) do %>
-              <script>
+      <% content_for(:after_js) do %>
+        <script>
 
-                ul = document.querySelector('#test');
-                App.cable.subscriptions.create(
-                  { channel: 'WeekendsChannel' },
-                  { received: (data) => {
-                    ul.insertAdjacentHTML('beforeend', data.content );
-                    }
-                  }
-                )
-              </script>
-            <% end %>
-
-
+          ul = document.querySelector('#test');
+          App.cable.subscriptions.create(
+            { channel: 'WeekendsChannel' },
+            { received: (data) => {
+              console.log(data.content);
+              ul.insertAdjacentHTML('beforeend', data.content );
+              }
+            }
+          )
+        </script>
+      <% end %>
 
 
     </div>
   </div>
 </div>
+
 
 
 <div class="filter-container">
@@ -85,12 +85,10 @@
       <%= hidden_field_tag 'return_time_from', '', id: "return_time_from"%>
       <%= hidden_field_tag 'return_time_to', '', id: "return_time_to"%>
       </div>
-      <%= hidden_field_tag :code_from, @code_from%>
-      <%= hidden_field_tag :code_to, @code_to%>
+      <!--  Sauvegarde des params des villes de depart et d'arrivee -->
+      <%= hidden_field_tag :code_from, @code_from %>
+      <%= hidden_field_tag :code_to, @code_to %>
       <%= hidden_field_tag :format, @format %>
-     <!--  <div class="environment col-sm-12 col-md-6">
-        <%= submit_tag "filtrer", class: "research-button filter" %>
-      </div> -->
     </div>
       <%= submit_tag "filtrer", class: "research-button filter" %>
     <% end %>
@@ -98,4 +96,5 @@
 
 
 </div>
+
 

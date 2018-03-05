@@ -5,14 +5,19 @@ require 'open-uri'
 module Wknd
   class ApiResponse
     attr_accessor :go_day, :return_day
-    def initialize(go_day, return_day, go_hours_range, return_hours_range, city_from, city_to)
-      @go_day = go_day
-      @return_day = return_day
-      @go_hours_range = go_hours_range
-      @return_hours_range = return_hours_range
-      @city_from = city_from
-      @city_to = city_to
-
+    def initialize ( attributes = {} )# (go_day, return_day, go_hours_range, return_hours_range, city_from, city_to)
+      # @go_day = go_day
+      # @return_day = return_day
+      # @go_hours_range = go_hours_range
+      # @return_hours_range = return_hours_range
+      # @city_from = city_from
+      # @city_to = city_to
+      @go_day             = attributes[:go_day]
+      @return_day         = attributes[:return_day]
+      @go_hours_range     = attributes[:go_hours_range]
+      @return_hours_range = attributes[:return_hours_range]
+      @city_from          = attributes[:city_from]
+      @city_to            = attributes[:city_to]
     end
 
     def date_of_next(day)
