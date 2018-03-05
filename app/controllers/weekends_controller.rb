@@ -1,5 +1,6 @@
 class WeekendsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: [:index]
+  # after_action :display_weekends, only: [:index]
 
   def index
     @go_days = %w(Vendredi Samedi)
@@ -75,18 +76,17 @@ class WeekendsController < ApplicationController
 
 
     if params[:format] == "2"
-      @results = []
-    # Renvoi vers initialize de api_response.rb
-      response = Wknd::ApiResponse.new(
-      @go_day, # Jour aller
-      @return_day, # Jour retour
-      {from: @go_time_from, to: @go_time_to},
-      {from: @return_time_from,to: @return_time_to}, # Range heures retour
-      @code_from, # From
-      @code_to) # To
-      @results = response.wknd_instances_creation
-      render :index
-
+      WeekendJob.perform_later(params[:code_from], params[:code_to])
+    # # Renvoi vers initialize de api_response.rb
+    #   response = Wknd::ApiResponse.new(
+    #   @go_day, # Jour aller
+    #   @return_day, # Jour retour
+    #   {from: @go_time_from, to: @go_time_to},
+    #   {from: @return_time_from,to: @return_time_to}, # Range heures retour
+    #   @code_from, # From
+    #   @code_to) # To
+    #   @results = response.wknd_instances_creation
+    #   render :index
     else
 
       response1 = Wknd::ApiResponse.new(
@@ -142,6 +142,10 @@ class WeekendsController < ApplicationController
   end
 
   private
+
+    def display_weekends
+      WeekendJob.perform_now
+    end
 
    def weekend_params
     params.require(:weekend).permit(:code_from, :code_to)
