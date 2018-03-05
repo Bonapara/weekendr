@@ -122,38 +122,33 @@ const topCities = [
 
 
 
-const drawTopCities = () => {
-  // On efface les listes de resultats
-  resultsTo.innerHTML = '';
-  resultsFrom.innerHTML = '';
-  // Header destination populaire
-  resultsTo.insertAdjacentHTML('beforeend',
-  `<li class="top-cities"> <i class="fas fa-star"></i> Destinations populaires </li>`);
-  // Boucle sur l'array top cities et creation des li correspondantes
-  topCities.forEach((city) => {
-    resultsTo.insertAdjacentHTML('beforeend',
-      `<li class="result" data-iota = "${city[1]}" > <img src="https://lipis.github.io/flag-icon-css/flags/4x3/${city[2].toLowerCase()}.svg" alt="flag" style="height:18px;border-radius:2px;"> <span class="location-name">${city[0]}</span> <span class="country-name">${city[3]}</span></li>`);
-  });
-};
+// const drawTopCities = () => {
+//   // On efface les listes de resultats
+//   resultsTo.innerHTML = '';
+//   resultsFrom.innerHTML = '';
+//   // Header destination populaire
+//   resultsTo.insertAdjacentHTML('beforeend',
+//   `<li class="top-cities"> <i class="fab fa-child"> </i> Destinations populaires </li>`);
+//   // Boucle sur l'array top cities et creation des li correspondantes
+//   topCities.forEach((city) => {
+//     resultsTo.insertAdjacentHTML('beforeend',
+//       `<li class="result" data-iota = "${city[1]}" > <img src="https://lipis.github.io/flag-icon-css/flags/4x3/${city[2].toLowerCase()}.svg" alt="flag" style="height:18px;border-radius:2px;"> <span class="location-name">${city[0]}</span> <span class="country-name">${city[3]}</span></li>`);
+//   });
+// };
 
 if (document.querySelector("#search-to") !== null) {
   // Affichage des top cities lorsque le champ "To" est focus par l'utilisateur
   inputTo.addEventListener('focus', function(e) {
-    // console.log(e);
-    // console.log(e.target);
-    // e.stopPropagation();
     // On efface les listes de resultats
     resultsTo.innerHTML = '';
-    // resultsFrom.innerHTML = '';
     // Header destination populaire
     resultsTo.insertAdjacentHTML('beforeend',
-    `<li class="top-cities"> <i class="fas fa-star"></i> Destinations populaires </li>`);
+    `<li class="top-cities"> <i class="fas fa-heart"></i> Destinations populaires </li>`);
     // Boucle sur l'array top cities et creation des li correspondantes
     topCities.forEach((city) => {
       resultsTo.insertAdjacentHTML('beforeend',
         `<li class="result" data-iota = "${city[1]}" data-display = "${city[0] + city[3]}" > <img src="https://lipis.github.io/flag-icon-css/flags/4x3/${city[2].toLowerCase()}.svg" alt="flag" style="height:18px;border-radius:2px;"> <span class="location-name">${city[0]}</span> <span class="country-name">${city[3]}</span></li>`);
     });
-    // Pour que la bubbling phase se fasse au moment de la capturing phase
   });
 }
 
