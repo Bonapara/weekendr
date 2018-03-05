@@ -120,9 +120,11 @@
       <%= hidden_field_tag :from, @code_from%>
       <%= hidden_field_tag :to, @code_to%>
       <%= hidden_field_tag :format, @format %>
-      <% end %>
     </div>
-  <%= submit_tag "filtrer", class: "research-button" %>
+    <div class="button-center">
+      <%= submit_tag "filtrer", class: "research-button" %>
+    </div>
+    <% end %>
   </div>
 
 </div>
