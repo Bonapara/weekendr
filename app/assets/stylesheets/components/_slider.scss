@@ -2,11 +2,11 @@
     font-size:14px;
 }
 .ui-slider-horizontal {
-    height: 8px;
+    height: 22px;
     background: #D7D7D7;
     border: 1px solid #BABABA;
     margin: 8px 0;
-    border-radius: 5px;
+    border-radius: 2px;
 }
 .ui-slider {
     position: relative;
@@ -14,22 +14,21 @@
 }
 .ui-slider-horizontal .ui-slider-range {
     top: -1px;
-    height: 100%;
+    height: 22px;
 }
 .ui-slider .ui-slider-range {
     position: absolute;
     z-index: 1;
-    height: 8px;
+    height: 22px;
     font-size: .7em;
     display: block;
-    border: 1px solid #5BA8E1;
-    border-radius: 6px;
-
-    background: #81B8F3;
+    border: 1px solid $dark-blue;
+    border-radius: 2px;
+    background: $medium-blue;
 }
 .ui-slider .ui-slider-handle {
     border-radius: 50%;
-    border: 1px solid #BABABA !important;
+    border: 2px solid $dark-blue !important;
     background: #ffffff !important;
     width: 22px;
     height: 22px;
@@ -53,10 +52,10 @@
     margin-top: -4px;
     left: 50%;
     margin-left: -4px;
-    background: #30A2D2;
+    background: $dark-blue;
 }
 .ui-slider-horizontal .ui-slider-handle {
-    top: -.5em;
+    top: -0.05em;
     margin-left: -.6em;
 }
 .ui-slider a:focus {

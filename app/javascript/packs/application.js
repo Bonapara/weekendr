@@ -11,5 +11,8 @@ if (document.getElementById("banner-typed-text")) {
 
 if (document.querySelector(".slider-time")) {
  slider();
+}
+
+if (document.querySelector(".price")) {
  lowerPrice();
 }

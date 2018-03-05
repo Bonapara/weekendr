@@ -74,7 +74,6 @@
 
   .card-footer {
     background-color: white;
-    border-top: 1px dashed grey;
     border-bottom-left-radius: $border-radius-large;
     border-bottom-right-radius: $border-radius-large;
     text-align: center;
@@ -101,14 +100,14 @@
   .bpk-ticket__notch--left {
     position: absolute;
     left: -1px;
-    top: 125px;
+    top: 127px;
     z-index: 1;
-    width: 10px;
-    height: 16px;
+    width: 6px;
+    height: 10px;
     box-sizing: border-box;
     background-color: #F4F4F4;
     border: 0px solid #ffffff;
-    box-shadow: inset -3px 0.7px 9px -6.5px rgba(0,0,0,0.75);
+    box-shadow: inset -3.5px 2.7px 7px -6.5px rgba(0,0,0,0.75);
     border-bottom-right-radius: 20px;  /* 100px of height + 10px of border */
     border-top-right-radius: 20px;
     border-bottom-left-radius: 0px;
@@ -117,15 +116,15 @@
 
   .bpk-ticket__notch--right {
     position: absolute;
-    left: 140px;
-    top: 125px;
+    left: 145px;
+    top: 127px;
     z-index: 1;
-    width: 10px;
-    height: 16px;
+    width: 6px;
+    height: 10px;
     box-sizing: border-box;
     background-color: #F4F4F4;
     border: 0px solid #ffffff;
-    box-shadow: inset 3px -0.7px 9px -6.5px rgba(0,0,0,0.75);
+    box-shadow: inset 3.5px 2.7px 7px -6.5px rgba(0,0,0,0.75);
     border-bottom-right-radius: 0px;  /* 100px of height + 10px of border */
     border-top-right-radius: 0px;
     border-bottom-left-radius: 20px;
