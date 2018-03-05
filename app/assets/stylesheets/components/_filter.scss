@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-top: 15px;
 }
 
 .environment {
@@ -13,7 +14,7 @@
 }
 
 .format-button-filter {
-  background-color: #2980b9;
+  background-color: $medium-blue;
   color: white;
   opacity: 0.9;
   height: 45px ;
@@ -24,3 +25,21 @@
   margin-right: 10px;
 }
 
+.research-button.filter:focus {
+  color: $medium-blue;
+}
+.research-button {
+  color: $medium-blue;
+  background-color: #ffffff;
+  border-bottom-left-radius:20px ;
+  border-bottom-right-radius:20px ;
+  border-top-left-radius:20px ;
+  border-top-right-radius:20px ;
+  height: 40px ;
+  width: 154px ;
+  border: 1px solid $green-win;
+}
+
+.button-center {
+  padding-top: 15px;
+}
