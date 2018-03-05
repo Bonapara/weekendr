@@ -80,8 +80,9 @@
     text-align: center;
     flex: 0 0 20%;
     position: relative;
+    background-color: $medium-blue;
     h1 {
-      color: $gray;
+      color: $white;
       font-size: 25px;
       font-weight: bolder;
       margin-top: 10px;
@@ -132,10 +133,10 @@
   }
 
   .card-footer:hover {
-    background-color: rgba(80, 201, 195, 0.1);
+    background-color: $red;
     text-decoration: none;
     h1 {
-      color: rgba(80, 201, 195, 1);
+      color: white;
     }
   }
 
