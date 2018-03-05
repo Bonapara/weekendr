@@ -1,3 +1,4 @@
+<div id="fb-root"></div>
 <script>
   window.fbAsyncInit = function() {
     FB.init({
@@ -18,6 +19,11 @@
      js.src = "https://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
+
+  FB.getLoginStatus(function(response) {
+statusChangeCallback(response);
+window.top.location = "http://www.weekendr.eu";
+});
 </script>
 
 <div class="wrapper">
@@ -40,6 +46,7 @@
             <%= f.button :submit, "Sign up" %>
           </div>
           <% end %>
+          <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
           <div class="links">
             <%= render "devise/shared/links" %>
           </div>
