@@ -10,13 +10,13 @@
 }
 
 #results-from {
-  right: 542px;
-  top: 51px;
+  right: 525px;
+  top: 46px;
 }
 
 #results-to {
-  left: -511px;
-  top: 51px;
+  left: -512px;
+  top: 46px;
 }
 
 .result {
@@ -63,6 +63,9 @@
   text-transform: uppercase;
   color: grey;
   padding: 10px;
+  i {
+    margin-right: 5px;
+  }
 }
 
 li.top-cities {

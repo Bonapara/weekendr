@@ -6,10 +6,10 @@ import '../components/autocomplete';
 import { lowerPrice } from '../components/lowerPrice';
 
 if (document.getElementById("banner-typed-text")) {
-  loadDynamicBannerText();
+ loadDynamicBannerText();
 }
 
 if (document.querySelector(".slider-time")) {
-  slider();
-  lowerPrice();
+ slider();
+ lowerPrice();
 }
