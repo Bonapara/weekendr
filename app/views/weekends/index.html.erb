@@ -1,58 +1,26 @@
+<h1>Action Cable</h1>
 <div class="weekends-wrapper">
   <div class="weekends-container">
-    <div class="row">
-      <% @results.each_with_index do |weekend, index| %>
+    <div class="row" id="test">
 
-      <div class="col-xs-6 col-sm-3 col-md-2">
-        <div class="card">
-          <div class="card-header">
-            <h1 class="card-title"><%= weekend[:go_flight][:dTime].strftime("%d/%m") %> - <%= weekend[:return_flight][:dTime].strftime("%d/%m") %></h1>
-          </div>
-          <div class="card-body">
-            <div class="card-body-element">
-              <div class="column-one">
-                <p><%= weekend[:go_flight][:airport_from] %></p>
-                <p><%= weekend[:go_flight][:dTime].strftime("%H:%M") %></p>
-              </div>
-              <div class="column-two">
-                <p><i class="fas fa-plane"></i></p>
-                <p><img src=<%="https://images.kiwi.com/airlines/64/#{weekend[:go_flight][:airline]}.png"%> alt=<%=  weekend[:go_flight][:airline]%> class="airline-img"></p>
-              </div>
-              <div class="column-three">
-                <p><%= weekend[:go_flight][:airport_to] %></p>
-                <p><%= weekend[:go_flight][:aTime].strftime("%H:%M") %></p>
-              </div>
-            </div>
 
-            <div class="card-body-element">
-              <div class="column-one">
-                <p><%= weekend[:return_flight][:airport_from] %></p>
-                <p><%= weekend[:return_flight][:dTime].strftime("%H:%M") %></p>
-              </div>
-              <div class="column-two">
-                <p><i class="fas fa-plane fa-rotate-180"></i></p>
-                <p><img src=<%="https://images.kiwi.com/airlines/64/#{weekend[:return_flight][:airline]}.png"%> alt=<%=  weekend[:return_flight][:airline]%> class="airline-img"></p>
-              </div>
-              <div class="column-three">
-                <p><%= weekend[:return_flight][:airport_to] %></p>
-                <p><%= weekend[:return_flight][:aTime].strftime("%H:%M") %></p>
-              </div>
-            </div>
-          </div>
-          <div class="bpk-ticket__notch">
-            <div class="bpk-ticket__notch--left"></div>
-            <div class="bpk-ticket__notch--right"></div>
+            <% content_for(:after_js) do %>
+              <script>
 
-            <%= link_to(weekend[:booking_link], class: "card-footer") do%>
-            <div class="price">
-              <h1><%= weekend[:price] %> €</h1>
-            </div>
+                ul = document.querySelector('#test');
+                App.cable.subscriptions.create(
+                  { channel: 'WeekendsChannel' },
+                  { received: (data) => {
+                    ul.insertAdjacentHTML('beforeend', data.content );
+                    }
+                  }
+                )
+              </script>
             <% end %>
-          </div>
 
-        </div>
-      </div>
-      <% end %>
+
+
+
     </div>
   </div>
 </div>
@@ -130,52 +98,4 @@
 
 
 </div>
-
-<!-- <div class="wrapper">
-  <div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-3 col-md-2">
-          <div class="card">
-            <div class="card-header">
-              <h1 class="card-title">05/03 - 07/03</h1>
-            </div>
-            <div class="card-body">
-              <div class="card-body-element">
-                <div class="column-one">
-                  <p>ORY</p>
-                  <p>20:05</p>
-                </div>
-                <div class="column-two">
-                  <p><i class="fas fa-plane"></i></p>
-                  <p>AF</p>
-                </div>
-                <div class="column-three">
-                  <p>MAD</p>
-                  <p>22:05</p>
-                </div>
-              </div>
-              <div class="card-body-element">
-                <div class="column-one">
-                  <p>MAD</p>
-                  <p>21:05</p>
-                </div>
-                <div class="column-two">
-                  <p><i class="fas fa-plane"></i></p>
-                  <p>VY</p>
-                </div>
-                <div class="column-three">
-                  <p>CDG</p>
-                  <p>23:05</p>
-                </div>
-              </div>
-            </div>
-            <div class="card-footer">
-              <h1>220 €</h1>
-            </div>
-          </div>
-        </div>
-    </div>
-  </div>
-</div>
--->
 
