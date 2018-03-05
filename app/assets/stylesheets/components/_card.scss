@@ -102,15 +102,15 @@
 
   .bpk-ticket__notch--left {
     position: relative;
-    left: -82px;
-    top: 6px;
+    left: -51px;
+    top: -6px;
     z-index: 1;
     width: 8px;
     height: 14px;
     box-sizing: border-box;
-    background-color: #F4F4F4;
+    background-color: #b8b8b8;
     border: 0px solid #ffffff;
-    box-shadow: inset -5px 3.5px 6.5px -6.5px rgba(37,32,31,.3);
+    box-shadow: inset -5px 3.5px 6.5px -6.5px rgba(0, 0, 0, .5);
     border-bottom-right-radius: 20px;  /* 100px of height + 10px of border */
     border-top-right-radius: 20px;
     border-bottom-left-radius: 0px;
@@ -119,15 +119,15 @@
 
   .bpk-ticket__notch--right {
     position: relative;
-    left: 82px;
-    top: 6px;
+    left: 113px;
+    top: -6px;
     z-index: 1;
     width: 8px;
     height: 14px;
     box-sizing: border-box;
-    background-color: #F4F4F4;
+    background-color: #b8b8b8;
     border: 0px solid #ffffff;
-    box-shadow: inset 5px 3.5px 6.5px -6.5px rgba(37,32,31,.3);
+    box-shadow: inset 5px 3.5px 6.5px -6.5px rgba(0, 0, 0, .5);
     border-bottom-right-radius: 0px;  /* 100px of height + 10px of border */
     border-top-right-radius: 0px;
     border-bottom-left-radius: 20px;
