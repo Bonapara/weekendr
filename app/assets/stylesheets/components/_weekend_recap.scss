@@ -1,6 +1,6 @@
 .weekend_recap_container{
   height: 120px;
-  background-color: $dark-blue;
+  background-color: $medium-blue;
   display: flex;
   justify-content: space-between;
 }
@@ -29,7 +29,7 @@
   flex-grow: 1;
 }
 
-ul {
+.time_line_ul {
   position: relative;
   list-style-type: none;
   display: block;
@@ -44,14 +44,14 @@ ul {
   position: absolute;
   z-index: 100;
   left: 20px;
-  top: -28px;
+  top: -24px;
   height: 10px;
   border-radius: 50%;
   width: 10px;
   background-color: $red;
 }
 
-li {
+.time_line_li {
   position: relative;
   color: $white;
   position: relative;
@@ -64,7 +64,7 @@ li {
 
 /* ---- Hover effects ---- */
 
-li:hover {
+.time_line_li:hover {
   cursor: pointer;
   color: #28e;
 }
