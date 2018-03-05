@@ -1,0 +1,45 @@
+.filter-form {
+  padding-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.environment {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.format-button-filter {
+  background-color: $medium-blue;
+  color: white;
+  opacity: 0.9;
+  height: 45px ;
+  width: 120px ;
+  // padding: 10px 15px;
+  border: none;
+  border-radius: 2px;
+  margin-right: 10px;
+}
+
+.research-button.filter:focus {
+  color: $medium-blue;
+}
+.research-button {
+  color: $medium-blue;
+  background-color: #ffffff;
+  border-bottom-left-radius:20px ;
+  border-bottom-right-radius:20px ;
+  border-top-left-radius:20px ;
+  border-top-right-radius:20px ;
+  height: 40px ;
+  width: 154px ;
+  border: 1px solid $green-win;
+}
+
+.button-center {
+  padding-top: 15px;
+}

@@ -1,5 +1,6 @@
 .card {
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
@@ -12,7 +13,7 @@
   max-width: 180px;
   max-height: 300px;
   background-color: #ffffff;
-  box-shadow: 1px 2px 30px -12px rgba(0,0,0,0.75);
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, .5);
 
   .card-header{
     border-top-right-radius: $border-radius-large;
@@ -20,13 +21,14 @@
     text-align: center;
     flex: 0 0 20%;
     width: 100%;
-    background-image: radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%);
+    background-image: radial-gradient(circle 248px at center, #302b63 0%, #24243e 47%, #0f0c29 100%);
 
 
     .card-title {
       color: #ffffff;
       font-size: 17px;
       margin-top: 18px;
+      background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1765/icon-calendar.svg) no-repeat scroll 7px;
     }
   }
 
@@ -86,20 +88,79 @@
     text-align: center;
     flex: 0 0 20%;
     width: 100%;
+    position: relative;
     h1 {
       color: $gray;
       font-size: 25px;
       font-weight: bolder;
-      margin-top: 12px;
+      margin-top: 16px;
+      width: 180px;
+      height: 50px;
     }
+  }
+
+  .bpk-ticket__notch {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 180px;
+  }
+
+  .bpk-ticket__notch--left {
+    position: absolute;
+    left: -1px;
+    top: 191px;
+    z-index: 1;
+    width: 10px;
+    height: 16px;
+    box-sizing: border-box;
+    background-color: #b8b8b8;
+    border: 0px solid #ffffff;
+    box-shadow: inset -5px 3.5px 6.5px -6.5px rgba(0, 0, 0, .9);
+    border-bottom-right-radius: 20px;  /* 100px of height + 10px of border */
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius:0px; /* 100px of height + 10px of border */
+  }
+
+  .bpk-ticket__notch--right {
+    position: absolute;
+    left: 170px;
+    top: 191px;
+    z-index: 1;
+    width: 10px;
+    height: 16px;
+    box-sizing: border-box;
+    background-color: #b8b8b8;
+    border: 0px solid #ffffff;
+    box-shadow: inset 5px 3.5px 6.5px -6.5px rgba(0, 0, 0, .9);
+    border-bottom-right-radius: 0px;  /* 100px of height + 10px of border */
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius:20px; /* 100px of height + 10px of border */
   }
 
   .card-footer:hover {
     background-color: rgba(80, 201, 195, 0.1);
     text-decoration: none;
     h1 {
-      color: rgba(80, 201, 195, 1);;
+      color: rgba(80, 201, 195, 1);
     }
   }
 
 }
+
+.lower-price {
+  // border: 3px solid #04DEAD;
+  background-color: $green-win !important;
+}
+.lower-price:hover {
+  h1 {
+    color: white !important;
+  }
+}
+
+// background-color: #04DEAD;
+//   h1 {
+//     color: #17B978;
+//   }

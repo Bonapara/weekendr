@@ -16,7 +16,7 @@ class WeekendJob < ApplicationJob
       return_date = return_date + 7
     end
 
-    4.times do
+    12.times do
       # ActionCable.server.broadcast("weekends", {content: response.call} )
       # weekend_card = render_to_string 'shared/weekendcard' # , weekend: response.call(go_date, return_date)
       # weekend_card = "
@@ -35,7 +35,6 @@ class WeekendJob < ApplicationJob
       # content = response.call(go_date, return_date)
       # weekend_card = "<h1> test </h1>"
       ActionCable.server.broadcast("weekends", { content: weekend_card } )
-
       # NEXT WEEKEND
       go_date = go_date + 7
       return_date = return_date + 7

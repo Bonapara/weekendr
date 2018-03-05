@@ -12,6 +12,12 @@ module Wknd
       @return_hours_range = return_hours_range
       @city_from = city_from
       @city_to = city_to
+    #   @go_day             = attributes[:go_day]
+    #   @return_day         = attributes[:return_day]
+    #   @go_hours_range     = attributes[:go_hours_range]
+    #   @return_hours_range = attributes[:return_hours_range]
+    #   @city_from          = attributes[:city_from]
+    #   @city_to            = attributes[:city_to]
     end
 
     def date_of_next(day)
@@ -22,7 +28,7 @@ module Wknd
     # Parameters of the search
 
     def wknd_instances_creation
-      weekends_number = 12
+      weekends_number = 2
       # day => date using date_of_next method make it understandable for URL
       go_date = date_of_next(@go_day)
       return_date = date_of_next(@return_day)
@@ -51,7 +57,7 @@ flyFrom=#{@city_from}
 &partner_market=eu
 &limit=1"
       # CALL API with gsub because of lines return
-      weekends_serialized = open(url.gsub!(/\n/,'')).read
+      weekends_serialized = open(url.gsub!(/(\n|\s)/,'')).read
       weekends_json = JSON.parse(weekends_serialized)
       weekends = weekends_json["data"]
       # RETRIEVE DATA FROM JSON
