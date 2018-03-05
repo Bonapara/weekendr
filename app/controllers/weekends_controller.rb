@@ -5,10 +5,8 @@ class WeekendsController < ApplicationController
 
   def index
     @format = params[:format]
-    @code_from = params[:from]
-    @code_to = params[:to]
-
-
+    @code_from = params[:code_from]
+    @code_to = params[:code_to]
     # go time slide
     # from
     # params de l'index vs params de la home attention attention
@@ -78,9 +76,7 @@ class WeekendsController < ApplicationController
         @return_day = "Sunday"
       end
 
-      @results = []
       # Renvoi vers initialize de api_response.rb
-      WeekendJob.perform_later(params[:code_from], params[:code_to])
       # response = Wknd::ApiResponse.new(
       # "Friday", # Jour aller
       # "Sunday", # Jour retour
@@ -94,14 +90,16 @@ class WeekendsController < ApplicationController
 
 
     # Renvoi vers initialize de api_response.rb
-      # input_attributes = {}
-      # input_attributes[:go_day]             = @go_day                                       # Jour aller
-      # input_attributes[:return_day]         = @return_day                                   # Jour retour
-      # input_attributes[:go_hours_range]     = {from: @go_time_from, to: @go_time_to}        # Range heures retour
-      # input_attributes[:return_hours_range] = {from: @return_time_from,to: @return_time_to} # Range heures retour
-      # input_attributes[:city_from]          = @code_from                                    # From
-      # input_attributes[:city_to]            = @code_to
-      #                                       # To
+      input_attributes = {}
+      input_attributes[:go_day]             = @go_day                                       # Jour aller
+      input_attributes[:return_day]         = @return_day                                   # Jour retour
+      input_attributes[:go_hours_range]     = {from: @go_time_from, to: @go_time_to}        # Range heures retour
+      input_attributes[:return_hours_range] = {from: @return_time_from,to: @return_time_to} # Range heures retour
+      input_attributes[:city_from]          = @code_from                                    # From
+      input_attributes[:city_to]            = @code_to
+                                            # To
+      WeekendJob.perform_later(input_attributes)
+
       # response = Wknd::ApiResponse.new(input_attributes)
 
       # @results = response.wknd_instances_creation

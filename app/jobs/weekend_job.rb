@@ -1,14 +1,15 @@
 class WeekendJob < ApplicationJob
   queue_as :default
 
-  def perform (from, to)
-    response = Wknd::ApiResponse.new(
-      "Friday", # Jour aller
-      "Sunday", # Jour retour
-      {from: "18%3A00",to: "23%3A59"}, # Range heures aller
-      {from: "18%3A00",to: "23%3A59"}, # Range heures retour
-      from, # From
-      to)
+  def perform ( attributes = {} )
+    response = Wknd::ApiResponse.new(attributes)
+    # Wknd::ApiResponse.new(
+    #   "Friday", # Jour aller
+    #   "Sunday", # Jour retour
+    #   {from: "18%3A00",to: "23%3A59"}, # Range heures aller
+    #   {from: "18%3A00",to: "23%3A59"}, # Range heures retour
+    #   from, # From
+    #   to)
 
     go_date = response.date_of_next(response.go_day)
     return_date = response.date_of_next(response.return_day)
