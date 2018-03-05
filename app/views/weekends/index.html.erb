@@ -62,7 +62,7 @@
   <div class="filter-form">
     <div class="row">
       <%= form_tag weekends_path, method: :get do%>
-      <div class="environment col-md-6">
+      <div class="environment col-sm-12 col-md-6">
         <div class="day-dropdown">
           <%= select_tag 'go_day', options_for_select(@go_days, params[:go_day]) ,{:class => 'format-button-filter'}%>
         </div>
@@ -90,7 +90,7 @@
       <%= hidden_field_tag 'go_time_to', '', id: "go_time_to"%>
 
       </div>
-      <div class="environment col-md-6">
+      <div class="environment col-sm-12 col-md-6">
         <div class="day-dropdown">
           <%= select_tag 'return_day', options_for_select(@return_days, params[:return_day]) ,{:class => 'format-button-filter'}%>
         </div>
@@ -120,10 +120,11 @@
       <%= hidden_field_tag :from, @code_from%>
       <%= hidden_field_tag :to, @code_to%>
       <%= hidden_field_tag :format, @format %>
+     <!--  <div class="environment col-sm-12 col-md-6">
+        <%= submit_tag "filtrer", class: "research-button filter" %>
+      </div> -->
     </div>
-    <div class="button-center">
-      <%= submit_tag "filtrer", class: "research-button" %>
-    </div>
+      <%= submit_tag "filtrer", class: "research-button filter" %>
     <% end %>
   </div>
 
