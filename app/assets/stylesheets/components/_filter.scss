@@ -1,0 +1,26 @@
+.filter-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.environment {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%
+}
+
+.format-button-filter {
+  background-color: #2980b9;
+  color: white;
+  opacity: 0.9;
+  height: 45px ;
+  width: 120px ;
+  // padding: 10px 15px;
+  border: none;
+  border-radius: 2px;
+  margin-right: 10px;
+}
+
