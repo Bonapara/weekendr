@@ -42,7 +42,6 @@ class WeekendsController < ApplicationController
       # requête URL
       @go_time_from = Time.strptime(params[:go_time_from], "%I:%M %p").strftime("%H:%M")
     else
-      # Placement par defaut en cas d'absence de params
       @go_time_from_minutes = 1080
       @go_time_from = "18%3A00"
     end
@@ -51,7 +50,6 @@ class WeekendsController < ApplicationController
       @go_time_to_minutes = (Time.strptime(params[:go_time_to], "%I:%M %p").hour * 60)
       @go_time_to = Time.strptime(params[:go_time_to], "%I:%M %p").strftime("%H:%M")
     else
-      # Placement par defaut en cas d'absence de params
       @go_time_to_minutes = 1439
       @go_time_to = "23%3A59"
     end
@@ -78,16 +76,8 @@ class WeekendsController < ApplicationController
 
 
     if params[:format] == "2"
-      WeekendJob.perform_later(
-        params[:code_from],
-        params[:code_to],
-        @go_day,
-        @return_day,
-        {from: @go_time_from, to: @go_time_to},
-        {from: @return_time_from,to: @return_time_to}
-        )
+      WeekendJob.perform_later(params[:code_from], params[:code_to])
     # # Renvoi vers initialize de api_response.rb
-    #   @results = []
     #   response = Wknd::ApiResponse.new(
     #   @go_day, # Jour aller
     #   @return_day, # Jour retour

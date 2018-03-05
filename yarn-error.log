@@ -1,4 +1,5 @@
 Arguments: 
+<<<<<<< HEAD
   /usr/local/Cellar/node/9.5.0/bin/node /usr/local/Cellar/yarn/1.3.2/libexec/bin/yarn.js install
 
 PATH: 
@@ -9,6 +10,18 @@ Yarn version:
 
 Node version: 
   9.5.0
+=======
+  /usr/local/Cellar/node/9.6.1/bin/node /usr/local/Cellar/yarn/1.5.1/libexec/bin/yarn.js check --integrity
+
+PATH: 
+  /Users/nathalieroch/.rbenv/versions/2.4.3/lib/ruby/gems/2.4.0/bin:/Users/nathalieroch/.rbenv/versions/2.4.3/bin:/usr/local/Cellar/rbenv/1.1.1/libexec:./bin:./node_modules/.bin:/Users/nathalieroch/.rbenv/shims:/Users/nathalieroch/.rbenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  9.6.1
+>>>>>>> master
 
 Platform: 
   darwin x64
@@ -6134,6 +6147,7 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
+<<<<<<< HEAD
   Error: connect ENETUNREACH 104.16.59.173:443 - Local (0.0.0.0:58888)
       at Object._errnoException (util.js:1003:13)
       at _exceptionWithHostPort (util.js:1024:20)
@@ -6145,3 +6159,12 @@ Trace:
       at RawTask.module.exports.RawTask.call (/usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:78685:19)
       at flush (/usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:78767:29)
       at process._tickCallback (internal/process/next_tick.js:150:11)
+=======
+  Error: Found 1 errors.
+      at new MessageError (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:186:110)
+      at /usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:59470:13
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:98:30)
+      at /usr/local/Cellar/yarn/1.5.1/libexec/lib/cli.js:109:13
+      at <anonymous>
+>>>>>>> master
