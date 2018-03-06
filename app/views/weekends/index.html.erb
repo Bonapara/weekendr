@@ -1,9 +1,8 @@
-<h1>Action Cable</h1>
+<%= render 'shared/recap' %>
+
 <div class="weekends-wrapper">
   <div class="weekends-container">
     <div class="row" id="test">
-
-
       <% content_for(:after_js) do %>
         <script>
 
@@ -24,13 +23,9 @@
           )
         </script>
       <% end %>
-
-
     </div>
   </div>
 </div>
-
-
 
 <div class="filter-container">
   <div class="filter-form">
@@ -42,65 +37,77 @@
         </div>
         <div id="time-range">
           <p>Time range: <span class="slider-time" data-go-time-from-minutes="<%= @go_time_from_minutes %>">
-          <% if params[:go_time_from] %>
-              <%= params[:go_time_from] %>
-          <% else %>
-              6:00 PM
-          <% end %>
-            </span> -
-            <span  class="slider-time2" data-go-time-to-minutes="<%= @go_time_to_minutes %>">
-          <% if params[:go_time_to] %>
-              <%= params[:go_time_to] %>
-          <% else %>
-              11:59 PM
-          <% end %>
-            </span>
-          </p>
-          <div class="sliders_step1">
-            <div id="slider-range"></div>
-          </div>
+            <% if params[:go_time_from] %>
+            <%= params[:go_time_from] %>
+            <% else %>
+            6:00 PM
+            <% end %>
+          </span> -
+          <span  class="slider-time2" data-go-time-to-minutes="<%= @go_time_to_minutes %>">
+            <% if params[:go_time_to] %>
+            <%= params[:go_time_to] %>
+            <% else %>
+            11:59 PM
+            <% end %>
+          </span>
+        </p>
+        <div class="sliders_step1">
+          <div id="slider-range"></div>
         </div>
+      </div>
       <%= hidden_field_tag 'go_time_from', '', id: "go_time_from"%>
       <%= hidden_field_tag 'go_time_to', '', id: "go_time_to"%>
 
-      </div>
-      <div class="environment col-sm-12 col-md-6">
-        <div class="day-dropdown">
-          <%= select_tag 'return_day', options_for_select(@return_days, params[:return_day]) ,{:class => 'format-button-filter'}%>
-        </div>
-        <div id="time-range">
-          <p>Time range: <span class="return-slider-time" data-return-time-from-minutes="<%= @return_time_from_minutes %>">
-          <% if params[:return_time_from] %>
-              <%= params[:return_time_from] %>
-          <% else %>
-              6:00 PM
-          <% end %>
-            </span> -
-            <span  class="return-slider-time2" data-return-time-to-minutes="<%= @return_time_to_minutes %>">
-          <% if params[:return_time_to] %>
-              <%= params[:return_time_to] %>
-          <% else %>
-              11:59 PM
-          <% end %>
-            </span>
-          </p>
-          <div class="sliders_step1">
-            <div id="return-slider-range"></div>
-          </div>
-        </div>
-      <%= hidden_field_tag 'return_time_from', '', id: "return_time_from"%>
-      <%= hidden_field_tag 'return_time_to', '', id: "return_time_to"%>
-      </div>
-      <!--  Sauvegarde des params des villes de depart et d'arrivee -->
-      <%= hidden_field_tag :code_from, @code_from %>
-      <%= hidden_field_tag :code_to, @code_to %>
-      <%= hidden_field_tag :format, @format %>
     </div>
-      <%= submit_tag "filtrer", class: "research-button filter" %>
-    <% end %>
+    <div class="environment col-sm-12 col-md-6">
+      <div class="day-dropdown">
+        <%= select_tag 'return_day', options_for_select(@return_days, params[:return_day]) ,{:class => 'format-button-filter'}%>
+      </div>
+      <div id="time-range">
+        <p>Time range: <span class="return-slider-time" data-return-time-from-minutes="<%= @return_time_from_minutes %>">
+          <% if params[:return_time_from] %>
+          <%= params[:return_time_from] %>
+          <% else %>
+          6:00 PM
+          <% end %>
+        </span> -
+        <span  class="return-slider-time2" data-return-time-to-minutes="<%= @return_time_to_minutes %>">
+          <% if params[:return_time_to] %>
+          <%= params[:return_time_to] %>
+          <% else %>
+          11:59 PM
+          <% end %>
+        </span>
+      </p>
+      <div class="sliders_step1">
+        <div id="return-slider-range"></div>
+      </div>
+    </div>
+    <%= hidden_field_tag 'return_time_from', '', id: "return_time_from"%>
+    <%= hidden_field_tag 'return_time_to', '', id: "return_time_to"%>
   </div>
+  <!--  Sauvegarde des params des villes de depart et d'arrivee -->
+  <%= hidden_field_tag :code_from, @code_from %>
+  <%= hidden_field_tag :code_to, @code_to %>
+  <%= hidden_field_tag :format, @format %>
+</div>
+<%= submit_tag "filtrer", class: "research-button filter" %>
+<% end %>
+</div>
 
 
 </div>
 
+<% content_for(:after_js) do %>
+  <script>
+    ul = document.querySelector('#test');
+    App.cable.subscriptions.create(
+      { channel: 'WeekendsChannel' },
+      { received: (data) => {
+          ul.insertAdjacentHTML('beforeend', data.content );
+        }
+      }
+    );
+  </script>
+<% end %>
 

@@ -1,4 +1,4 @@
-function lowerPriceObserver() {
+function cardObserver() {
   // Select the node that will be observed for mutations
   var targetNode = document.getElementById('test');
 
@@ -9,7 +9,7 @@ function lowerPriceObserver() {
   var callback = function(mutationsList) {
     for(var mutation of mutationsList) {
       if (mutation.type == 'childList') {
-        lowerPrice();
+        linkCardsToRecap();
       }
     }
   };
@@ -24,21 +24,13 @@ function lowerPriceObserver() {
   // observer.disconnect();
 }
 
-function lowerPrice() {
-  const prices = document.querySelectorAll('.price');
-  const array = [];
-  prices.forEach(function(element) {
-    const listPrices = element.innerText;
-    array.push(listPrices);
-  });
-  array.sort();
-  prices.forEach(function(element) {
-    if (element.innerText == array[0]) {
-      element.parentNode.classList.add("lower-price");
-    } else {
-      element.parentNode.classList.remove("lower-price");
-    }
+function linkCardsToRecap() {
+  const card = document.querySelectorAll('.card-body');
+  card.forEach(function(element) {
+    element.addEventListener('mouseover', () => {
+    console.log('coucou');
+    });
   });
 }
 
-export { lowerPriceObserver };
+export { cardObserver };

@@ -135,6 +135,10 @@ class WeekendsController < ApplicationController
                                             # To
       WeekendJob.perform_later(input_attributes)
     end
+
+    response = Wknd::ApiResponse.new(input_attributes)
+    @go_date = response.go_date
+    @return_date = response.return_date
   end
 
   private
