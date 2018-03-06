@@ -4,15 +4,26 @@
   </div>
   <div class="time_line_container">
     <ul class="time_line_ul">
-      <% id = 1 %>
+      <% month = "" %>
       <% 12.times do %>
-        <li class="time_line_li" id="time_line_li_<%= id%>">
+
+        <% if month == "" || @go_date.month != month %>
+          <li class="time_line_li">
+            <div class="month_line"></div>
+            <p class="time_line_month"><%= @go_date.strftime("%B") %></p>
+            <% month = @go_date.month %>
+          </li>
+        <% end %>
+        <li class="time_line_li" data-from=<%= @go_date.strftime("%d/%m") %>>
           <div class="point"></div>
-          <%= @go_date.strftime("%d/%m") %>
+          <p class="time_line_date"><%= @go_date.strftime("%d") %></p>
         </li>
+
       <% @go_date = @go_date + 7 %>
-      <% id = id + 1 %>
       <% end %>
+        <li class="time_line_li">
+          <div class="month_line"></div>
+        </li>
     </ul>
   </div>
   <div class="recap_to">

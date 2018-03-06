@@ -1,5 +1,5 @@
 .weekend_recap_container{
-  height: 120px;
+  height: 60px;
   background-color: $medium-blue;
   display: flex;
   justify-content: space-between;
@@ -34,9 +34,10 @@
   list-style-type: none;
   display: block;
   margin: 0px 40px;
-  height: 2px;
+  height: 20px;
+  border-radius: 4px;
   background: $red;
-  bottom: -50px;
+  bottom: -10px;
 }
 
 
@@ -45,10 +46,21 @@
   z-index: 100;
   left: 20px;
   top: -24px;
-  height: 10px;
+  height: 0px;
   border-radius: 50%;
-  width: 10px;
+  width: 0px;
   background-color: $red;
+}
+
+.month_line {
+  position: absolute;
+  background-color: $medium-blue;
+  z-index: 100;
+  left: 20px;
+  top: -18px;
+  height: 15px;
+  border-radius: 2px;
+  width: 4px;
 }
 
 .time_line_li {
@@ -58,8 +70,22 @@
   top: 20px;
   display: inline-block;
   float: left;
-  width: 8.33%;
+  width: 6%;
   font-size: 14px;
+  .time_line_date {
+    margin-top: -20px;
+    margin-left: 17px;
+    font-weight: bolder;
+  }
+  .time_line_month {
+    margin-left: 12vw;
+    margin-top: 5px;
+    font-weight: bolder;
+  }
+}
+
+.selected-date {
+  color: $medium-blue;
 }
 
 /* ---- Hover effects ---- */
