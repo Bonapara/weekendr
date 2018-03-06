@@ -11,7 +11,7 @@ if (document.querySelector("#results-from") !== null) {
   // On ecoute le clic sur la liste de resultats FROM
   resultsFrom.addEventListener('click', (event) => {
     // On renseigne la valeur dans le champ du formulaire
-    inputFrom.value = event.target.parentNode.innerText;
+    inputFrom.value = event.target.parentNode.getAttribute('data-display');
     // On insere le code IATA dans un champ cache du formulaire pour le rendre disponible dans les params
     iataFrom.value = event.target.parentNode.getAttribute('data-iota');
     // On efface la liste de resultats
@@ -21,11 +21,28 @@ if (document.querySelector("#results-from") !== null) {
 
   // On ecoute le clic sur la liste de resultats TO
   resultsTo.addEventListener('click', (event) => {
-    inputTo.value = event.target.parentNode.innerText;
+    inputTo.value = event.target.parentNode.getAttribute('data-display');
     iataTo.value = event.target.parentNode.getAttribute('data-iota');
     resultsTo.innerHTML = '';
     // resultsTo.classList.remove("visible");
   });
+
+  // body.addEventListener('click', (event) => {
+  //   // On efface les deux listes de resultats
+  //   resultsTo.innerHTML = '';
+  //   resultsFrom.innerHTML = '';
+  // });
+
+  resultsTo.addEventListener('mouseleave', () => {
+    resultsTo.innerHTML = '';
+  });
+
+  resultsFrom.addEventListener('mouseleave', () => {
+    resultsFrom.innerHTML = '';
+  });
+
+
+
 }
 
 
@@ -40,28 +57,35 @@ const drawResponseList = (data, results) => {
     let icon;
     let country;
     let iota = location.code;
+    let toDisplay;
+    // let locationName = location.name;
     // Gestion des cas necessaire car les donnees de l'API sont structurees differemment suivant le location.type renvoye
     if (location.type == "country") {
       countryCode = location.code;
       country = "";
+      toDisplay = location.name;
     } else if (location.type == "city") {
       countryCode = location.country.code;
       country = ", " + location.country.name;
+      toDisplay = location.name + ", " + location.country.name;
       // country = "Tous les aéroports";
     } else if (location.type == "airport") {
       countryCode = location.city.country.code;
       country = ", " + location.city.country.name;
+      toDisplay = location.city.name + " (" + location.code + ")";
     } else if (location.type == "subdivision") {
       countryCode = location.country.code;
       country = ", " + location.country.name;
+      toDisplay = location.name + ", " + location.country.name;
     } else {
       countryCode = "NF";
       country = "";
     };
     results.insertAdjacentHTML('beforeend',
-      `<li class="result" data-iota = "${iota}"> <img src="https://lipis.github.io/flag-icon-css/flags/4x3/${countryCode.toLowerCase()}.svg" alt="flag" style="height:18px;border-radius:2px;"> <span class="location-name">${location.name}</span><span class="country-name">${country}</span></li>`);
+      `<li class="result" data-iota = "${iota}" data-display = "${toDisplay}" > <img src="https://lipis.github.io/flag-icon-css/flags/4x3/${countryCode.toLowerCase()}.svg" alt="flag" style="height:18px;border-radius:2px;"> <span class="location-name">${location.name}</span><span class="country-name">${country}</span></li>`);
   });
 };
+
 
 // <img src="https://lipis.github.io/flag-icon-css/flags/4x3/${city[2].toLowerCase()}.svg" alt="flag" style="height:18px;border-radius:2px;">
 // <img src="https://lipis.github.io/flag-icon-css/flags/4x3/${countryCode.toLowerCase()}.svg" alt="flag" style="height:18px;border-radius:2px;">
@@ -98,33 +122,32 @@ const topCities = [
 
 
 
-const drawTopCities = () => {
-  // On efface les listes de resultats
-  resultsTo.innerHTML = '';
-  resultsFrom.innerHTML = '';
-  // Header destination populaire
-  resultsTo.insertAdjacentHTML('beforeend',
-  `<li class="top-cities"> <i class="fas fa-star"></i> Destinations populaires </li>`);
-  // Boucle sur l'array top cities et creation des li correspondantes
-  topCities.forEach((city) => {
-    resultsTo.insertAdjacentHTML('beforeend',
-      `<li class="result" data-iota = "${city[1]}"> <img src="https://lipis.github.io/flag-icon-css/flags/4x3/${city[2].toLowerCase()}.svg" alt="flag" style="height:18px;border-radius:2px;"> <span class="location-name">${city[0]}</span> <span class="country-name">${city[3]}</span></li>`);
-  });
-};
+// const drawTopCities = () => {
+//   // On efface les listes de resultats
+//   resultsTo.innerHTML = '';
+//   resultsFrom.innerHTML = '';
+//   // Header destination populaire
+//   resultsTo.insertAdjacentHTML('beforeend',
+//   `<li class="top-cities"> <i class="fab fa-child"> </i> Destinations populaires </li>`);
+//   // Boucle sur l'array top cities et creation des li correspondantes
+//   topCities.forEach((city) => {
+//     resultsTo.insertAdjacentHTML('beforeend',
+//       `<li class="result" data-iota = "${city[1]}" > <img src="https://lipis.github.io/flag-icon-css/flags/4x3/${city[2].toLowerCase()}.svg" alt="flag" style="height:18px;border-radius:2px;"> <span class="location-name">${city[0]}</span> <span class="country-name">${city[3]}</span></li>`);
+//   });
+// };
 
 if (document.querySelector("#search-to") !== null) {
   // Affichage des top cities lorsque le champ "To" est focus par l'utilisateur
-  inputTo.addEventListener('focus', function(){
+  inputTo.addEventListener('focus', function(e) {
     // On efface les listes de resultats
     resultsTo.innerHTML = '';
-    resultsFrom.innerHTML = '';
     // Header destination populaire
     resultsTo.insertAdjacentHTML('beforeend',
-    `<li class="top-cities"> <i class="fas fa-star"></i> Destinations populaires </li>`);
+    `<li class="top-cities"> <i class="fas fa-heart"></i> Destinations populaires </li>`);
     // Boucle sur l'array top cities et creation des li correspondantes
     topCities.forEach((city) => {
       resultsTo.insertAdjacentHTML('beforeend',
-        `<li class="result" data-iota = "${city[1]}"> <img src="https://lipis.github.io/flag-icon-css/flags/4x3/${city[2].toLowerCase()}.svg" alt="flag" style="height:18px;border-radius:2px;"> <span class="location-name">${city[0]}</span> <span class="country-name">${city[3]}</span></li>`);
+        `<li class="result" data-iota = "${city[1]}" data-display = "${city[0] + city[3]}" > <img src="https://lipis.github.io/flag-icon-css/flags/4x3/${city[2].toLowerCase()}.svg" alt="flag" style="height:18px;border-radius:2px;"> <span class="location-name">${city[0]}</span> <span class="country-name">${city[3]}</span></li>`);
     });
   });
 }

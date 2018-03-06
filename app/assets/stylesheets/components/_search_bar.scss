@@ -31,6 +31,7 @@
       border-bottom-left-radius: 0px;
       border-top-right-radius: 2px;
       border-bottom-right-radius: 2px;
+      width: 190px;
   }
 
   #search-to {
@@ -41,6 +42,7 @@
       border-bottom-left-radius: 0px;
       border-top-right-radius: 2px;
       border-bottom-right-radius: 2px;
+      width: 190px;
   }
 
   .search_options {
@@ -58,20 +60,25 @@
       padding: 10px 15px;
       appearance: none;
     }
+
     #format {
+      margin-right: 5px;
       padding-left: 5px;
       border-top-left-radius: 0px;
       border-bottom-left-radius: 0px;
       border-top-right-radius: 2px;
       border-bottom-right-radius: 2px;
+      width: 90px;
     }
 
     #pers {
-      margin-left: 1px;
+      margin-left: 0px;
+      padding-left: 5px;
       border-top-left-radius: 0px;
       border-bottom-left-radius: 0px;
       border-top-right-radius: 2px;
       border-bottom-right-radius: 2px;
+      width: 80px;
     }
 
 

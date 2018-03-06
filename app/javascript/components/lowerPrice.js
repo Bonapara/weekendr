@@ -1,5 +1,5 @@
 function lowerPrice() {
-  const prices = document.querySelectorAll(".price");
+  const prices = document.querySelectorAll('.price');
   const array = [];
   prices.forEach(function(element) {
     const listPrices = element.innerText;
