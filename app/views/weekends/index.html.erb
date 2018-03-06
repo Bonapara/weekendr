@@ -87,16 +87,23 @@
           { received: (data) => {
             col = document.querySelector('#test');
             // console.log(col.lastChild);
-            document.querySelector(".loading-card").remove();
+            // document.querySelector(".loading-card").remove();
             // col.removeChild(col.lastChild);
-            col.insertAdjacentHTML('beforeend', data.content);
-            cards = document.querySelectorAll('.card-header');
-            card = cards[cards.length - 1].parentNode;
-            card.classList.remove("card-col-invisible");
-            card.classList.add("card-col-visible");
+            col.insertAdjacentHTML('afterbegin', data.content);
+
+            loading_card = document.querySelector(".flip-item");
+            card = document.querySelector(".card-header").parentNode;
+            // cards = document.querySelectorAll('.card-header');
+            // card = cards[cards.length - 1].parentNode;
+            // card.classList.remove("card-col-invisible");
+            // card.classList.add("card-col-visible");
+            loading_card.classList.add("flip");
+            card.classList.add("reverse-flip");
           }
         }
         )
+
+
 
       </script>
       <% end %>

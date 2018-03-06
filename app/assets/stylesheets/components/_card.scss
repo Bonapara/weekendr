@@ -1,24 +1,37 @@
-.card-col-invisible {
-  opacity: 0;
+.card-col {
+  // -webkit-transform: rotateY(-179deg);
+          z-index: 1000;
+          transform: rotateY(-179deg);
+  // -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  //-webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  /* -- transition is the magic sauce for animation -- */
+  // -webkit-transition: all .4s ease-in-out;
+          transition: all 1s ease-in-out;
 }
 
-.card-col-visible {
-  opacity: 1;
-  animation-duration: 1s;
-  animation-name: fade;
-}
+// .card-col-invisible {
+//   opacity: 0;
+// }
 
-@keyframes fade {
-    0%{
-        opacity: 0
-    }
-    30% {
-      opacity: 0.5
-    }
-    100%{
-        opacity: 1
-    }
-}
+// .card-col-visible {
+//   opacity: 1;
+//   animation-duration: 1s;
+//   animation-name: fade;
+// }
+
+// @keyframes fade {
+//     0%{
+//         opacity: 0
+//     }
+//     30% {
+//       opacity: 0.5
+//     }
+//     100%{
+//         opacity: 1
+//     }
+// }
 
 .card-header {
   text-align: center;
