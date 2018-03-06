@@ -4,6 +4,9 @@
   <!-- <p><%#= bookmark.weekend[:city_from] %> to <%#= bookmark.weekend[:city_to] %> <%#= bookmark.weekend[:price] %> €</p> -->
   <!-- <p><%#= bookmark.weekend.id %></p> -->
 <%# end %>
+<div class="weekends-wrapper">
+<div class="weekend-container">
+<div class="row">
 
 <% @wish_list_weekends.each do |bookmark| %>
   <%#= render partial: "shared/weekendcard", locals: { weekend: weekend} %>
@@ -59,6 +62,7 @@
 
         </div>
       </div>
-
-
 <% end %>
+</div>
+</div>
+</div>

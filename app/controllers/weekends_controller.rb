@@ -86,7 +86,6 @@ class WeekendsController < ApplicationController
       input_attributes[:city_to]            = @code_to
                                             # To
       WeekendJob.perform_later(input_attributes)
-
       # response = Wknd::ApiResponse.new(input_attributes)
 
       # @results = response.wknd_instances_creation
