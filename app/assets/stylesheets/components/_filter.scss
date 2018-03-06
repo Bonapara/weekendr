@@ -1,9 +1,15 @@
-.filter-form {
-  padding-top: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: column;
+.filter-container {
+  position: absolute;
+  border-top: 1px solid $medium-gray;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  .filter-form {
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
 }
 
 .environment {

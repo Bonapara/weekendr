@@ -135,24 +135,10 @@ class WeekendsController < ApplicationController
                                             # To
       WeekendJob.perform_later(input_attributes)
     end
-  end
 
-  def show
-  end
-
-  def new
-  end
-
-  def create
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
+    response = Wknd::ApiResponse.new(input_attributes)
+    @go_date = response.go_date
+    @return_date = response.return_date
   end
 
   private

@@ -1,0 +1,70 @@
+.weekend_recap_container{
+  height: 120px;
+  background-color: $medium-blue;
+  display: flex;
+  justify-content: space-between;
+}
+
+.recap_from{
+  display: flex;
+  align-items: baseline;
+  padding: 10px;
+  h1 {
+    color: white;
+    font-size: 20px;
+  }
+}
+
+.recap_to{
+  display: flex;
+  align-items: baseline;
+  padding: 10px;
+  h1 {
+    color: white;
+    font-size: 20px;
+  }
+}
+
+.time_line_container {
+  flex-grow: 1;
+}
+
+.time_line_ul {
+  position: relative;
+  list-style-type: none;
+  display: block;
+  margin: 0px 40px;
+  height: 2px;
+  background: $red;
+  bottom: -50px;
+}
+
+
+.point {
+  position: absolute;
+  z-index: 100;
+  left: 20px;
+  top: -24px;
+  height: 10px;
+  border-radius: 50%;
+  width: 10px;
+  background-color: $red;
+}
+
+.time_line_li {
+  position: relative;
+  color: $white;
+  position: relative;
+  top: 20px;
+  display: inline-block;
+  float: left;
+  width: 8.33%;
+  font-size: 14px;
+}
+
+/* ---- Hover effects ---- */
+
+.time_line_li:hover {
+  cursor: pointer;
+  color: #28e;
+}
