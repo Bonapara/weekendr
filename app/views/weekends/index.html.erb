@@ -64,7 +64,12 @@
 <div class="weekends-wrapper">
   <div class="weekends-container">
     <div class="row" id="test">
-
+      <%= render 'shared/loading_card' %>
+      <%= render 'shared/loading_card' %>
+      <%= render 'shared/loading_card' %>
+      <%= render 'shared/loading_card' %>
+      <%= render 'shared/loading_card' %>
+      <%= render 'shared/loading_card' %>
       <%= render 'shared/loading_card' %>
       <%= render 'shared/loading_card' %>
       <%= render 'shared/loading_card' %>
@@ -72,12 +77,7 @@
       <%= render 'shared/loading_card' %>
       <%= render 'shared/loading_card' %>
 
-      <%= render 'shared/loading_card' %>
-      <%= render 'shared/loading_card' %>
-      <%= render 'shared/loading_card' %>
-      <%= render 'shared/loading_card' %>
-      <%= render 'shared/loading_card' %>
-      <%= render 'shared/loading_card' %>
+
 
       <% content_for(:after_js) do %>
       <script>
@@ -89,7 +89,7 @@
             // console.log(col.lastChild);
             document.querySelector(".loading-card").remove();
             // col.removeChild(col.lastChild);
-            col.insertAdjacentHTML('beforebegin', data.content);
+            col.insertAdjacentHTML('beforeend', data.content);
             cards = document.querySelectorAll('.card-header');
             card = cards[cards.length - 1].parentNode;
             card.classList.remove("card-col-invisible");
