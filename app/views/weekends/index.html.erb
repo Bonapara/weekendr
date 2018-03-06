@@ -64,22 +64,6 @@
 <div class="weekends-wrapper">
   <div class="weekends-container">
     <div class="row" id="test">
-
-      <% content_for(:after_js) do %>
-      <script>
-        ul = document.querySelector('#test');
-        App.cable.subscriptions.create(
-          { channel: 'WeekendsChannel' },
-          { received: (data) => {
-            console.log(data.content);
-            ul.insertAdjacentHTML('beforeend', data.content );
-          }
-        }
-        )
-      </script>
-      <% end %>
-
-
     </div>
   </div>
 </div>
@@ -155,4 +139,16 @@
 
 </div>
 
+<% content_for(:after_js) do %>
+  <script>
+    ul = document.querySelector('#test');
+    App.cable.subscriptions.create(
+      { channel: 'WeekendsChannel' },
+      { received: (data) => {
+          ul.insertAdjacentHTML('beforeend', data.content );
+        }
+      }
+    );
+  </script>
+<% end %>
 

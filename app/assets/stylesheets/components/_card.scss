@@ -79,6 +79,7 @@
     text-align: center;
     flex: 0 0 20%;
     position: relative;
+    transition: background-color 200ms linear;
     background-color: $medium-blue;
     h1 {
       color: $white;
@@ -143,6 +144,7 @@
 
 .lower-price {
   // border: 3px solid #04DEAD;
+  transition: background-color 200ms linear;
   background-color: $green-win !important;
 }
 .lower-price:hover {
