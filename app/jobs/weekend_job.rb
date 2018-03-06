@@ -3,11 +3,8 @@ class WeekendJob < ApplicationJob
 
   def perform ( attributes = {} )
     response = Wknd::ApiResponse.new(attributes)
-    go_date = response.date_of_next(response.go_day)
-    return_date = response.date_of_next(response.return_day)
-    if go_date > return_date
-      return_date = return_date + 7
-    end
+    go_date = response.go_date
+    return_date = response.return_date
 
     12.times do
       @weekend = response.call_date(go_date, return_date)

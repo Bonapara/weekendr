@@ -1,0 +1,21 @@
+<div class="weekend_recap_container">
+  <div class="recap_from">
+    <h1><%= params[:from] ? params[:from].gsub(/,.*/, ',').chop : params[:code_from]%></h1>
+  </div>
+  <div class="time_line_container">
+    <ul class="time_line_ul">
+      <% id = 1 %>
+      <% 12.times do %>
+        <li class="time_line_li" id="time_line_li_<%= id%>">
+          <div class="point"></div>
+          <%= @go_date.strftime("%d/%m") %>
+        </li>
+      <% @go_date = @go_date + 7 %>
+      <% id = id + 1 %>
+      <% end %>
+    </ul>
+  </div>
+  <div class="recap_to">
+    <h1><%= params[:to] ? params[:to].gsub(/,.*/, ',').chop : params[:code_to]%></h1>
+  </div>
+</div>
