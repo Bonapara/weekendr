@@ -2,6 +2,35 @@
       <div class="col-xs-6 col-sm-3 col-md-2">
           <div class="card-header">
             <h1 class="card-title"><%= weekend[:go_flight][:dTime].strftime("%d/%m") %> - <%= weekend[:return_flight][:dTime].strftime("%d/%m") %></h1>
+
+            <!-- <div class="card-body-element"> -->
+              <%= simple_form_for Bookmark.new, remote: true do |f| %>
+                <%= f.hidden_field :country_from, value: weekend[:country_from] %>
+                <%= f.hidden_field :city_from, value: weekend[:city_from] %>
+                <%= f.hidden_field :country_to, value: weekend[:country_to] %>
+                <%= f.hidden_field :city_to, value: weekend[:city_to] %>
+                <%= f.hidden_field :price, value: weekend[:price] %>
+                <%= f.hidden_field :booking_token, value: weekend[:booking_token] %>
+                <%= f.hidden_field :booking_link, value: weekend[:booking_link] %>
+                <%= f.hidden_field :go_flight, value: {
+                  flight_no: weekend[:go_flight][:flight_no],
+                  airport_from: weekend[:go_flight][:airport_from],
+                  airport_to: weekend[:go_flight][:airport_to],
+                  dTime: weekend[:go_flight][:dTime],
+                  aTime: weekend[:go_flight][:aTime],
+                  airline: weekend[:go_flight][:airline]
+                  }.to_json %>
+                <%= f.hidden_field :return_flight, value: {
+                  flight_no: weekend[:return_flight][:flight_no],
+                  airport_from: weekend[:return_flight][:airport_from],
+                  airport_to: weekend[:return_flight][:airport_to],
+                  dTime: weekend[:return_flight][:dTime],
+                  aTime: weekend[:return_flight][:aTime],
+                  airline: weekend[:return_flight][:airline]
+                  }.to_json %>
+                <%= f.submit "+", class: 'fas fa-plus-circle' %>
+              <% end %>
+            <!-- </div> -->
           </div>
         <div class="card" data-from=<%= weekend[:go_flight][:dTime].strftime("%d/%m")%>>
           <div class="card-body">
@@ -34,6 +63,7 @@
                 <p><%= weekend[:return_flight][:aTime].strftime("%H:%M") %></p>
               </div>
             </div>
+
           </div>
           <div class="bpk-ticket__notch">
             <div class="bpk-ticket__notch--left"></div>

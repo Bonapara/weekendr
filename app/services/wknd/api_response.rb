@@ -4,6 +4,7 @@ require 'open-uri'
 
 module Wknd
   class ApiResponse
+
     attr_accessor :go_day, :return_day
     def initialize ( attributes = {} )
       @go_day             = attributes[:go_day]
@@ -19,7 +20,6 @@ module Wknd
       delta = date > Date.today ? 0 : 7
       date + delta
     end
-
     def go_date
       # return go date just if it's not defined
       return @go_date ||= date_of_next(go_day)
