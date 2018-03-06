@@ -11,8 +11,14 @@
           App.cable.subscriptions.create(
             { channel: 'WeekendsChannel' },
             { received: (data) => {
-              console.log(data.content);
-              ul.insertAdjacentHTML('beforeend', data.content );
+                console.log(data.content);
+                ul.insertAdjacentHTML('beforeend', data.content );
+
+                const authToken = document.querySelector('meta[name="csrf-token"]').content;
+
+                document.querySelectorAll('.new_bookmark input[name="authenticity_token"]').forEach((input) => {
+                  input.value = authToken;
+                });
               }
             }
           )
