@@ -85,7 +85,7 @@ class WeekendsController < ApplicationController
       input_attributes[:city_from]          = @code_from                                    # From
       input_attributes[:city_to]            = @code_to
                                             # To
-      WeekendJob.perform_later(input_attributes)
+
 
       # response = Wknd::ApiResponse.new(input_attributes)
 
@@ -133,8 +133,9 @@ class WeekendsController < ApplicationController
       input_attributes[:city_from]          = @code_from                                    # From
       input_attributes[:city_to]            = @code_to
                                             # To
-      WeekendJob.perform_later(input_attributes)
     end
+    @request_id = SecureRandom.base58
+    WeekendJob.perform_later(input_attributes, @request_id)
   end
 
   def show
