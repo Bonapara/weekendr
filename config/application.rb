@@ -18,6 +18,8 @@ module Weekendr
 
     # Config de sidekiq pour mettre les call de l'API dans la queue des taches a realiser
     config.active_job.queue_adapter = :sidekiq
+    # Config language
+    config.i18n.default_locale = :fr
 
 
     # Settings in config/environments/* take precedence over those specified here.
