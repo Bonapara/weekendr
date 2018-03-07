@@ -22,7 +22,7 @@
           <div class="card-body">
             <div class="card-body-element">
               <div class="column-one">
-                <p><%= bookmark.weekend[:go_flight][:airport_from] %></p>
+                <p><%= bookmark.weekend[:go_flight]["airport_from"] %></p>
                 <p><%= Time.parse(bookmark.weekend[:go_flight]["dTime"]).strftime("%H:%M") %></p>
               </div>
               <div class="column-two">
@@ -30,14 +30,14 @@
                 <p><img src=<%="https://images.kiwi.com/airlines/64/#{bookmark.weekend[:go_flight]["airline"]}.png"%> alt=<%=  bookmark.weekend[:go_flight]["airline"]%> class="airline-img"></p>
               </div>
               <div class="column-three">
-                <p><%= bookmark.weekend[:go_flight][:airport_to] %></p>
+                <p><%= bookmark.weekend[:go_flight]["airport_to"] %></p>
                 <p><%= Time.parse(bookmark.weekend[:go_flight]["aTime"]).strftime("%H:%M") %></p>
               </div>
             </div>
 
             <div class="card-body-element">
               <div class="column-one">
-                <p><%= bookmark.weekend[:return_flight][:airport_from] %></p>
+                <p><%= bookmark.weekend[:return_flight]["airport_from"] %></p>
                 <p><%= Time.parse(bookmark.weekend[:return_flight]["dTime"]).strftime("%H:%M") %></p>
               </div>
               <div class="column-two">
@@ -45,7 +45,7 @@
                 <p><img src=<%="https://images.kiwi.com/airlines/64/#{bookmark.weekend[:return_flight]["airline"]}.png"%> alt=<%=  bookmark.weekend[:return_flight]["airline"]%> class="airline-img"></p>
               </div>
               <div class="column-three">
-                <p><%= bookmark.weekend[:return_flight][:airport_to] %></p>
+                <p><%= bookmark.weekend[:return_flight]["airport_to"] %></p>
                 <p><%= Time.parse(bookmark.weekend[:return_flight]["aTime"]).strftime("%H:%M") %></p>
               </div>
             </div>
@@ -55,7 +55,7 @@
             <div class="bpk-ticket__notch--right"></div>
             <%= link_to(bookmark.weekend[:booking_link], class: "card-footer") do%>
             <div class="price">
-              <h1><%= bookmark.weekend[:price] %> €</h1>
+              <h1><%= bookmark.weekend[:price].fdiv(@num_passenger).round %> €</h1>
             </div>
             <% end %>
           </div>

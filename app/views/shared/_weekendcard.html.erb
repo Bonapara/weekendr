@@ -70,7 +70,11 @@
             <div class="bpk-ticket__notch--right"></div>
             <%= link_to(weekend[:booking_link], class: "card-footer") do%>
             <div class="price">
-              <h1><%= weekend[:price] %> €</h1>
+              <% if num_passenger > 1 %>
+                <h1><%= weekend[:price]/num_passenger%> € /p</h1>
+              <% else %>
+                <h1><%= weekend[:price] %> €</h1>
+              <% end %>
             </div>
             <% end %>
           </div>
