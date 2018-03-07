@@ -13,6 +13,7 @@ module Wknd
       @return_hours_range = attributes[:return_hours_range]
       @city_from          = attributes[:city_from]
       @city_to            = attributes[:city_to]
+      @num_passenger      = attributes[:num_passenger]
     end
 
     def date_of_next(day)
@@ -54,6 +55,7 @@ flyFrom=#{@city_from}
 &returndtimeto=#{@return_hours_range[:to]}
 &directFlights=1
 &partner=picky
+&passengers=#{@num_passenger}
 &partner_market=eu
 &limit=1"
       # CALL API with gsub because of lines return
