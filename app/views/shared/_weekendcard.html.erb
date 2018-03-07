@@ -1,37 +1,45 @@
       <div class="col-xs-6 col-sm-3 col-md-2 card-col-invisible card-height-wrapper">
           <div class="card-header">
-            <h1 class="card-title"><%= weekend[:go_flight][:dTime].strftime("%d/%m") %> - <%= weekend[:return_flight][:dTime].strftime("%d/%m") %></h1>
+            <h1 class="card-title"><%= l(weekend[:go_flight][:dTime], format: (weekend[:go_flight][:dTime].month == weekend[:return_flight][:dTime].month ? '%d' : '%d %b')) %> au <%= l(weekend[:return_flight][:dTime], format: '%d %b').gsub(".","") %></h1>
 
-            <!-- <div class="card-body-element"> -->
-              <%= simple_form_for Bookmark.new, remote: true do |f| %>
-                <%= f.hidden_field :country_from, value: weekend[:country_from] %>
-                <%= f.hidden_field :city_from, value: weekend[:city_from] %>
-                <%= f.hidden_field :country_to, value: weekend[:country_to] %>
-                <%= f.hidden_field :city_to, value: weekend[:city_to] %>
-                <%= f.hidden_field :price, value: weekend[:price] %>
-                <%= f.hidden_field :booking_token, value: weekend[:booking_token] %>
-                <%= f.hidden_field :booking_link, value: weekend[:booking_link] %>
-                <%= f.hidden_field :go_flight, value: {
-                  flight_no: weekend[:go_flight][:flight_no],
-                  airport_from: weekend[:go_flight][:airport_from],
-                  airport_to: weekend[:go_flight][:airport_to],
-                  dTime: weekend[:go_flight][:dTime],
-                  aTime: weekend[:go_flight][:aTime],
-                  airline: weekend[:go_flight][:airline]
-                  }.to_json %>
-                <%= f.hidden_field :return_flight, value: {
-                  flight_no: weekend[:return_flight][:flight_no],
-                  airport_from: weekend[:return_flight][:airport_from],
-                  airport_to: weekend[:return_flight][:airport_to],
-                  dTime: weekend[:return_flight][:dTime],
-                  aTime: weekend[:return_flight][:aTime],
-                  airline: weekend[:return_flight][:airline]
-                  }.to_json %>
-                <%= f.submit "+", class: 'fas fa-plus-circle' %>
-              <% end %>
-            <!-- </div> -->
           </div>
         <div class="card" data-from-card=<%= weekend[:go_flight][:dTime].strftime("%d/%m")%>>
+          <% if user_id %>
+            <%= simple_form_for Bookmark.new, remote: true do |f| %>
+              <%= f.hidden_field :country_from, value: weekend[:country_from] %>
+              <%= f.hidden_field :city_from, value: weekend[:city_from] %>
+              <%= f.hidden_field :country_to, value: weekend[:country_to] %>
+              <%= f.hidden_field :city_to, value: weekend[:city_to] %>
+              <%= f.hidden_field :price, value: weekend[:price] %>
+              <%= f.hidden_field :booking_token, value: weekend[:booking_token] %>
+              <%= f.hidden_field :booking_link, value: weekend[:booking_link] %>
+              <%= f.hidden_field :go_flight, value: {
+                flight_no: weekend[:go_flight][:flight_no],
+                airport_from: weekend[:go_flight][:airport_from],
+                airport_to: weekend[:go_flight][:airport_to],
+                dTime: weekend[:go_flight][:dTime],
+                aTime: weekend[:go_flight][:aTime],
+                airline: weekend[:go_flight][:airline]
+                }.to_json %>
+              <%= f.hidden_field :return_flight, value: {
+                flight_no: weekend[:return_flight][:flight_no],
+                airport_from: weekend[:return_flight][:airport_from],
+                airport_to: weekend[:return_flight][:airport_to],
+                dTime: weekend[:return_flight][:dTime],
+                aTime: weekend[:return_flight][:aTime],
+                airline: weekend[:return_flight][:airline]
+                }.to_json %>
+              <%= button_tag type: 'submit', class: "empty_heart_link" do %>
+                <i class="far fa-heart"></i>
+              <% end %>
+            <% end %>
+          <% else %>
+            <button class="empty_heart_link">
+              <%= link_to omniauth_authorize_path(:user, :facebook) do %>
+                <i class="far fa-heart"></i>
+              <% end %>
+            </button>
+          <% end %>
           <div class="card-body">
             <div class="card-body-element">
               <div class="column-one">
@@ -54,7 +62,7 @@
                 <p><%= weekend[:return_flight][:dTime].strftime("%H:%M") %></p>
               </div>
               <div class="column-two">
-                <p><i class="fas fa-plane fa-rotate-180"></i></p>
+                <p><i class="fas fa-plane"></i></p>
                 <p><img src=<%="https://images.kiwi.com/airlines/64/#{weekend[:return_flight][:airline]}.png"%> alt=<%=  weekend[:return_flight][:airline]%> class="airline-img"></p>
               </div>
               <div class="column-three">
