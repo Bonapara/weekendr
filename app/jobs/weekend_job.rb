@@ -15,7 +15,7 @@ class WeekendJob < ApplicationJob
       @weekend = response.call_date(go_date, return_date)
       weekend_card = ApplicationController.renderer.render(partial: "shared/weekendcard", locals: { weekend: @weekend, num_passenger: @num_passenger})
       # On envoie la weekend card sur le channel associé à la request
-      ActionCable.server.broadcast("weekends", { content: weekend_card } )
+      ActionCable.server.broadcast("weekends_#{request_id}", { content: weekend_card } )
       # On passe au prochain weekend
       go_date = go_date + 7
       return_date = return_date + 7
