@@ -8,6 +8,7 @@ class WeekendsController < ApplicationController
     @format = params[:format]
     @code_from = params[:code_from]
     @code_to = params[:code_to]
+    @num_passenger = params[:pers].to_i
 
     # go day
     # button Go day
@@ -83,8 +84,8 @@ class WeekendsController < ApplicationController
       input_attributes[:go_hours_range]     = {from: @go_time_from, to: @go_time_to}        # Range heures retour
       input_attributes[:return_hours_range] = {from: @return_time_from,to: @return_time_to} # Range heures retour
       input_attributes[:city_from]          = @code_from                                    # From
-      input_attributes[:city_to]            = @code_to
-                                            # To
+      input_attributes[:city_to]            = @code_to                                      # To
+      input_attributes[:num_passenger]      = @num_passenger                                # Number of passengers
       WeekendJob.perform_later(input_attributes)
       # response = Wknd::ApiResponse.new(input_attributes)
 
@@ -130,8 +131,9 @@ class WeekendsController < ApplicationController
       input_attributes[:go_hours_range]     = {from: @go_time_from, to: @go_time_to}        # Range heures retour
       input_attributes[:return_hours_range] = {from: @return_time_from,to: @return_time_to} # Range heures retour
       input_attributes[:city_from]          = @code_from                                    # From
-      input_attributes[:city_to]            = @code_to
-                                            # To
+      input_attributes[:city_to]            = @code_to                                      # To
+      input_attributes[:num_passenger]      = @num_passenger                                # Number of passengers
+
       WeekendJob.perform_later(input_attributes)
     end
 
