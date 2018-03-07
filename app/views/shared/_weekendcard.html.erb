@@ -1,5 +1,4 @@
-
-      <div class="col-xs-6 col-sm-3 col-md-2">
+      <div class="col-xs-6 col-sm-3 col-md-2 card-col-invisible card-height-wrapper">
           <div class="card-header">
             <h1 class="card-title"><%= weekend[:go_flight][:dTime].strftime("%d/%m") %> - <%= weekend[:return_flight][:dTime].strftime("%d/%m") %></h1>
 
@@ -32,7 +31,7 @@
               <% end %>
             <!-- </div> -->
           </div>
-        <div class="card" data-from=<%= weekend[:go_flight][:dTime].strftime("%d/%m")%>>
+        <div class="card" data-from-card=<%= weekend[:go_flight][:dTime].strftime("%d/%m")%>>
           <div class="card-body">
             <div class="card-body-element">
               <div class="column-one">
