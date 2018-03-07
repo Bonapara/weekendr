@@ -25,10 +25,19 @@ function cardObserver() {
 }
 
 function linkCardsToRecap() {
-  const card = document.querySelectorAll('.card-body');
-  card.forEach(function(element) {
-    element.addEventListener('mouseover', () => {
-    console.log('coucou');
+  const cards = document.querySelectorAll('.card');
+
+  cards.forEach(function(card) {
+    card.addEventListener('mouseenter', (event) => {
+      const date = event.currentTarget.dataset.from;
+      const timelineDate = document.querySelector("[data-from='" + date + "']");
+      timelineDate.classList.add("selected-date");
+    });
+
+    card.addEventListener('mouseleave', (event) => {
+      const date = event.currentTarget.dataset.from;
+      const timelineDate = document.querySelector("[data-from='" + date + "']");
+      timelineDate.classList.remove("selected-date");
     });
   });
 }
