@@ -86,11 +86,6 @@ class WeekendsController < ApplicationController
       input_attributes[:city_from]          = @code_from                                    # From
       input_attributes[:city_to]            = @code_to                                      # To
       input_attributes[:num_passenger]      = @num_passenger                                # Number of passengers
-      WeekendJob.perform_later(input_attributes)
-      # response = Wknd::ApiResponse.new(input_attributes)
-
-      # @results = response.wknd_instances_creation
-      # render :index
 
     else
 
@@ -134,9 +129,14 @@ class WeekendsController < ApplicationController
       input_attributes[:city_to]            = @code_to                                      # To
       input_attributes[:num_passenger]      = @num_passenger                                # Number of passengers
 
-      WeekendJob.perform_later(input_attributes)
     end
+    # Request ID pour créer un channel par request
+    @request_id = SecureRandom.base58
+    WeekendJob.perform_later(input_attributes, @request_id)
+    # puts "*"*200
+    # puts "Setting @request_id to #{@request_id}"
 
+    # Infos pour l'index
     response = Wknd::ApiResponse.new(input_attributes)
     @go_date = response.go_date
     @return_date = response.return_date

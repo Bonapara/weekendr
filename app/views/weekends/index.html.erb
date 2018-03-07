@@ -1,6 +1,19 @@
 <div class="weekends-wrapper">
   <div class="weekends-container">
-    <div class="row" id="test">
+    <div class="row">
+      <%= render 'shared/loading_card' %>
+      <%= render 'shared/loading_card' %>
+      <%= render 'shared/loading_card' %>
+      <%= render 'shared/loading_card' %>
+      <%= render 'shared/loading_card' %>
+      <%= render 'shared/loading_card' %>
+      <%= render 'shared/loading_card' %>
+      <%= render 'shared/loading_card' %>
+      <%= render 'shared/loading_card' %>
+      <%= render 'shared/loading_card' %>
+      <%= render 'shared/loading_card' %>
+      <%= render 'shared/loading_card' %>
+      <div class="loading-card"></div>
     </div>
   </div>
 </div>
@@ -68,30 +81,40 @@
   <%= hidden_field_tag :code_from, @code_from %>
   <%= hidden_field_tag :code_to, @code_to %>
   <%= hidden_field_tag :format, @format %>
+  </div>
+  <%= submit_tag "filtrer", class: "research-button filter" %>
+  <% end %>
 </div>
-<%= submit_tag "filtrer", class: "research-button filter" %>
-<% end %>
-</div>
-
-
 </div>
 
+<!-- Ajout des cards weekend (action cable) -->
 <% content_for(:after_js) do %>
-  <script>
-    ul = document.querySelector('#test');
-    App.cable.subscriptions.create(
-      { channel: 'WeekendsChannel' },
-      { received: (data) => {
-          ul.insertAdjacentHTML('beforeend', data.content );
+<script>
+  // On s'inscrit au channel weekend lié à notre request
+  App.cable.subscriptions.create(
+    { channel: 'WeekendsChannel', request_id: "<%= @request_id %>" },
+    // Dès qu'on reçoit une card weekend sur ce channel
+    {
+      received: (data) => {
+        // On supprime la première loading card
+        document.querySelector(".loading-card").remove();
+        // On insère la card weekend juste avant la loading card suivante
+        loading_card = document.querySelector(".loading-card")
+        loading_card.insertAdjacentHTML('beforebegin', data.content);
+        // On fait apparaitre la card weekend receptionné en lui ajoutant une class visible
+        cards = document.querySelectorAll('.card-header');
+        card = cards[cards.length - 1].parentNode;
+        card.classList.remove("card-col-invisible");
+        card.classList.add("card-col-visible");
 
-          const authToken = document.querySelector('meta[name="csrf-token"]').content;
-
-          document.querySelectorAll('.new_bookmark input[name="authenticity_token"]').forEach((input) => {
-            input.value = authToken;
-          });
-        }
+        // Nécessaire à la wish list
+        const authToken = document.querySelector('meta[name="csrf-token"]').content;
+        document.querySelectorAll('.new_bookmark input[name="authenticity_token"]').forEach((input) => {
+          input.value = authToken;
+        });
       }
-    )
-  </script>
+    }
+  );
+</script>
 <% end %>
 

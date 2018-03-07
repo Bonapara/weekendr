@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :weekends, only: [:index]
 
   resources :bookmarks, only: [:index, :create, :destroy]
+
   # Sidekiq Web UI, only for admins.
   require "sidekiq/web"
   authenticate :user, lambda { |u| u.admin } do

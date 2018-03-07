@@ -1,0 +1,67 @@
+.timeline-item {
+    background: #fff;
+    border-radius: 3px;
+    padding: 12px;
+    height: 180px;
+    margin: 40px auto 15px auto !important;
+    max-width: 160px;
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@keyframes placeHolderShimmer{
+    0%{
+        background-position: -468px 0
+    }
+    100%{
+        background-position: 468px 0
+    }
+}
+
+.animated-background {
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: #f6f7f8;
+    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+    background-size: 800px 104px;
+    position: relative;
+    // margin-bottom: 25px;
+}
+
+.box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.small-band {
+  height: 12px;
+  width: 40px;
+  margin-bottom: 4px;
+}
+
+
+.small-band-xs {
+  height: 6px;
+  width: 40px;
+  margin-bottom: 4px;
+}
+
+.circle {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.big-band {
+  height: 40px;
+}
+
+.big-band-xs {
+  height: 10px;
+}
