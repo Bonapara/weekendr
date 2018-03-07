@@ -129,6 +129,8 @@ class WeekendsController < ApplicationController
     # Request ID pour créer un channel par request
     @request_id = SecureRandom.base58
     WeekendJob.perform_later(input_attributes, @request_id)
+    puts "*"*200
+    puts "Setting @request_id to #{@request_id}"
 
     # Infos pour l'index
     response = Wknd::ApiResponse.new(input_attributes)

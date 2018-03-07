@@ -7,14 +7,16 @@ class WeekendJob < ApplicationJob
     go_date = response.go_date
     return_date = response.return_date
     # On attend 1 sec pour etre sur que le DOM est chargé (à modifier)
-    sleep(1)
+    sleep(2)
 
     # On appelle l'API 12 fois
     12.times do
-      @weekend = response.call_date(go_date, return_date)
+      @weekend     = response.call_date(go_date, return_date)
       weekend_card = ApplicationController.renderer.render(partial: "shared/weekendcard", locals: { weekend: @weekend })
+
       # On envoie la weekend card sur le channel associé à la request
       ActionCable.server.broadcast("weekends_#{request_id}", { content: weekend_card } )
+
       # On passe au prochain weekend
       go_date = go_date + 7
       return_date = return_date + 7

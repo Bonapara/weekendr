@@ -96,24 +96,27 @@
   App.cable.subscriptions.create(
     { channel: 'WeekendsChannel', request_id: "<%= @request_id %>" },
     // Dès qu'on reçoit une card weekend sur ce channel
-    { received: (data) => {
-      // On supprime la première loading card
-      document.querySelector(".loading-card").remove();
-      // On insère la card weekend juste avant la loading card suivante
-      loading_card = document.querySelector(".loading-card")
-      loading_card.insertAdjacentHTML('beforebegin', data.content);
-      // On fait apparaitre la card weekend receptionné en lui ajoutant une class visible
-      cards = document.querySelectorAll('.card-header');
-      card = cards[cards.length - 1].parentNode;
-      card.classList.remove("card-col-invisible");
-      card.classList.add("card-col-visible");
+    {
+      received: (data) => {
+        // On supprime la première loading card
+        document.querySelector(".loading-card").remove();
+        // On insère la card weekend juste avant la loading card suivante
+        loading_card = document.querySelector(".loading-card")
+        loading_card.insertAdjacentHTML('beforebegin', data.content);
+        // On fait apparaitre la card weekend receptionné en lui ajoutant une class visible
+        cards = document.querySelectorAll('.card-header');
+        card = cards[cards.length - 1].parentNode;
+        card.classList.remove("card-col-invisible");
+        card.classList.add("card-col-visible");
 
-      // Nécessaire à la wish list
-      const authToken = document.querySelector('meta[name="csrf-token"]').content;
-      document.querySelectorAll('.new_bookmark input[name="authenticity_token"]').forEach((input) => {
-      input.value = authToken;
+        // Nécessaire à la wish list
+        const authToken = document.querySelector('meta[name="csrf-token"]').content;
+        document.querySelectorAll('.new_bookmark input[name="authenticity_token"]').forEach((input) => {
+          input.value = authToken;
+        });
+      }
     }
-  }
-  )
+  );
+</script>
 <% end %>
 
