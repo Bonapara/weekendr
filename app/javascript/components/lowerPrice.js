@@ -29,11 +29,12 @@ function lowerPrice() {
   const array = [];
   prices.forEach(function(element) {
     const listPrices = element.innerText;
-    array.push(listPrices);
+    array.push(parseInt(listPrices));
   });
-  array.sort();
+  array.sort(function (a, b) {  return a - b;  });
+    console.log(array);
   prices.forEach(function(element) {
-    if (element.innerText == array[0]) {
+    if (parseInt(element.innerText) == array[0]) {
       element.parentNode.classList.add("lower-price");
     } else {
       element.parentNode.classList.remove("lower-price");
