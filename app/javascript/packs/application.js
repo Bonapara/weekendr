@@ -4,7 +4,9 @@ import "jquery-ui/ui/widgets/slider"
 import { slider } from '../components/slider';
 import '../components/autocomplete';
 import { lowerPriceObserver } from '../components/lowerPrice';
+import { higherPriceObserver } from '../components/higherPrice';
 import {heartObserver} from '../components/heartLightning';
+
 
 if (document.getElementById("banner-typed-text")) {
  loadDynamicBannerText();
@@ -17,4 +19,8 @@ if (document.querySelector(".slider-time")) {
 if (document.getElementById("weekends-container-row")) {
  lowerPriceObserver();
  heartObserver();
+}
+
+if (document.getElementById("weekends-container-row")) {
+ higherPriceObserver();
 }
