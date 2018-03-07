@@ -85,8 +85,7 @@ class WeekendsController < ApplicationController
       input_attributes[:return_hours_range] = {from: @return_time_from,to: @return_time_to} # Range heures retour
       input_attributes[:city_from]          = @code_from                                    # From
       input_attributes[:city_to]            = @code_to                                      # To
-      input_attributes[:num_passenger]      = @num_passenger                                # Number of passengers
-
+      input_attributes[:num_passenger]      = @num_passenger                                # Number of passenger
     else
 
       @go_days = %w(Jeudi Vendredi Samedi)
