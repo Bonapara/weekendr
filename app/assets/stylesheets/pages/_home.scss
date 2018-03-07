@@ -7,15 +7,14 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  width: 100vw;
-  background-size: cover
+  background-size: cover;
 }
 
 .banner-title {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: white;
+  color: $medium-blue;
   height: 90px;
   margin-bottom: 100px;
   h1{
@@ -24,7 +23,8 @@
   }
   h2 {
     font-weight: lighter;
-    color: $white;
+    color: $medium-blue;
+    font-weight: normal;
     opacity: 1;
     font-size: 30px;
   }
@@ -36,12 +36,12 @@
 
 #banner-typed-text {
   opacity: 1;
-  color: $red;
+  color: $button;
   font-weight: normal;
 }
 
 .typed-cursor {
-  color: $red;
+  color: $button;
   font-size: 28px;
 }
 
