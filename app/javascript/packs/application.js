@@ -4,6 +4,9 @@ import { loadDynamicBannerText } from '../components/banner';
 import "jquery-ui/ui/widgets/slider"
 import '../components/autocomplete';
 import { lowerPriceObserver } from '../components/lowerPrice';
+import { higherPriceObserver } from '../components/higherPrice';
+import {heartObserver} from '../components/heartLightning';
+
 
 
 if (document.getElementById("weekends-container-row")) {
@@ -16,4 +19,9 @@ if (document.getElementById("banner-typed-text")) {
 
 if (document.getElementById("weekends-container-row")) {
  lowerPriceObserver();
+ heartObserver();
+}
+
+if (document.getElementById("weekends-container-row")) {
+ higherPriceObserver();
 }
