@@ -77,32 +77,6 @@
       <%= render 'shared/loading_card' %>
       <%= render 'shared/loading_card' %>
       <div class="loading-card"></div>
-
-
-      <% content_for(:after_js) do %>
-      <script>
-
-        App.cable.subscriptions.create(
-          { channel: 'WeekendsChannel', request_id: "<%= @request_id %>" },
-          { received: (data) => {
-            col = document.querySelector('#test');
-            // console.log(col.lastChild);
-            document.querySelector(".loading-card").remove();
-            loading_card = document.querySelector(".loading-card")
-            // col.removeChild(col.lastChild);
-            loading_card.insertAdjacentHTML('beforebegin', data.content);
-            cards = document.querySelectorAll('.card-header');
-            card = cards[cards.length - 1].parentNode;
-            card.classList.remove("card-col-invisible");
-            card.classList.add("card-col-visible");
-          }
-        }
-        )
-
-      </script>
-      <% end %>
-
-
     </div>
   </div>
 </div>
@@ -170,12 +144,32 @@
   <%= hidden_field_tag :code_from, @code_from %>
   <%= hidden_field_tag :code_to, @code_to %>
   <%= hidden_field_tag :format, @format %>
+  </div>
+  <%= submit_tag "filtrer", class: "research-button filter" %>
+  <% end %>
 </div>
-<%= submit_tag "filtrer", class: "research-button filter" %>
+</div>
+
+<% content_for(:after_js) do %>
+<script>
+
+  App.cable.subscriptions.create(
+    { channel: 'WeekendsChannel', request_id: "<%= @request_id %>" },
+    { received: (data) => {
+      col = document.querySelector('#test');
+      // console.log(col.lastChild);
+      document.querySelector(".loading-card").remove();
+      loading_card = document.querySelector(".loading-card")
+      // col.removeChild(col.lastChild);
+      loading_card.insertAdjacentHTML('beforebegin', data.content);
+      cards = document.querySelectorAll('.card-header');
+      card = cards[cards.length - 1].parentNode;
+      card.classList.remove("card-col-invisible");
+      card.classList.add("card-col-visible");
+    }
+  }
+  )
+
+</script>
 <% end %>
-</div>
-
-
-</div>
-
 
