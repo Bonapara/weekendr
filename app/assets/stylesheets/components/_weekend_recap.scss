@@ -70,7 +70,7 @@
   top: 20px;
   display: inline-block;
   float: left;
-  width: 6%;
+  width: 5%;
   font-size: 14px;
   .time_line_date {
     margin-top: -20px;
@@ -78,7 +78,7 @@
     font-weight: bolder;
   }
   .time_line_month {
-    margin-left: 12vw;
+    margin-left: 2vw;
     margin-top: 5px;
     font-weight: bolder;
   }
@@ -92,5 +92,5 @@
 
 .time_line_li:hover {
   cursor: pointer;
-  color: #28e;
+  color: $medium-blue;
 }
