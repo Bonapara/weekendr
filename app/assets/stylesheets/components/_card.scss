@@ -1,3 +1,7 @@
+.selected-card {
+  box-shadow: 0px -5px $medium-blue;
+}
+
 .card-header{
   text-align: center;
   display: flex;
@@ -83,9 +87,10 @@
     flex: 0 0 20%;
     position: relative;
     transition: background-color 200ms linear;
-    background-color: $medium-blue;
+    background-color: $white;
+    border-top: 1px dotted $medium-blue;
     h1 {
-      color: $white;
+      color: $medium-blue;
       font-size: 25px;
       font-weight: bolder;
       margin-top: 10px;
@@ -136,7 +141,7 @@
   }
 
   .card-footer:hover {
-    background-color: $red;
+    background-color: $dark-gray;
     text-decoration: none;
     h1 {
       color: white;

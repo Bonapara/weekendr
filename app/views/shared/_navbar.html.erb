@@ -1,61 +1,81 @@
 <div class="navbar-wagon">
-  <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png", height: 50 %>
-  <% end %>
-
-  <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
-
-    <% if user_signed_in? %>
-
-      <!-- Links when logged in -->
-      <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-
-      <!-- Avatar with dropdown menu -->
-      <div class="navbar-wagon-item">
-        <div class="dropdown">
-          <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
-          <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-              <% end %>
-            </li>
-          </ul>
-        </div>
-      </div>
-    <% else %>
-      <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-
-      <%= link_to "Sign in with Facebook", omniauth_authorize_path(:user, :facebook) %>
-    <% end %>
+  <div class="search_bar_container">
+  <div class="icon">
+    <img src="http://www.gstatic.com/images/icons/material/system/2x/location_on_white_24dp.png" alt="">
+  </div>
+  <div class="search_bar_from">
+    <%= form_tag weekends_path, method: :get do %>
+    <%= text_field_tag :from,
+    params[:from],
+    class: "search-form-inline",
+      id: "search-from",
+      autocomplete: "off",
+      placeholder: "Départ"
+      %>
+    <%= hidden_field_tag 'code_from', '', id: "iataFrom" %>
+  </div>
+  <div class="icon">
+    <img src="http://www.gstatic.com/images/icons/material/system/2x/location_on_white_24dp.png" alt="">
+  </div>
+  <div class="search_bar_to">
+    <%= text_field_tag :to,
+    params[:to],
+    class: "search-form-inline",
+      id: "search-to",
+      autocomplete: "off",
+      placeholder: "Où allez-vous ?"
+      %>
+    <%= hidden_field_tag 'code_to', '', id: "iataTo" %>
+  </div>
+  <div class="icon">
+    <img src="http://www.gstatic.com/images/icons/material/system/2x/event_white_24dp.png" alt="">
+  </div>
+  <div class="search_options">
+    <div class="select_duration">
+    <%= select_tag 'format',
+    options_for_select([['2 jours', 2], ['3 jours', 3]],
+    {:class => 'format-button-option'} ),
+    {:class => 'format-button'}
+    %>
   </div>
 
-  <!-- Dropdown list appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
-      </ul>
-    </div>
+  <div class="icon">
+    <img src="http://www.gstatic.com/images/icons/material/system/2x/person_white_24dp.png" alt="">
+  </div>
+  <div class="select_people_num">
+    <%= select_tag 'pers',
+    options_for_select([['1 pers.', 1], ['2 pers.', 2]],
+    {:class => 'format-button-option'} ),
+    {:class => 'format-button'}
+    %>
+  </div>
+  </div>
+
+  <div class="research_button_container">
+    <%= submit_tag 'Rechercher', class: "research-button" %>
+    <ul id="results-from">
+    </ul>
+    <ul id="results-to">
+    </ul>
+    <% end %>
+  </div>
+</div>
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right">
+    <% if user_signed_in? %>
+      <div class="navbar-wagon-item">
+        <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/40x40" %>
+        <%= link_to bookmarks_path do %>
+          <%= image_tag avatar_url, class: "avatar", id: "navbar-wagon-menu" %>
+        <% end %>
+      </div>
+    <% else %>
+      <h2 id="connect_with">connect with</h2>
+      <%= link_to omniauth_authorize_path(:user, :facebook) do%>
+        <%= image_tag "http://elanajohnson.com/wp-content/uploads/2016/07/Facebook-1.png", class: "avatar", id: "navbar-wagon-menu" %>
+      <% end %>
+    <% end %>
   </div>
 </div>
 
