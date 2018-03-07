@@ -8,6 +8,7 @@ class WeekendsController < ApplicationController
     @format = params[:format]
     @code_from = params[:code_from]
     @code_to = params[:code_to]
+    @num_passenger = params[:pers].to_i
 
     # go day
     # button Go day
@@ -83,7 +84,9 @@ class WeekendsController < ApplicationController
       input_attributes[:go_hours_range]     = {from: @go_time_from, to: @go_time_to}        # Range heures retour
       input_attributes[:return_hours_range] = {from: @return_time_from,to: @return_time_to} # Range heures retour
       input_attributes[:city_from]          = @code_from                                    # From
-      input_attributes[:city_to]            = @code_to
+      input_attributes[:city_to]            = @code_to                                      # To
+      input_attributes[:num_passenger]      = @num_passenger                                # Number of passengers
+
     else
 
       @go_days = %w(Jeudi Vendredi Samedi)
@@ -123,14 +126,15 @@ class WeekendsController < ApplicationController
       input_attributes[:go_hours_range]     = {from: @go_time_from, to: @go_time_to}        # Range heures retour
       input_attributes[:return_hours_range] = {from: @return_time_from,to: @return_time_to} # Range heures retour
       input_attributes[:city_from]          = @code_from                                    # From
-      input_attributes[:city_to]            = @code_to
-                                            # To
+      input_attributes[:city_to]            = @code_to                                      # To
+      input_attributes[:num_passenger]      = @num_passenger                                # Number of passengers
+
     end
     # Request ID pour créer un channel par request
     @request_id = SecureRandom.base58
     WeekendJob.perform_later(input_attributes, @request_id)
-    puts "*"*200
-    puts "Setting @request_id to #{@request_id}"
+    # puts "*"*200
+    # puts "Setting @request_id to #{@request_id}"
 
     # Infos pour l'index
     response = Wknd::ApiResponse.new(input_attributes)

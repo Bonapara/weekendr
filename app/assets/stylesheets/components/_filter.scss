@@ -1,11 +1,13 @@
 .filter-container {
   position: absolute;
-  border-top: 1px solid $medium-gray;
+  border-bottom: 1px solid $medium-gray;
   left: 0px;
   right: 0px;
-  bottom: 0px;
+  top: 70px;
+  height: 70px;
+  background-color: $light-gray;
   .filter-form {
-    padding-top: 10px;
+    padding-top: -5px;
     display: flex;
     align-items: center;
     justify-content: space-around;

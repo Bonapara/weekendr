@@ -31,7 +31,7 @@
               <% end %>
             <!-- </div> -->
           </div>
-        <div class="card" data-from=<%= weekend[:go_flight][:dTime].strftime("%d/%m")%>>
+        <div class="card" data-from-card=<%= weekend[:go_flight][:dTime].strftime("%d/%m")%>>
           <div class="card-body">
             <div class="card-body-element">
               <div class="column-one">
@@ -69,7 +69,11 @@
             <div class="bpk-ticket__notch--right"></div>
             <%= link_to(weekend[:booking_link], class: "card-footer") do%>
             <div class="price">
-              <h1><%= weekend[:price] %> €</h1>
+              <% if num_passenger > 1 %>
+                <h1><%= weekend[:price]/num_passenger%> € /p</h1>
+              <% else %>
+                <h1><%= weekend[:price] %> €</h1>
+              <% end %>
             </div>
             <% end %>
           </div>
