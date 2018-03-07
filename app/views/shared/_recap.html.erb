@@ -1,0 +1,32 @@
+<div class="weekend_recap_container">
+  <div class="recap_from">
+    <h1><%= params[:from] ? params[:from].gsub(/,.*/, ',').chop : params[:code_from]%></h1>
+  </div>
+  <div class="time_line_container">
+    <ul class="time_line_ul">
+      <% month = "" %>
+      <% 12.times do %>
+
+        <% if month == "" || @go_date.month != month %>
+          <li class="time_line_li">
+            <div class="month_line"></div>
+            <p class="time_line_month"><%= @go_date.strftime("%B") %></p>
+            <% month = @go_date.month %>
+          </li>
+        <% end %>
+        <li class="time_line_li" data-from=<%= @go_date.strftime("%d/%m") %>>
+          <div class="point"></div>
+          <p class="time_line_date"><%= @go_date.strftime("%d") %></p>
+        </li>
+
+      <% @go_date = @go_date + 7 %>
+      <% end %>
+        <li class="time_line_li">
+          <div class="month_line"></div>
+        </li>
+    </ul>
+  </div>
+  <div class="recap_to">
+    <h1><%= params[:to] ? params[:to].gsub(/,.*/, ',').chop : params[:code_to]%></h1>
+  </div>
+</div>

@@ -84,14 +84,6 @@ class WeekendsController < ApplicationController
       input_attributes[:return_hours_range] = {from: @return_time_from,to: @return_time_to} # Range heures retour
       input_attributes[:city_from]          = @code_from                                    # From
       input_attributes[:city_to]            = @code_to
-                                            # To
-
-
-      # response = Wknd::ApiResponse.new(input_attributes)
-
-      # @results = response.wknd_instances_creation
-      # render :index
-
     else
 
       @go_days = %w(Jeudi Vendredi Samedi)
@@ -134,26 +126,14 @@ class WeekendsController < ApplicationController
       input_attributes[:city_to]            = @code_to
                                             # To
     end
+    # Request ID pour créer un channel par request
     @request_id = SecureRandom.base58
     WeekendJob.perform_later(input_attributes, @request_id)
-  end
 
-  def show
-  end
-
-  def new
-  end
-
-  def create
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
+    # Infos pour l'index
+    response = Wknd::ApiResponse.new(input_attributes)
+    @go_date = response.go_date
+    @return_date = response.return_date
   end
 
   private

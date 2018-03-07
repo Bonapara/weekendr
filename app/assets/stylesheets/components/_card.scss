@@ -20,10 +20,18 @@
     }
 }
 
+
 .card-header {
   text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   flex: 0 0 20%;
   width: 100%;
+  .selected_card {
+    background-color: $red !important;
+    border: 10px solid $red;
+  }
 }
 
 .card-title {
@@ -106,6 +114,7 @@
     text-align: center;
     flex: 0 0 20%;
     position: relative;
+    transition: background-color 200ms linear;
     background-color: $medium-blue;
     h1 {
       color: $white;
@@ -170,6 +179,7 @@
 
 .lower-price {
   // border: 3px solid #04DEAD;
+  transition: background-color 200ms linear;
   background-color: $green-win !important;
 }
 .lower-price:hover {
@@ -177,3 +187,14 @@
     color: white !important;
   }
 }
+
+
+.bookmark-trash {
+  color: blue;
+}
+
+// background-color: #04DEAD;
+//   h1 {
+//     color: #17B978;
+//   }
+
