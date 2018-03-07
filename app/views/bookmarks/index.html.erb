@@ -5,91 +5,40 @@
   <!-- <p><%#= bookmark.weekend.id %></p> -->
 <%# end %>
 <!-- filtre-->
-<div class="filter-container">
+<!-- <div class="filter-container">
   <div class="filter-form">
-    <div class="row">
-      <%= form_tag weekends_path, method: :get do%>
-      <div class="environment col-sm-12 col-md-6">
-        <div class="day-dropdown">
-          <%= select_tag 'go_day', options_for_select(@go_days, params[:go_day]) ,{:class => 'format-button-filter'}%>
-        </div>
-        <div id="time-range">
-          <p>Time range: <span class="slider-time" data-go-time-from-minutes="<%= @go_time_from_minutes %>">
-            <% if params[:go_time_from] %>
-            <%= params[:go_time_from] %>
-            <% else %>
-            6:00 PM
-            <% end %>
-          </span> -
-          <span  class="slider-time2" data-go-time-to-minutes="<%= @go_time_to_minutes %>">
-            <% if params[:go_time_to] %>
-            <%= params[:go_time_to] %>
-            <% else %>
-            11:59 PM
-            <% end %>
-          </span>
-        </p>
-        <div class="sliders_step1">
-          <div id="slider-range"></div>
-        </div>
-      </div>
-      <%= hidden_field_tag 'go_time_from', '', id: "go_time_from"%>
-      <%= hidden_field_tag 'go_time_to', '', id: "go_time_to"%>
-
-    </div>
-    <div class="environment col-sm-12 col-md-6">
-      <div class="day-dropdown">
-        <%= select_tag 'return_day', options_for_select(@return_days, params[:return_day]) ,{:class => 'format-button-filter'}%>
-      </div>
-      <div id="time-range">
-        <p>Time range: <span class="return-slider-time" data-return-time-from-minutes="<%= @return_time_from_minutes %>">
-          <% if params[:return_time_from] %>
-          <%= params[:return_time_from] %>
-          <% else %>
-          6:00 PM
-          <% end %>
-        </span> -
-        <span  class="return-slider-time2" data-return-time-to-minutes="<%= @return_time_to_minutes %>">
-          <% if params[:return_time_to] %>
-          <%= params[:return_time_to] %>
-          <% else %>
-          11:59 PM
-          <% end %>
-        </span>
-      </p>
-      <div class="sliders_step1">
-        <div id="return-slider-range"></div>
-      </div>
-    </div>
-    <%= hidden_field_tag 'return_time_from', '', id: "return_time_from"%>
-    <%= hidden_field_tag 'return_time_to', '', id: "return_time_to"%>
+    <div class="row"> -->
+      <%= form_tag bookmarks_path, method: :get do %>
+        <%= select_tag 'sort_by', options_for_select(@sorted_options, params[:sort_by]),
+        {:class => 'format-button-filter'} %>
+        <%= submit_tag "Trier", class: "research-button filter" %>
+      <% end %>
+    <!-- </div>
   </div>
-  <!--  Sauvegarde des params des villes de depart et d'arrivee -->
-  <%= hidden_field_tag :code_from, @code_from %>
-  <%= hidden_field_tag :code_to, @code_to %>
-  <%= hidden_field_tag :format, @format %>
-  </div>
-  <%= submit_tag "filtrer", class: "research-button filter" %>
-  <% end %>
-</div>
-</div>
+</div> -->
 
 <div class="weekends-wrapper">
   <div class="weekend-container">
     <div class="row">
-      <% @wish_list_weekends.each do |bookmark| %>
+      <% @wish_list_sorted.each do |bookmark| %>
         <%#= render partial: "shared/weekendcard", locals: { weekend: weekend} %>
         <%#= render "folder/file" %>
         <div class="col-xs-6 col-sm-3 col-md-2">
           <div class="card">
             <div class="card-header">
               <h1 class="card-title"><%= Time.parse(bookmark.weekend[:go_flight]["dTime"]).strftime("%d/%m") %> - <%= Time.parse(bookmark.weekend[:return_flight]["dTime"]).strftime("%d/%m") %></h1>
-              <%= link_to bookmark_path(bookmark), method: :delete, data: { confirm: 'Supprimer ce weekend ?'} do %>
+
+            </div>
+             <div class="card-header">
+              <h1 class="card-title"><%= Time.parse(bookmark.weekend[:go_flight]["dTime"]).strftime("%A") %> - <%= Time.parse(bookmark.weekend[:return_flight]["dTime"]).strftime("%A") %></h1>
+
+            </div>
+            <div class="card-body" style="align-items: center">
+               <%= link_to bookmark_path(bookmark), method: :delete, data: { confirm: 'Supprimer ce weekend ?'} do %>
                 <i class="far fa-trash-alt bookmark-trash"></i>
               <% end %>
-            </div>
-            <div class="card-body">
-              <div class="card-body-element">
+
+            <!--   <div class="card-body-element">
                 <div class="column-one">
                   <p><%= bookmark.weekend[:go_flight]["airport_from"] %></p>
                   <p><%= Time.parse(bookmark.weekend[:go_flight]["dTime"]).strftime("%H:%M") %></p>
@@ -102,10 +51,11 @@
                   <p><%= bookmark.weekend[:go_flight]["airport_to"] %></p>
                   <p><%= Time.parse(bookmark.weekend[:go_flight]["aTime"]).strftime("%H:%M") %></p>
                 </div>
-              </div>
+              </div> -->
 
               <div class="card-body-element">
-                <div class="column-one">
+                <%= bookmark.weekend[:city_to] %>
+                <!-- <div class="column-one">
                   <p><%= bookmark.weekend[:return_flight]["airport_from"] %></p>
                   <p><%= Time.parse(bookmark.weekend[:return_flight]["dTime"]).strftime("%H:%M") %></p>
                 </div>
@@ -116,7 +66,12 @@
                 <div class="column-three">
                   <p><%= bookmark.weekend[:return_flight]["airport_to"] %></p>
                   <p><%= Time.parse(bookmark.weekend[:return_flight]["aTime"]).strftime("%H:%M") %></p>
-                </div>
+                </div> -->
+                  <%= simple_form_for [bookmark, ListUser.new], remote: true do |f| %>
+                  <%#= f.input :user %>
+                  <%#= f.hidden_field :country_from, value: weekend[:country_from] %>
+                  <%= f.submit "+", class: 'fas fa-plus-circle' %>
+                <% end %>
               </div>
             </div>
             <div class="bpk-ticket__notch">
