@@ -1,6 +1,7 @@
 function lowerPriceObserver() {
   // Select the node that will be observed for mutations
-  var targetNode = document.getElementById('test');
+  var targetNode = document.getElementById('weekends-container-row');
+  console.log(targetNode);
 
   // Options for the observer (which mutations to observe)
   var config = { childList: true };

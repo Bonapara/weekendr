@@ -13,6 +13,6 @@ if (document.querySelector(".slider-time")) {
  slider();
 }
 
-if (document.getElementById("test")) {
+if (document.getElementById("weekends-container-row")) {
  lowerPriceObserver();
 }
