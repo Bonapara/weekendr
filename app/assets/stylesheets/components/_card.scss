@@ -194,6 +194,20 @@
   }
 }
 
+.higher-price {
+  // border: 3px solid #04DEAD;
+  transition: background-color 200ms linear;
+  background-color: red !important;
+}
+
+.higher-price:hover {
+  h1 {
+    color: white !important;
+  }
+}
+
+
+
 .bookmark-trash {
   color: blue;
 }

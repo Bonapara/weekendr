@@ -1,4 +1,5 @@
-function lowerPriceObserver() {
+
+function higherPriceObserver() {
   // Select the node that will be observed for mutations
   var targetNode = document.getElementById('weekends-container-row');
   console.log(targetNode);
@@ -10,7 +11,7 @@ function lowerPriceObserver() {
   var callback = function(mutationsList) {
     for(var mutation of mutationsList) {
       if (mutation.type == 'childList') {
-        lowerPrice();
+        higherPrice();
       }
     }
   };
@@ -25,8 +26,7 @@ function lowerPriceObserver() {
   // observer.disconnect();
 }
 
-
-function lowerPrice() {
+function higherPrice() {
   const prices = document.querySelectorAll('.price');
   const array = [];
   prices.forEach(function(element) {
@@ -36,14 +36,12 @@ function lowerPrice() {
   array.sort(function (a, b) {  return a - b;  });
     console.log(array);
   prices.forEach(function(element) {
-    if (parseInt(element.innerText) == array[0]) {
-      element.parentNode.classList.add("lower-price");
+    if (parseInt(element.innerText) == array[11]) {
+      element.parentNode.classList.add("higher-price");
     } else {
-      element.parentNode.classList.remove("lower-price");
+      element.parentNode.classList.remove("higher-price");
     }
   });
 }
 
-
-export { lowerPriceObserver };
-
+export { higherPriceObserver };
