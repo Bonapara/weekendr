@@ -6,7 +6,7 @@
   </div>
   <div class="search_bar_container">
     <div class="icon first-icon">
-      <img src="http://www.gstatic.com/images/icons/material/system/2x/location_on_white_24dp.png" alt="">
+      <i class="fas fa-map-marker-alt"></i>
     </div>
     <div class="search_bar_from">
       <%= form_tag weekends_path, method: :get do %>
@@ -20,7 +20,7 @@
       <%= hidden_field_tag 'code_from', '', id: "iataFrom" %>
     </div>
     <div class="icon">
-      <img src="http://www.gstatic.com/images/icons/material/system/2x/location_on_white_24dp.png" alt="">
+      <i class="fas fa-map-marker-alt"></i>
     </div>
     <div class="search_bar_to">
       <%= text_field_tag :to,
@@ -33,7 +33,7 @@
       <%= hidden_field_tag 'code_to', '', id: "iataTo" %>
     </div>
     <div class="icon">
-      <img src="http://www.gstatic.com/images/icons/material/system/2x/event_white_24dp.png" alt="">
+      <i class="fas fa-calendar-minus"></i>
     </div>
     <div class="search_options">
       <%= select_tag 'format',
@@ -43,7 +43,7 @@
       %>
     </div>
     <div class="icon">
-      <img src="http://www.gstatic.com/images/icons/material/system/2x/person_white_24dp.png" alt="">
+      <i class="fas fa-user-plus"></i>
     </div>
      <div class="search_options">
     <div class="select_people_num">
