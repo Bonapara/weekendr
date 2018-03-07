@@ -1,4 +1,4 @@
-function lowerPriceObserver() {
+function heartObserver() {
   // Select the node that will be observed for mutations
   var targetNode = document.getElementById('weekends-container-row');
   console.log(targetNode);
@@ -10,7 +10,7 @@ function lowerPriceObserver() {
   var callback = function(mutationsList) {
     for(var mutation of mutationsList) {
       if (mutation.type == 'childList') {
-        lowerPrice();
+        heartLightning();
       }
     }
   };
@@ -25,21 +25,15 @@ function lowerPriceObserver() {
   // observer.disconnect();
 }
 
-function lowerPrice() {
-  const prices = document.querySelectorAll('.price');
-  const array = [];
-  prices.forEach(function(element) {
-    const listPrices = element.innerText;
-    array.push(parseInt(listPrices));
-  });
-  array.sort(function (a, b) {  return a - b;  });
-  prices.forEach(function(element) {
-    if (parseInt(element.innerText) == array[0]) {
-      element.parentNode.classList.add("lower-price");
-    } else {
-      element.parentNode.classList.remove("lower-price");
-    }
+function heartLightning() {
+  const keurs = document.querySelectorAll('.fa-heart');
+  keurs.forEach(function(keur) {
+    keur.addEventListener('click', () => {
+      keur.classList.add('fas');
+      keur.classList.remove('far');
+      keur.classList.add('fa-heart-selected');
+    });
   });
 }
 
-export { lowerPriceObserver };
+export { heartObserver };

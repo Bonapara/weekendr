@@ -1,7 +1,7 @@
 class WeekendJob < ApplicationJob
   queue_as :default
 
-  def perform ( attributes = {}, request_id )
+  def perform ( attributes = {}, request_id, user_id )
     response = Wknd::ApiResponse.new(attributes)
     # On initialise les dates de départ et de retour
     go_date = response.go_date
@@ -13,7 +13,7 @@ class WeekendJob < ApplicationJob
     # On appelle l'API 12 fois
     12.times do
       @weekend = response.call_date(go_date, return_date)
-      weekend_card = ApplicationController.renderer.render(partial: "shared/weekendcard", locals: { weekend: @weekend, num_passenger: @num_passenger})
+      weekend_card = ApplicationController.renderer.render(partial: "shared/weekendcard", locals: { weekend: @weekend, num_passenger: @num_passenger, user_id: user_id})
       # On envoie la weekend card sur le channel associé à la request
       ActionCable.server.broadcast("weekends_#{request_id}", { content: weekend_card } )
       # On passe au prochain weekend
