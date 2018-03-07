@@ -1,74 +1,84 @@
 #time-range p {
     font-size:14px;
 }
+
+.sliders_step1 {
+}
+
+// Barre de slide
 .ui-slider-horizontal {
-    height: 22px;
-    background: #D7D7D7;
-    border: 1px solid #BABABA;
-    margin: 8px 0;
-    border-radius: 2px;
+  position: absolute;
+  height: 4px;
+  background: $medium-gray;
+  // border: 1px solid $medium-gray;
+  margin: 8px 0px;
+  border-radius: 2px;
+  // top: 8px;
 }
 .ui-slider {
     position: relative;
     text-align: left;
 }
 .ui-slider-horizontal .ui-slider-range {
-    top: -1px;
+    top: 0px;
     height: 22px;
 }
+
+// Barre de slide entre les duex boutons
 .ui-slider .ui-slider-range {
     position: absolute;
     z-index: 1;
-    height: 22px;
+    height: 4px;
     font-size: .7em;
     display: block;
     border: 1px solid $dark-blue;
-    border-radius: 2px;
+    border-radius: 0px;
     background: $medium-blue;
 }
 .ui-slider .ui-slider-handle {
     border-radius: 50%;
-    border: 2px solid $dark-blue !important;
+    border: 1px solid $medium-gray !important;
     background: #ffffff !important;
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
 }
 .ui-slider .ui-slider-handle {
     position: absolute;
     z-index: 2;
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     cursor: default;
     border: none;
     cursor: pointer;
 }
-.ui-slider .ui-slider-handle:after {
-    content:"";
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    top: 50%;
-    margin-top: -4px;
-    left: 50%;
-    margin-left: -4px;
-    background: $dark-blue;
-}
+// .ui-slider .ui-slider-handle:after {
+//     content:"";
+//     position: absolute;
+//     width: 8px;
+//     height: 8px;
+//     border-radius: 50%;
+//     top: 50%;
+//     margin-top: -4px;
+//     left: 50%;
+//     margin-left: -4px;
+//     background: $dark-blue;
+// }
 .ui-slider-horizontal .ui-slider-handle {
-    top: -0.05em;
+    top: -8px;
     margin-left: -.6em;
 }
 .ui-slider a:focus {
     outline:none;
 }
 
-#slider-range {
+#slider-range, #return-slider-range {
   // largeur du slider
-  width: 80%;
-  margin: 0 auto;
+  width: 150px;
+  margin: 0px;
 }
 #time-range {
-  width: 80%;;
+  width: 80%;
+  color: $dark-gray;
 }
 
 .ui-state-focus {
