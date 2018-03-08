@@ -1,22 +1,61 @@
 /* Main navbar */
+
+.navbar-logo{
+  color: $white;
+  font-family: "Lato";
+  font-size: 24px;
+  letter-spacing: 1px;
+  font-weight: 900;
+  margin-top: 0px;
+  padding: 22px 0px;
+  position: absolute;
+  left: 25px;
+  .navbar_logo_r_color {
+    color: $white;
+  }
+}
+
+.nav_search_bar_container {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: #fdcb6e;
   transition: all 0.3s ease;
   height: $navbar_height;
   padding: 0px 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  // display: flex;
+  // align-items: center;
+  // justify-content: space-between;
 }
 
 .fa-arrow-right {
-  color: $dark-gray;
+  color: $white;
+}
+
+.research-button-navbar {
+      background-color: $button;
+      border-bottom-left-radius:0px ;
+      border-bottom-right-radius: 6px ;
+      border-top-left-radius:0px ;
+      border-top-right-radius: 6px ;
+      height: 53px ;
+      width: 53px ;
+      font-size: 19px;
+      border: 2px solid $white;
+      background-color: #button;
+    .research-button:hover {
+      background-color: rgb(255, 189, 66);
+    }
 }
 
 #connect_with {
   margin-right: 10px;
-  margin-bottom: 4px;
+  padding: 15px 0;
+  margin-top: 0px;
   font-size: 16px;
   color: #3C5B97;
 }
@@ -30,6 +69,9 @@
 
 /* Right section */
 .navbar-wagon-right {
+  position: absolute;
+  top: 12px;
+  right: 25px;
   display: flex;
   align-items: center;
   justify-content: space-between;
