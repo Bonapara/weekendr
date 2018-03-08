@@ -71,10 +71,9 @@
   justify-content: space-around;
   flex-direction: column;
   border-radius: $border-radius-large;
-  height: 180px;
-  max-width: 150px;
-  margin: 0px auto 15px auto !important;
+  margin: 0px auto 15px auto;
   background-color: #ffffff;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.07), 0 1px 0px 0 rgba(0, 0, 0, 0.03);
 
   .card-body {
     display: flex;
@@ -87,7 +86,7 @@
       justify-content: space-between;
       align-items: center;
       font-size: 15px;
-      padding: 10px 0;
+      padding: 8px 0;
       p {
         margin-bottom: 0;
       }
@@ -135,11 +134,10 @@
     transition: background-color 200ms linear;
     background-color: $white;
     .price h1 {
-      color: $medium-blue;
+      color: $dark-gray;
       font-size: 25px;
       font-weight: bolder;
-      margin-top: 10px;
-      height: 50px;
+      padding: 10px 0;
       margin-left: auto;
       margin-right: auto;
     }
@@ -155,10 +153,10 @@
   .bpk-ticket__notch--left {
     position: absolute;
     left: -1px;
-    top: 127px;
+    top: 145px;
     z-index: 1;
-    width: 6px;
-    height: 10px;
+    width: 7px;
+    height: 12px;
     box-sizing: border-box;
     background-color: #F4F4F4;
     border: 0px solid #ffffff;
@@ -172,10 +170,10 @@
   .bpk-ticket__notch--right {
     position: absolute;
     right: 0px;
-    top: 127px;
+    top: 145px;
     z-index: 1;
-    width: 6px;
-    height: 10px;
+    width: 7px;
+    height: 12px;
     box-sizing: border-box;
     background-color: #F4F4F4;
     border: 0px solid #ffffff;
@@ -190,44 +188,81 @@
     background-color: $white;
     text-decoration: none;
     h1 {
-      color: #04DEAD;
+      color: $green;
     }
   }
 
 }
 
 .lower-price {
-  // border: 3px solid #04DEAD;
+  // border: 3px solid $green;
   transition: background-color 200ms linear;
-  background-color: $green-win !important;
+  background-color: $green !important;
+  h1 {
+    color: $white !important;
+  }
 }
 
 .lower-price:hover {
   h1 {
-    color: white !important;
+    color: $dark-gray !important;
   }
 }
 
+
+
 .higher-price {
-  // border: 3px solid #04DEAD;
-  transition: background-color 200ms linear;
-  background-color: red !important;
+  // border: 3px solid $green;
+  background-color: white !important;
+  h1 {
+    color: $red !important;
+  }
 }
 
 .higher-price:hover {
   h1 {
-    color: white !important;
+    color: $dark-gray !important;
   }
 }
 
+.lowprice {
+  background-color: white !important;
+  h1 {
+    color: $green !important;
+  }
+}
 
+.lowprice:hover {
+  h1 {
+    color: $dark-gray !important;
+  }
+}
+
+.mediumprice {
+  background-color: white !important;
+  h1 {
+    color: $yellow !important;
+  }
+}
+
+.mediumprice:hover {
+  h1 {
+    color: $dark-gray !important;
+  }
+}
+
+.highprice {
+  background-color: white !important;
+  h1 {
+    color: $red !important;
+  }
+}
+.highprice:hover {
+  h1 {
+    color: $dark-gray !important;
+  }
+}
 
 .bookmark-trash {
   color: blue;
 }
-
-// background-color: #04DEAD;
-//   h1 {
-//     color: #17B978;
-//   }
-

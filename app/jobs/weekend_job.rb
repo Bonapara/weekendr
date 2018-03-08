@@ -13,7 +13,12 @@ class WeekendJob < ApplicationJob
     # On appelle l'API 12 fois
     12.times do
       @weekend = response.call_date(go_date, return_date)
-      weekend_card = ApplicationController.renderer.render(partial: "shared/weekendcard", locals: { weekend: @weekend, num_passenger: @num_passenger, user_id: user_id})
+      # Si elle repond, on envoie la card sinon on envoie la card no_results
+      if @weekend == {}
+        weekend_card = ApplicationController.renderer.render(partial: "shared/no_results_card")
+      else
+        weekend_card = ApplicationController.renderer.render(partial: "shared/weekendcard", locals: { weekend: @weekend, num_passenger: @num_passenger, user_id: user_id})
+      end
       # On envoie la weekend card sur le channel associé à la request
       ActionCable.server.broadcast("weekends_#{request_id}", { content: weekend_card } )
       # On passe au prochain weekend

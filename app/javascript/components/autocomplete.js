@@ -10,10 +10,17 @@ const iataTo = document.querySelector('#iataTo');
 if (document.querySelector("#results-from") !== null) {
   // On ecoute le clic sur la liste de resultats FROM
   resultsFrom.addEventListener('click', (event) => {
+    let e;
+    // Condition pour que l'event soit toujours le même mm si le user clique partout comme un teubé
+    if (event.target.parentNode.id == "results-from") {
+      e = event.target;
+    } else {
+      e = event.target.parentNode;
+    };
     // On renseigne la valeur dans le champ du formulaire
-    inputFrom.value = event.target.parentNode.getAttribute('data-display');
+    inputFrom.value = e.getAttribute('data-display');
     // On insere le code IATA dans un champ cache du formulaire pour le rendre disponible dans les params
-    iataFrom.value = event.target.parentNode.getAttribute('data-iota');
+    iataFrom.value = e.getAttribute('data-iota');
     // On efface la liste de resultats
     resultsFrom.innerHTML = '';
     // resultsFrom.classList.remove("visible");
@@ -21,8 +28,14 @@ if (document.querySelector("#results-from") !== null) {
 
   // On ecoute le clic sur la liste de resultats TO
   resultsTo.addEventListener('click', (event) => {
-    inputTo.value = event.target.parentNode.getAttribute('data-display');
-    iataTo.value = event.target.parentNode.getAttribute('data-iota');
+    let e;
+    if (event.target.parentNode.id == "results-to") {
+      e = event.target;
+    } else {
+      e = event.target.parentNode;
+    };
+    inputTo.value = e.getAttribute('data-display');
+    iataTo.value = e.getAttribute('data-iota');
     resultsTo.innerHTML = '';
     // resultsTo.classList.remove("visible");
   });

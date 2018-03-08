@@ -75,19 +75,19 @@
 }
 
 .research-button.filter:focus {
-  color: $medium-blue;
+  color: $dark-gray;
 }
 
 .research-button-filter {
-  color: $medium-blue;
-  background-color: $light-gray;
+  color: $yellow;
+  background-color: $white;
   border-bottom-left-radius: 2px ;
   border-bottom-right-radius: 2px ;
   border-top-left-radius: 2px ;
   border-top-right-radius: 2px ;
   height: 30px ;
   width: 100px ;
-  border: 1px solid #1d375c;
+  border: 1px solid $yellow;
   font-size: 14px;
 }
 
