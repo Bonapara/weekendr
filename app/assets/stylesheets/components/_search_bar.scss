@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 10px;
   border-radius: 2px;
   box-shadow: 7px 9px 31px -13px rgba(0,0,0,0.75);
 
@@ -78,9 +79,8 @@
     }
 
 
-
     .format-button:focus {
-      outline:0;
+      outline: 0;
     }
   }
 
@@ -100,9 +100,11 @@
       width: 154px ;
       font-size: 19px;
     }
+    .research-button:hover {
+      background-color: rgb(255, 189, 66);
+    }
   }
 }
-
 
 .icon {
   background-color: $medium-blue;
@@ -126,9 +128,10 @@
   border-bottom-left-radius: 6px;
 }
 
+
 .fa-angle-down {
   color: $dark-gray;
-   height: 53px ;
+  height: 53px;
   padding: 14px;
   background-color: $medium-blue;
 }
