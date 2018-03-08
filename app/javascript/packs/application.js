@@ -18,4 +18,5 @@ if (document.getElementById("banner-typed-text")) {
 
 if (document.getElementById("weekends-container-row")) {
  allPriceObserver();
+ heartObserver();
 }
