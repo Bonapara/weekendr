@@ -36,7 +36,7 @@ const slider = () => {
 
 
 
-          $('.slider-time').html(hours1 + ':' + minutes1);
+          $('.slider-time').html("<b>" + hours1 + ':' + minutes1 + "</b>");
 
           var hours2 = Math.floor(ui.values[1] / 60);
           var minutes2 = ui.values[1] - (hours2 * 60);
@@ -60,7 +60,7 @@ const slider = () => {
               minutes2 = minutes2 + " AM";
           }
 
-          $('.slider-time2').html(hours2 + ':' + minutes2);
+          $('.slider-time2').html("<b>" + hours2 + ':' + minutes2 + "</b>");
       }
   });
 
@@ -96,7 +96,7 @@ const slider = () => {
 
 
 
-          $('.return-slider-time').html(hours1 + ':' + minutes1);
+          $('.return-slider-time').html("<b>" + hours1 + ':' + minutes1 + "</b>");
 
           var hours2 = Math.floor(ui.values[1] / 60);
           var minutes2 = ui.values[1] - (hours2 * 60);
@@ -120,7 +120,7 @@ const slider = () => {
               minutes2 = minutes2 + " AM";
           }
 
-          $('.return-slider-time2').html(hours2 + ':' + minutes2);
+          $('.return-slider-time2').html("<b>" + hours2 + ':' + minutes2 + "</b>");
       }
   });
 }
@@ -130,7 +130,7 @@ const slider = () => {
   const return_time_fr = document.querySelector('.return-slider-time');
   const return_time_t = document.querySelector('.return-slider-time2');
 
-  const filter_button = document.querySelector('.research-button');
+  const filter_button = document.querySelector('.research-button-filter');
   const go_time_from = document.getElementById('go_time_from');
   const go_time_to = document.getElementById('go_time_to');
   const return_time_from = document.getElementById('return_time_from');
@@ -141,7 +141,7 @@ const slider = () => {
   // const go_d = document.querySelector('.go_d');
   // console.log(go_day);
   // csonsole.log(go_d);
-
+if (filter_button) {
   filter_button.addEventListener("click", function(e) {
     e.preventDefault;
     go_time_from.value = go_time_fr.innerText;
@@ -150,5 +150,6 @@ const slider = () => {
     return_time_to.value = return_time_t.innerText;
 
    });
+};
 
 export { slider };
