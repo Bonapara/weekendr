@@ -5,6 +5,8 @@ class WeekendsController < ApplicationController
   def index
     @go_days = %w(Vendredi Samedi)
     @return_days = %w(Dimanche Lundi)
+    @formats = ["2 jours","3 jours"]
+    @passengers = ["1 pers.", "2 pers.", "3 pers.", "4 pers.", "5 pers."]
     @format = params[:format]
     @code_from = params[:code_from]
     @code_to = params[:code_to]
@@ -43,8 +45,8 @@ class WeekendsController < ApplicationController
       # requête URL
       @go_time_from = Time.strptime(params[:go_time_from], "%I:%M %p").strftime("%H:%M")
     else
-      @go_time_from_minutes = 1080
-      @go_time_from = "18%3A00"
+      @go_time_from_minutes = 1020
+      @go_time_from = "17%3A00"
     end
     # to
     if params[:go_time_to]
@@ -61,8 +63,8 @@ class WeekendsController < ApplicationController
       @return_time_from_minutes = (Time.strptime(params[:return_time_from], "%I:%M %p").hour * 60)
       @return_time_from = Time.strptime(params[:return_time_from], "%I:%M %p").strftime("%H:%M")
     else
-      @return_time_from_minutes = 1080
-      @return_time_from = "18%3A00"
+      @return_time_from_minutes = 1020
+      @return_time_from = "17%3A00"
     end
     # to
     if params[:return_time_to]
@@ -76,7 +78,7 @@ class WeekendsController < ApplicationController
 
 
 
-    if params[:format] == "2"
+    if params[:format] == "2 jours"
     # Renvoi vers initialize de api_response.rb
       input_attributes = {}
       input_attributes[:go_day]             = @go_day                                       # Jour aller
