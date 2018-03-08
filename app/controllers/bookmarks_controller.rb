@@ -7,9 +7,9 @@ class BookmarksController < ApplicationController
     if params[:sort_by] == "prix"
       @wish_list_sorted = wish_list_weekends.sort_by {|bookmark| bookmark.weekend["price"] }
     elsif params[:sort_by] == "destination"
-      @wish_list_sorted = wish_list_weekends.sort_by {|bookmark| bookmark.weekend["city_to"].downcase}
+      @wish_list_sorted = wish_list_weekends.sort_by {|bookmark| [bookmark.weekend["city_to"].downcase,bookmark.weekend[:go_flight]["dTime"]]}
     else
-      @wish_list_sorted = wish_list_weekends.sort_by {|bookmark| Time.parse(bookmark.weekend[:go_flight]["dTime"]).strftime("%m")}
+      @wish_list_sorted = wish_list_weekends.sort_by {|bookmark| bookmark.weekend[:go_flight]["dTime"]}
     end
 
     # @bookmarks = Bookmark.all
