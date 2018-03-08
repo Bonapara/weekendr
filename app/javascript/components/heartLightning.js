@@ -10,7 +10,6 @@ function heartObserver() {
   var callback = function(mutationsList) {
     for(var mutation of mutationsList) {
       if (mutation.type == 'childList') {
-        debugger;
         heartLightning();
       }
     }
