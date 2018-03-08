@@ -1,0 +1,23 @@
+<div class="navbar-wishlist">
+  <!-- Left Logo -->
+  <h1 class="navbar-logo">Weekend<span class="navbar_logo_r_color">R</span></h1>
+  <div class="search_bar_container nav_search_bar_container">
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right">
+    <% if user_signed_in? %>
+      <div class="navbar-wagon-item">
+        <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/40x40" %>
+        <%= link_to bookmarks_path do %>
+          <%= image_tag avatar_url, class: "avatar", id: "navbar-wagon-menu" %>
+        <% end %>
+      </div>
+    <% else %>
+      <h2 id="connect_with">connect with</h2>
+      <%= link_to omniauth_authorize_path(:user, :facebook) do%>
+        <%= image_tag "http://elanajohnson.com/wp-content/uploads/2016/07/Facebook-1.png", class: "avatar", id: "navbar-wagon-menu" %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+</div>
+

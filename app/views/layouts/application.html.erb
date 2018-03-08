@@ -32,6 +32,9 @@
     <% if controller_name == "weekends"%>
       <%= render 'shared/navbar' %>
     <% end %>
+    <% if controller_name == "bookmarks"%>
+      <%= render 'shared/wishlist_navbar' %>
+    <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
