@@ -207,9 +207,11 @@
   }
 }
 
+
+
 .higher-price {
   // border: 3px solid #04DEAD;
-  transition: background-color 200ms linear;
+  background-color: white !important;
   h1 {
     color: $red !important;
   }
@@ -221,39 +223,41 @@
   }
 }
 
-.other-lowprice {
-  transition: background-color 200ms linear;
+
+
+.lowprice {
+  background-color: white !important;
   h1 {
-    color: $green-win !important;
+    color: green !important;
   }
 }
 
-.other-lowprice:hover {
-  h1 {
-    color: white !important;
-  }
-}
-
-.other-mediumprice {
-  transition: background-color 200ms linear;
-  h1 {
-    color: $orange !important;
-  }
-}
-
-.other-mediumprice {
+.lowprice:hover {
   h1 {
     color: white !important;
   }
 }
 
-.other-highprice {
-  transition: background-color 200ms linear;
+.mediumprice {
+  background-color: white !important;
+  h1 {
+    color: orange !important;
+  }
+}
+
+.mediumprice:hover {
+  h1 {
+    color: white !important;
+  }
+}
+
+.highprice {
+  background-color: white !important;
   h1 {
     color: $red !important;
   }
 }
-.other-highprice:hover {
+.highprice:hover {
   h1 {
     color: white !important;
   }

@@ -1,4 +1,4 @@
-function otherPriceObserver() {
+function allPriceObserver() {
   // Select the node that will be observed for mutations
   var targetNode = document.getElementById('weekends-container-row');
   console.log(targetNode);
@@ -10,7 +10,7 @@ function otherPriceObserver() {
   var callback = function(mutationsList) {
     for(var mutation of mutationsList) {
       if (mutation.type == 'childList') {
-        otherPrice();
+        allPrice();
       }
     }
   };
@@ -26,7 +26,7 @@ function otherPriceObserver() {
 }
 
 
-function otherPrice() {
+function allPrice() {
   const prices = document.querySelectorAll('.price');
   const array = [];
   prices.forEach(function(element) {
@@ -36,35 +36,41 @@ function otherPrice() {
   array.sort(function (a, b) {  return a - b;  });
   prices.forEach(function(element) {
     switch (parseInt(element.innerText)) {
+    case array[0]:
+        element.parentNode.classList.add("lower-price");
+        break;
     case array[1]:
-        element.parentNode.classList.add("other-lowprice");
+        element.parentNode.classList.add("lowprice");
         break;
     case array[2]:
-        element.parentNode.classList.add("other-lowprice");
+        element.parentNode.classList.add("lowprice");
         break;
     case array[3]:
-        element.parentNode.classList.add("other-mediumprice");
+        element.parentNode.classList.add("mediumprice");
         break;
     case array[4]:
-        element.parentNode.classList.add("other-mediumprice");
+        element.parentNode.classList.add("mediumprice");
         break;
     case array[5]:
-        element.parentNode.classList.add("other-mediumprice");
+        element.parentNode.classList.add("mediumprice");
         break;
     case array[6]:
-        element.parentNode.classList.add("other-mediumprice");
+        element.parentNode.classList.add("mediumprice");
         break;
     case array[7]:
-        element.parentNode.classList.add("other-mediumprice");
+        element.parentNode.classList.add("mediumprice");
         break;
     case array[8]:
-        element.parentNode.classList.add("other-mediumprice");
+        element.parentNode.classList.add("mediumprice");
         break;
     case array[9]:
-        element.parentNode.classList.add("other-highprice");
+        element.parentNode.classList.add("highprice");
         break;
     case array[10]:
-        element.parentNode.classList.add("other-highprice");
+        element.parentNode.classList.add("highprice");
+        break;
+    case array[array.length - 1]:
+        element.parentNode.classList.add("higher-price");
         break;
       }
 
@@ -72,7 +78,7 @@ function otherPrice() {
 }
 
 
-export { otherPriceObserver };
+export { allPriceObserver };
 
 
 
