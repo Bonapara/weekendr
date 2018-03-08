@@ -54,15 +54,11 @@
      <!--  <%= select_tag 'pers',
       options_for_select([['1 pers.', 1], ['2 pers.', 2], ['3 pers.', 3], ['4 pers.', 4], ['5 pers.', 5]],
       {:class => 'format-button-option'} ),
-<<<<<<< HEAD
       {:class => 'format-button'}
       %> -->
       <%= select_tag 'pers',
       options_for_select(@passengers, params[:pers]),
       {:class => 'format-button'}
-=======
-      {:class => 'format-button nav-search-form-inline'}
->>>>>>> master
       %>
 
 
