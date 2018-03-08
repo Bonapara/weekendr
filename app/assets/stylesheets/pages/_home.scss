@@ -17,17 +17,43 @@
   color: $medium-blue;
   height: 90px;
   margin-bottom: 100px;
+
   h1{
+    position: fixed;
+    top: 12px;
+    left: 25px;
     color: $white;
-    font-size: 58px;
+    font-family: "Lato";
+    font-size: 24px;
+    letter-spacing: 1px;
+    font-weight: 900;
   }
   h2 {
-    font-weight: lighter;
+    font-family: "Roboto";
+    font-weight: 300;
     color: $medium-blue;
     font-weight: normal;
     opacity: 1;
     font-size: 30px;
   }
+  h3 {
+    font-family: "Roboto";
+    font-weight: 300;
+    color: $medium-blue;
+    font-weight: normal;
+    opacity: 0.7;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-left: 90px;
+  }
+
+  .yellow {
+    color: $button;
+  }
+}
+
+.reassurance {
+  display: flex;
 }
 
 #typed-text-container {
