@@ -79,11 +79,9 @@
       <%= link_to bookmarks_path, class: "navbar-wagon-item navbar-wagon-link" do %>
       <p>Mes weekends <i class="fas fa-heart"></i></p>
       <% end %>
-
     <% else %>
-      <h2 id="connect_with">connect with</h2>
-      <%= link_to omniauth_authorize_path(:user, :facebook) do%>
-        <%= image_tag "http://elanajohnson.com/wp-content/uploads/2016/07/Facebook-1.png", class: "avatar", id: "navbar-wagon-menu" %>
+      <%= link_to omniauth_authorize_path(:user, :facebook), class: "navbar-wagon-item navbar-wagon-link" do%>
+        <p>Mes weekends <i class="fas fa-heart"></i></p>
       <% end %>
     <% end %>
   </div>
