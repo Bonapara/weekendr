@@ -4,7 +4,7 @@
   justify-content: center;
   padding: 10px;
   border-radius: 2px;
-  box-shadow: 7px 9px 31px -13px rgba(0,0,0,0.75);
+  // box-shadow: 7px 9px 31px -13px rgba(0,0,0,0.75);
 
   .search-form-inline {
     flex: 0 0 40%;
@@ -136,3 +136,10 @@
   background-color: $medium-blue;
 }
 
+
+
+
+
+.navbar-wagon {
+  background: #fdcb6e;
+}
