@@ -1,0 +1,79 @@
+<div class="filter-container">
+  <div class="filter-form">
+    <div class="filter-content">
+      <div class="departure-filter">
+        <div class="departure-title">
+          <b> DEPART </b><!-- de <b><%= @code_from %></b>
+ -->        </div>
+        <div class="slider-content">
+          <div class="day-dropdown">
+            <%= form_tag weekends_path, method: :get do%>
+            <%= select_tag 'go_day', options_for_select(@go_days, params[:go_day]) ,{:class => 'format-button-filter'}%>
+          </div>
+          <div id="time-range">
+            <p> Entre <span class="slider-time" data-go-time-from-minutes="<%= @go_time_from_minutes %>">
+
+              <% if params[:go_time_from] %>
+              <%= params[:go_time_from] %>
+              <% else %>
+              <b> 6:00 PM </b>
+              <% end %>
+            </span> et
+            <span  class="slider-time2" data-go-time-to-minutes="<%= @go_time_to_minutes %>">
+              <% if params[:go_time_to] %>
+              <%= params[:go_time_to] %>
+              <% else %>
+              <b> 11:59 PM </b>
+              <% end %>
+            </span>
+            </p>
+          <div class="sliders_step1">
+            <div id="slider-range"></div>
+          </div>
+        </div>
+        <%= hidden_field_tag 'go_time_from', '', id: "go_time_from"%>
+        <%= hidden_field_tag 'go_time_to', '', id: "go_time_to"%>
+      </div>
+    </div>
+    <div class="departure-filter">
+      <div class="departure-title">
+        <b> RETOUR </b><!-- depuis <b><%= @code_to %></b> -->
+      </div>
+      <div class="slider-content" id="add-margin">
+        <div class="day-dropdown">
+          <%= select_tag 'return_day', options_for_select(@return_days, params[:return_day]) ,{:class => 'format-button-filter'}%>
+        </div>
+        <div id="time-range">
+          <p> Entre <span class="return-slider-time" data-return-time-from-minutes="<%= @return_time_from_minutes %>">
+            <% if params[:return_time_from] %>
+            <%= params[:return_time_from] %>
+            <% else %>
+            <b> 6:00 PM </b>
+            <% end %>
+          </span> et
+          <span  class="return-slider-time2" data-return-time-to-minutes="<%= @return_time_to_minutes %>">
+            <% if params[:return_time_to] %>
+            <%= params[:return_time_to] %>
+            <% else %>
+            <b> 11:59 PM </b>
+            <% end %>
+          </span>
+          </p>
+        <div class="sliders_step1">
+          <div id="return-slider-range"></div>
+        </div>
+      </div>
+      <%= hidden_field_tag 'return_time_from', '', id: "return_time_from"%>
+      <%= hidden_field_tag 'return_time_to', '', id: "return_time_to"%>
+      </div>
+    </div>
+    <!--  Sauvegarde des params des villes de depart et d'arrivee -->
+    <%= hidden_field_tag :code_from, @code_from %>
+    <%= hidden_field_tag :code_to, @code_to %>
+    <%= hidden_field_tag :format, @format %>
+    <%= hidden_field_tag :pers, @num_passenger %>
+    <%= submit_tag "Appliquer", class: "research-button-filter" %>
+    <% end %>
+    </div>
+  </div>
+</div>

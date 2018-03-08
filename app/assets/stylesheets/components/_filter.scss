@@ -6,29 +6,70 @@
   top: 70px;
   height: 70px;
   background-color: $light-gray;
+  margin-top: 15px;
+  padding: 0px 45px;
   .filter-form {
     padding-top: -5px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 }
 
-.environment {
+.filter-content {
   display: flex;
-  justify-content: space-around;
+  width: 100%;
+  justify-content: space-between;
   align-items: center;
-  margin: 10px 0;
 }
 
 .format-button-filter {
-  background-color: $medium-blue;
-  color: white;
+
+    line-height: 1em !important;
+
+}
+
+.departure-filter {
+  width: 400px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  // flex-direction: column;
+  // align-items: flex-end;
+}
+
+// .departure-title {
+//   justify-content: left;
+// }
+
+.slider-content {
+  display: flex;
+}
+
+#add-margin {
+  margin-top: 8px;
+}
+
+.departure-title {
+  margin-right: 15px;
+}
+
+// .environment {
+//   display: flex;
+//   justify-content: space-around;
+//   align-items: center;
+//   margin: 10px 0;
+// }
+
+.format-button-filter {
+  background-color: white;
+  font-size: 14px;
+  color: $dark-gray;
   opacity: 0.9;
-  height: 45px ;
-  width: 120px ;
-  // padding: 10px 15px;
-  border: none;
+  height: 35px ;
+  width: 100px ;
+  // padding: 4px 15px !important;
+  border: 1px solid $medium-gray;
   border-radius: 2px;
   margin-right: 10px;
 }
@@ -36,16 +77,18 @@
 .research-button.filter:focus {
   color: $medium-blue;
 }
-.research-button {
+
+.research-button-filter {
   color: $medium-blue;
-  background-color: #ffffff;
-  border-bottom-left-radius:20px ;
-  border-bottom-right-radius:20px ;
-  border-top-left-radius:20px ;
-  border-top-right-radius:20px ;
-  height: 40px ;
-  width: 154px ;
+  background-color: $light-gray;
+  border-bottom-left-radius: 2px ;
+  border-bottom-right-radius: 2px ;
+  border-top-left-radius: 2px ;
+  border-top-right-radius: 2px ;
+  height: 30px ;
+  width: 100px ;
   border: 1px solid #1d375c;
+  font-size: 14px;
 }
 
 .button-center {
