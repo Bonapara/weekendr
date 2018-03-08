@@ -62,15 +62,25 @@
     </div>
   </div>
 
+
   <!-- Right Navigation -->
+
   <div class="navbar-wagon-right">
+      <%= link_to bookmarks_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+      <p>Wishlist <i class="far fa-heart"></i></p>
+      <% end %>
     <% if user_signed_in? %>
-      <div class="navbar-wagon-item">
-        <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/40x40" %>
-        <%= link_to bookmarks_path do %>
-          <%= image_tag avatar_url, class: "avatar", id: "navbar-wagon-menu" %>
-        <% end %>
-      </div>
+    <div class="navbar-wagon-item">
+      <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/40x40" %>
+      <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+          <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
     <% else %>
       <h2 id="connect_with">connect with</h2>
       <%= link_to omniauth_authorize_path(:user, :facebook) do%>
@@ -79,4 +89,6 @@
     <% end %>
   </div>
 </div>
+
+
 

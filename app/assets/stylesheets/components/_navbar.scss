@@ -81,6 +81,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
 }
 
 /* Basic navbar item */
@@ -91,12 +92,21 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #616668;
-  font-size: 14px;
+  justify-content: center;
+  text-align: center;
+  font-family: Lato;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: $white;
+  font-size: 18px;
+  padding-top: 10px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: $dark-gray;
   text-decoration: none;
+  // .fa-heart{
+  //   color: $red;
+  // }
 }
 
 /* Dropdown menu */
@@ -129,3 +139,5 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+
