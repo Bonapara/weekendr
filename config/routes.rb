@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :weekends, only: [:index]
 
-  resources :bookmarks, only: [:index, :create, :destroy]
+  resources :bookmarks, only: [:index, :create, :destroy] do
+    resources :list_users, only: [:new, :create]
+  end
 
   # Sidekiq Web UI, only for admins.
   require "sidekiq/web"

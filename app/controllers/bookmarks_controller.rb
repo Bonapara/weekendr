@@ -1,5 +1,17 @@
 class BookmarksController < ApplicationController
   def index
+    @sorted_options = %w(trier prix destination date)
+    wish_list_weekends = current_user.bookmarks
+
+    @wish_list_sorted = []
+    if params[:sort_by] == "prix"
+      @wish_list_sorted = wish_list_weekends.sort_by {|bookmark| bookmark.weekend["price"] }
+    elsif params[:sort_by] == "destination"
+      @wish_list_sorted = wish_list_weekends.sort_by {|bookmark| [bookmark.weekend["city_to"].downcase,bookmark.weekend[:go_flight]["dTime"]]}
+    else
+      @wish_list_sorted = wish_list_weekends.sort_by {|bookmark| bookmark.weekend[:go_flight]["dTime"]}
+    end
+
     # @bookmarks = Bookmark.all
     # iterate over bookmarks
     # get bookmark.weekends

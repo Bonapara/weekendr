@@ -24,9 +24,7 @@
 }
 
 .format-button-filter {
-
-    line-height: 1em !important;
-
+  line-height: 1em !important;
 }
 
 .departure-filter {
@@ -41,6 +39,22 @@
 // .departure-title {
 //   justify-content: left;
 // }
+
+#go_day, #return_day {
+  background-color: $white;
+  color: $dark-gray;
+  width: 90px ;
+  border: 1px solid $yellow;
+  padding: 1px 10px;
+  appearance: none;
+  &:hover {
+    background-color: $yellow;
+    color: $dark-gray;
+  }
+  &:focus {
+    outline: 0;
+  }
+}
 
 .slider-content {
   display: flex;

@@ -1,26 +1,4 @@
-.card-col-invisible {
-  opacity: 0;
-}
-
-.card-col-visible {
-  opacity: 1;
-  animation-duration: 1s;
-  animation-name: fade;
-}
-
-@keyframes fade {
-    0%{
-        opacity: 0
-    }
-    30% {
-      opacity: 0.5
-    }
-    100%{
-        opacity: 1
-    }
-}
-
-.empty_heart_link {
+.trash_link {
     position: absolute;
     background: none;
     border: none;
@@ -30,11 +8,24 @@
     right: 0px;
 }
 
-.fa-heart:hover {
-    color: $dark-gray;
+.share-user.fas.fa.fa-plus-circle {
+    position: absolute;
+    background: none;
+    border: none;
+    color: $medium-gray;
+    margin: 3px;
+    top: 2px;
+    left: 0px;
 }
 
-.fa-heart-selected {
+.fa-trash-alt {
+  color:$dark-gray!important;
+}
+.fa-trash-alt:hover {
+    color: black;
+}
+
+.fa-trash-selected {
   color: $red;
   &:hover {
     color: $red;
@@ -42,7 +33,7 @@
 }
 
 
-.card-header {
+.card-header-wishlist {
   text-align: center;
   display: flex;
   justify-content: space-around;
@@ -51,7 +42,7 @@
   width: 100%;
 }
 
-.card-title {
+.card-title-wishlist {
   color: $dark-gray;
   font-size: 14px;
   font-weight: bolder;
@@ -64,29 +55,34 @@
 }
 
 
-.card {
+.card-wishlist {
   display: flex;
   position: relative;
   align-items: center;
   justify-content: space-around;
   flex-direction: column;
   border-radius: $border-radius-large;
-  margin: 0px auto 15px auto;
+  height: 220px;
+  max-width: 150px;
+  margin: 0px auto 15px auto !important;
   background-color: #ffffff;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.07), 0 1px 0px 0 rgba(0, 0, 0, 0.03);
+  h1 {
+    margin-top: 15px;
+    margin-bottom: 0;
+  }
 
-  .card-body {
+  .card-body-wishlist {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     padding: 15px 0;
 
-    .card-body-element{
+    .card-body-element-wishlist{
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 15px;
-      padding: 8px 0;
+      padding: 10px 0;
       p {
         margin-bottom: 0;
       }
@@ -123,7 +119,7 @@
 
   }
 
-  .card-footer {
+  .card-footer-wishlist {
     background-color: white;
     border-top: 1px dotted $dark-blue;
     border-bottom-left-radius: $border-radius-large;
@@ -135,14 +131,14 @@
     background-color: $white;
     .price h1 {
       color: $dark-gray;
-      font-size: 25px;
+      font-size: 20px;
       font-weight: bolder;
-      padding: 10px 0;
+      margin-top: 10px;
+      height: 37px;
       margin-left: auto;
       margin-right: auto;
     }
   }
-
   .bpk-ticket__notch {
     display: flex;
     text-align: center;
@@ -153,10 +149,10 @@
   .bpk-ticket__notch--left {
     position: absolute;
     left: -1px;
-    top: 145px;
+    top: 172px;
     z-index: 1;
-    width: 7px;
-    height: 12px;
+    width: 6px;
+    height: 10px;
     box-sizing: border-box;
     background-color: #F4F4F4;
     border: 0px solid #ffffff;
@@ -170,10 +166,10 @@
   .bpk-ticket__notch--right {
     position: absolute;
     right: 0px;
-    top: 145px;
+    top: 172px;
     z-index: 1;
-    width: 7px;
-    height: 12px;
+    width: 6px;
+    height: 10px;
     box-sizing: border-box;
     background-color: #F4F4F4;
     border: 0px solid #ffffff;
@@ -188,81 +184,8 @@
     background-color: $white;
     text-decoration: none;
     h1 {
-      color: $green;
+      color: #04DEAD;
     }
   }
 
-}
-
-.lower-price {
-  // border: 3px solid $green;
-  transition: background-color 200ms linear;
-  background-color: $green !important;
-  h1 {
-    color: $white !important;
-  }
-}
-
-.lower-price:hover {
-  h1 {
-    color: $dark-gray !important;
-  }
-}
-
-
-
-.higher-price {
-  // border: 3px solid $green;
-  background-color: white !important;
-  h1 {
-    color: $red !important;
-  }
-}
-
-.higher-price:hover {
-  h1 {
-    color: $dark-gray !important;
-  }
-}
-
-.lowprice {
-  background-color: white !important;
-  h1 {
-    color: $green !important;
-  }
-}
-
-.lowprice:hover {
-  h1 {
-    color: $dark-gray !important;
-  }
-}
-
-.mediumprice {
-  background-color: white !important;
-  h1 {
-    color: $yellow !important;
-  }
-}
-
-.mediumprice:hover {
-  h1 {
-    color: $dark-gray !important;
-  }
-}
-
-.highprice {
-  background-color: white !important;
-  h1 {
-    color: $red !important;
-  }
-}
-.highprice:hover {
-  h1 {
-    color: $dark-gray !important;
-  }
-}
-
-.bookmark-trash {
-  color: blue;
 }
