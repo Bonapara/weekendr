@@ -131,7 +131,7 @@ class WeekendsController < ApplicationController
     end
     # Request ID pour créer un channel par request
     @request_id = SecureRandom.base58
-    WeekendJob.perform_later(input_attributes, @request_id)
+    WeekendJob.perform_later(input_attributes, @request_id, current_user&.id)
     # puts "*"*200
     # puts "Setting @request_id to #{@request_id}"
 

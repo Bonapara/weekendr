@@ -4,30 +4,72 @@
 .home_container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
+  padding-top: 15vh;
   height: 100vh;
-  width: 100vw;
-  background-size: cover
+  background-size: cover;
 }
 
 .banner-title {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: white;
+  color: $medium-blue;
   height: 90px;
-  margin-bottom: 100px;
+  margin-bottom: 18vh;
+
   h1{
+    position: fixed;
+    top: 12px;
+    left: 25px;
     color: $white;
-    font-size: 58px;
+    font-family: "Lato";
+    font-size: 24px;
+    letter-spacing: 1px;
+    font-weight: 900;
   }
   h2 {
-    font-weight: lighter;
-    color: $white;
+    font-family: "Roboto";
+    font-weight: 300;
+    color: $medium-blue;
+    font-weight: normal;
     opacity: 1;
     font-size: 30px;
   }
+  h3 {
+    font-family: "Roboto";
+    font-weight: 300;
+    color: $medium-blue;
+    font-weight: bold;
+    opacity: 0.8;
+    font-size: 18px;
+    margin-top: 20px;
+
+    i {
+      margin-left: 50px;
+      margin-right: 6px;
+      background-color: white;
+      color: rgb(47, 143, 171);
+      border-radius: 50%;
+      padding: 10px;
+      border: 1px solid white;
+    }
+
+    i:first-child {
+      margin-left: 0px;
+    }
+  }
+
+  .yellow {
+    color: $button;
+  }
+}
+
+.reassurance {
+  width: 80vw;
+  display: flex;
+  justify-content: space-around;
 }
 
 #typed-text-container {
@@ -36,12 +78,12 @@
 
 #banner-typed-text {
   opacity: 1;
-  color: $red;
+  color: $button;
   font-weight: normal;
 }
 
 .typed-cursor {
-  color: $red;
+  color: $button;
   font-size: 28px;
 }
 
