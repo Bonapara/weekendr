@@ -1,6 +1,6 @@
 .weekend_recap_container{
   height: 60px;
-  background-color: $medium-blue;
+  background-color: $white;
   display: flex;
   justify-content: space-between;
 }
@@ -54,7 +54,7 @@
 
 .month_line {
   position: absolute;
-  background-color: $medium-blue;
+  background-color: $white;
   z-index: 100;
   left: 20px;
   top: -18px;
@@ -85,12 +85,12 @@
 }
 
 .selected-date {
-  color: $medium-blue;
+  color: $white;
 }
 
 /* ---- Hover effects ---- */
 
 .time_line_li:hover {
   cursor: pointer;
-  color: $medium-blue;
+  color: $white;
 }

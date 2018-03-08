@@ -15,7 +15,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: $medium-blue;
+  color: $white;
   height: 90px;
   margin-bottom: 18vh;
 
@@ -32,7 +32,7 @@
   h2 {
     font-family: "Roboto";
     font-weight: 300;
-    color: $medium-blue;
+    color: $white;
     font-weight: normal;
     opacity: 1;
     font-size: 30px;
@@ -40,7 +40,7 @@
   h3 {
     font-family: "Roboto";
     font-weight: 300;
-    color: $medium-blue;
+    color: $white;
     font-weight: bold;
     opacity: 0.8;
     font-size: 18px;
@@ -62,7 +62,7 @@
   }
 
   .yellow {
-    color: $button;
+    color: $yellow;
   }
 }
 
@@ -78,12 +78,12 @@
 
 #banner-typed-text {
   opacity: 1;
-  color: $button;
+  color: $yellow;
   font-weight: normal;
 }
 
 .typed-cursor {
-  color: $button;
+  color: $yellow;
   font-size: 28px;
 }
 

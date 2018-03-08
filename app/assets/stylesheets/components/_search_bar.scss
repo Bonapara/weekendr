@@ -4,13 +4,13 @@
   justify-content: center;
   padding: 10px;
   border-radius: 2px;
-  box-shadow: 7px 9px 31px -13px rgba(0,0,0,0.75);
+  // box-shadow: 7px 9px 31px -13px rgba(0,0,0,0.75);
 
   .search-form-inline {
     flex: 0 0 40%;
     color: $dark-gray;
     border-right: 1px solid $medium-gray;
-    background-color: $medium-blue;
+    background-color: $white;
     outline:none;
     padding: 14px 15px;
     opacity: 1;
@@ -49,7 +49,7 @@
     margin: 0px 0px 0px 0px;
 
     .format-button {
-      background-color: $medium-blue;
+      background-color: $white;
       color: $dark-gray;
       width: 90px ;
       border: none;
@@ -91,7 +91,7 @@
     margin-right: 0px;
     .research-button {
       color: #ffffff;
-      background-color: $button;
+      background-color: $yellow;
       border-bottom-left-radius:0px ;
       border-bottom-right-radius: 6px ;
       border-top-left-radius:0px ;
@@ -107,7 +107,7 @@
 }
 
 .icon {
-  background-color: $medium-blue;
+  background-color: $white;
   color: $medium-gray;
   height: 53px ;
   padding: 14px;
@@ -133,6 +133,13 @@
   color: $dark-gray;
   height: 53px;
   padding: 14px;
-  background-color: $medium-blue;
+  background-color: $white;
 }
 
+
+
+
+
+.navbar-wagon {
+  background: #fdcb6e;
+}

@@ -1,0 +1,27 @@
+
+
+#no_results_smiley {
+  display: flex;
+  flex-direction: column;
+  // align-items: flex-start;
+  justify-content: space-around;
+  padding-top: 15px;
+  font-size: 30px;
+  text-align: center;
+  p {
+    margin-bottom: 0px;
+  }
+}
+
+h1#no_results_message_1.card-title {
+    margin-top: 0px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#no_results_message_2 {
+  margin-top: 0px;
+  color: dark-gray;
+  font-weight: normal;
+}
+
