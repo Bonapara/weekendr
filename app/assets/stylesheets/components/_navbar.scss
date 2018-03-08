@@ -1,13 +1,21 @@
 /* Main navbar */
 
+.search-navbar-size{
+  height: 41px !important;
+  padding: 10px !important;
+}
+
+.nav-search-form-inline{
+  padding: 8px 10px !important;
+}
+
 .navbar-logo{
   color: $white;
   font-family: "Lato";
   font-size: 24px;
   letter-spacing: 1px;
   font-weight: 900;
-  margin-top: 0px;
-  padding: 22px 0px;
+  margin:0px;
   position: absolute;
   left: 25px;
   .navbar_logo_r_color {
@@ -17,19 +25,17 @@
 
 .nav_search_bar_container {
   width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
 }
 
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: #fdcb6e;
   transition: all 0.3s ease;
-  height: $navbar_height;
   padding: 0px 30px;
-  // display: flex;
-  // align-items: center;
-  // justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .fa-arrow-right {
@@ -42,7 +48,7 @@
       border-bottom-right-radius: 6px ;
       border-top-left-radius:0px ;
       border-top-right-radius: 6px ;
-      height: 53px ;
+      height: 41px ;
       width: 53px ;
       font-size: 19px;
       border: 2px solid $white;
@@ -75,6 +81,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
 }
 
 /* Basic navbar item */
@@ -85,12 +92,21 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #616668;
-  font-size: 14px;
+  justify-content: center;
+  text-align: center;
+  font-family: Lato;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: $white;
+  font-size: 18px;
+  padding-top: 10px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: $dark-gray;
   text-decoration: none;
+  .fa-heart{
+    color: $red;
+  }
 }
 
 /* Dropdown menu */
@@ -123,3 +139,5 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+
