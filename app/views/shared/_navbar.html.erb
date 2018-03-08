@@ -5,44 +5,44 @@
   <% end %>
   </div>
   <div class="search_bar_container nav_search_bar_container">
-    <div class="icon first-icon">
+    <div class="icon first-icon search-navbar-size">
       <i class="fas fa-map-marker-alt"></i>
     </div>
     <div class="search_bar_from">
       <%= form_tag weekends_path, method: :get do %>
       <%= text_field_tag :from,
       params[:from],
-      class: "search-form-inline",
+      class: "search-form-inline nav-search-form-inline",
         id: "search-from",
         autocomplete: "off",
         placeholder: "Départ"
         %>
       <%= hidden_field_tag 'code_from', params[:code_from], id: "iataFrom" %>
     </div>
-    <div class="icon">
+    <div class="icon search-navbar-size">
       <i class="fas fa-map-marker-alt"></i>
     </div>
     <div class="search_bar_to">
       <%= text_field_tag :to,
       params[:to],
-      class: "search-form-inline",
+      class: "search-form-inline nav-search-form-inline",
         id: "search-to",
         autocomplete: "off",
         placeholder: "Où allez-vous ?"
         %>
       <%= hidden_field_tag 'code_to', params[:code_to], id: "iataTo" %>
     </div>
-    <div class="icon">
+    <div class="icon search-navbar-size">
       <i class="fas fa-calendar-minus"></i>
     </div>
     <div class="search_options">
       <%= select_tag 'format',
       options_for_select([['2 jours', 2], ['3 jours', 3]],
       {:class => 'format-button-option'} ),
-      {:class => 'format-button'}
+      {:class => 'format-button nav-search-form-inline'}
       %>
     </div>
-    <div class="icon">
+    <div class="icon search-navbar-size">
       <i class="fas fa-user-plus"></i>
     </div>
      <div class="search_options">
@@ -50,7 +50,7 @@
       <%= select_tag 'pers',
       options_for_select([['1 pers.', 1], ['2 pers.', 2], ['3 pers.', 3], ['4 pers.', 4], ['5 pers.', 5]],
       {:class => 'format-button-option'} ),
-      {:class => 'format-button'}
+      {:class => 'format-button nav-search-form-inline'}
       %>
     </div>
   </div>
