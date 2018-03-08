@@ -3,8 +3,7 @@ import { slider } from '../components/slider';
 import { loadDynamicBannerText } from '../components/banner';
 import "jquery-ui/ui/widgets/slider"
 import '../components/autocomplete';
-import { lowerPriceObserver } from '../components/lowerPrice';
-import { higherPriceObserver } from '../components/higherPrice';
+import { allPriceObserver } from '../components/allPrice';
 import {heartObserver} from '../components/heartLightning';
 
 
@@ -18,10 +17,5 @@ if (document.getElementById("banner-typed-text")) {
 }
 
 if (document.getElementById("weekends-container-row")) {
- lowerPriceObserver();
- heartObserver();
-}
-
-if (document.getElementById("weekends-container-row")) {
- higherPriceObserver();
+ allPriceObserver();
 }

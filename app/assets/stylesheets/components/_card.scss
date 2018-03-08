@@ -205,10 +205,14 @@
   }
 }
 
+
+
 .higher-price {
   // border: 3px solid #04DEAD;
-  transition: background-color 200ms linear;
-  background-color: red !important;
+  background-color: white !important;
+  h1 {
+    color: $red !important;
+  }
 }
 
 .higher-price:hover {
@@ -218,6 +222,44 @@
 }
 
 
+
+.lowprice {
+  background-color: white !important;
+  h1 {
+    color: green !important;
+  }
+}
+
+.lowprice:hover {
+  h1 {
+    color: white !important;
+  }
+}
+
+.mediumprice {
+  background-color: white !important;
+  h1 {
+    color: orange !important;
+  }
+}
+
+.mediumprice:hover {
+  h1 {
+    color: white !important;
+  }
+}
+
+.highprice {
+  background-color: white !important;
+  h1 {
+    color: $red !important;
+  }
+}
+.highprice:hover {
+  h1 {
+    color: white !important;
+  }
+}
 
 .bookmark-trash {
   color: blue;
