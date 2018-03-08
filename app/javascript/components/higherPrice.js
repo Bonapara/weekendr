@@ -36,7 +36,7 @@ function higherPrice() {
   array.sort(function (a, b) {  return a - b;  });
     console.log(array);
   prices.forEach(function(element) {
-    if (parseInt(element.innerText) == array[11]) {
+    if (parseInt(element.innerText) == array[array.length - 1]) {
       element.parentNode.classList.add("higher-price");
     } else {
       element.parentNode.classList.remove("higher-price");

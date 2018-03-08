@@ -5,6 +5,7 @@ import { slider } from '../components/slider';
 import '../components/autocomplete';
 import { lowerPriceObserver } from '../components/lowerPrice';
 import { higherPriceObserver } from '../components/higherPrice';
+import { otherPriceObserver } from '../components/otherPrice';
 import {heartObserver} from '../components/heartLightning';
 
 
@@ -23,4 +24,8 @@ if (document.getElementById("weekends-container-row")) {
 
 if (document.getElementById("weekends-container-row")) {
  higherPriceObserver();
+}
+
+if (document.getElementById("weekends-container-row")) {
+ otherPriceObserver();
 }
