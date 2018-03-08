@@ -1,0 +1,5 @@
+meta_product_name: "Weekendr"
+meta_title: "Weekendr | Trouvez quel weekend partir dans les 3 prochains mois"
+meta_description: "Trouvez quel weekend est le moins cher pour votre destination préférée dans les 3 prochains mois"
+meta_image: "cover.jpg"                       # should exist in `app/assets/images/`
+
