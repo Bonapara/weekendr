@@ -3,15 +3,15 @@
     <h1>Weekend<span class="yellow">R</span></h1>
     <h2>Trouvez le weekend le moins cher pour aller à&nbsp;<span id="banner-typed-text"></span></h2>
     <div class="reassurance">
-      <h3><i class="fas fa-paper-plane"></i> 12 weekends, 12 vols : simple</h3>
-      <h3><i class="fas fa-compass"></i> 100 % de vols directs</h3>
-      <h3><i class="fas fa-thumbs-up"></i> Satisfaits ou remboursés</h3>
+      <h3><i class="fas fa-paper-plane"></i> Simplicité : 12 weekends, 12 vols</h3>
+      <h3><i class="fas fa-exchange-alt"></i> 100 % de vols directs</h3>
+      <h3><i class="fas fa-thumbs-up"></i> 98 % de weekends réussis</h3>
     </div>
 
   </div>
   <div class="search_bar_container">
     <div class="icon first-icon">
-      <img src="http://www.gstatic.com/images/icons/material/system/2x/location_on_white_24dp.png" alt="">
+      <i class="fas fa-map-marker-alt"></i>
     </div>
     <div class="search_bar_from">
       <%= form_tag weekends_path, method: :get do %>
@@ -25,7 +25,7 @@
       <%= hidden_field_tag 'code_from', '', id: "iataFrom" %>
     </div>
     <div class="icon">
-      <img src="http://www.gstatic.com/images/icons/material/system/2x/location_on_white_24dp.png" alt="">
+      <i class="fas fa-map-marker-alt"></i>
     </div>
     <div class="search_bar_to">
       <%= text_field_tag :to,
@@ -38,7 +38,7 @@
       <%= hidden_field_tag 'code_to', '', id: "iataTo" %>
     </div>
     <div class="icon">
-      <img src="http://www.gstatic.com/images/icons/material/system/2x/event_white_24dp.png" alt="">
+      <i class="fas fa-calendar-minus"></i>
     </div>
     <div class="search_options">
       <%= select_tag 'format',
@@ -48,7 +48,7 @@
       %>
     </div>
     <div class="icon">
-      <img src="http://www.gstatic.com/images/icons/material/system/2x/person_white_24dp.png" alt="">
+      <i class="fas fa-user-plus"></i>
     </div>
      <div class="search_options">
     <div class="select_people_num">
