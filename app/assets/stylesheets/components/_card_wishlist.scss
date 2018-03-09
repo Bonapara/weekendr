@@ -60,11 +60,12 @@
     border: none;
     color: $medium-gray;
     padding: none;
-    top: 0px;
-    right: 0px;
+    margin: 3px;
+    top: 2px;
+    right: 5px;
 }
 
-.share-user.fas.fa.fa-plus-circle {
+.share-user.fas.fa-user-plus {
     position: absolute;
     background: none;
     border: none;

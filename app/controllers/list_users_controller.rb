@@ -28,6 +28,8 @@ class ListUsersController < ApplicationController
     # else
     #   fail path
     # end
+
+    redirect_to bookmarks_path
   end
 
 end
