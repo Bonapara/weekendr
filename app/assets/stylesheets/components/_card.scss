@@ -232,27 +232,12 @@
   }
 }
 
-.lower-price:hover {
-  h1 {
-    color: $dark-gray !important;
-  }
-}
+// .lower-price:hover {
+//   h1 {
+//     color: $dark-gray !important;
+//   }
+// }
 
-
-
-.higher-price {
-  // border: 3px solid $green;
-  background-color: white !important;
-  h1 {
-    color: $red !important;
-  }
-}
-
-.higher-price:hover {
-  h1 {
-    color: $dark-gray !important;
-  }
-}
 
 .lowprice {
   background-color: white !important;
@@ -261,24 +246,24 @@
   }
 }
 
-.lowprice:hover {
-  h1 {
-    color: $dark-gray !important;
-  }
-}
+// .lowprice:hover {
+//   h1 {
+//     color: $dark-gray !important;
+//   }
+// }
 
 .mediumprice {
   background-color: white !important;
   h1 {
-    color: $yellow !important;
-  }
-}
-
-.mediumprice:hover {
-  h1 {
     color: $dark-gray !important;
   }
 }
+
+// .mediumprice:hover {
+//   h1 {
+//     color: $dark-gray !important;
+//   }
+// }
 
 .highprice {
   background-color: white !important;
@@ -286,11 +271,11 @@
     color: $red !important;
   }
 }
-.highprice:hover {
-  h1 {
-    color: $dark-gray !important;
-  }
-}
+// .highprice:hover {
+//   h1 {
+//     color: $dark-gray !important;
+//   }
+// }
 
 .bookmark-trash {
   color: blue;
