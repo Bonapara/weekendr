@@ -21,40 +21,44 @@
 
           <div class="card-wishlist" data-from-card=<%= bookmark.weekend[:go_flight]["dTime"].to_date.strftime("%d/%m")%>>
             <!-- MODAL PARTAGER A UN AUTRE UTILISATEUR -->
-            <div class="card-body-element-wishlist">
-              <button type="button" class="share-user fas fa-user-plus" data-toggle="modal" data-target="#myModal<%=bookmark.id%>">
-              </button>
+            <div class="card-title-header">
+              <h1 class= "card-title-wishlist">
+                <%= bookmark.weekend[:city_to] %></h1>
+              <div class="icons-wishlist">
+                <div class="card-body-element-wishlist">
+                  <button type="button" class="share-user fas fa-user-plus" data-toggle="modal" data-target="#myModal<%=bookmark.id%>">
+                  </button>
 
-              <!-- Modal -->
-              <div class="modal fade" id="myModal<%=bookmark.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
+                  <!-- Modal -->
+                  <div class="modal fade" id="myModal<%=bookmark.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
 
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="myModalLabel">Partager ce Weekend</h4>
-                    </div>
-                    <div class="modal-body">
-                      <%= simple_form_for [bookmark, ListUser.new] do |f| %>
-                          <%= f.input :user, label: "Email du destinataire", required: false %>
-                          <%= f.submit "Partager ce weekend", class: "btn btn-primary btn-lg" do %>
-                            <!-- <i class="fas fa-plus-circle"></i> -->
-                          <% end %>
-                        <% end %>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title" id="myModalLabel">Partager ce Weekend</h4>
+                        </div>
+                        <div class="modal-body">
+                          <%= simple_form_for [bookmark, ListUser.new] do |f| %>
+                              <%= f.input :user, label: "Email du destinataire", required: false %>
+                              <%= f.submit "Partager ce weekend", class: "btn btn-primary btn-lg" do %>
+                                <!-- <i class="fas fa-plus-circle"></i> -->
+                              <% end %>
+                            <% end %>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
 
-            <!-- FIN MODAL -->
-            <h1 class= "card-title-wishlist">
-              <%= bookmark.weekend[:city_to] %></h1>
-             <!-- <div class="card-header-wishlist"> -->
-              <!-- <h1 class="card-title-wishlist"><%= Time.parse(bookmark.weekend[:go_flight]["dTime"]).strftime("%A") %> - <%= Time.parse(bookmark.weekend[:return_flight]["dTime"]).strftime("%A") %></h1> -->
-              <%= link_to bookmark_path(bookmark), method: :delete, class: "trash_link" do %>
-                <i class="far fa-trash-alt bookmark-trash"></i>
-              <% end %>
+                <!-- FIN MODAL -->
+                <%= link_to bookmark_path(bookmark), method: :delete, class: "trash_link" do %>
+                  <i class="far fa-trash-alt bookmark-trash"></i>
+                <% end %>
+             </div>
+               <!-- <div class="card-header-wishlist"> -->
+                <!-- <h1 class="card-title-wishlist"><%= Time.parse(bookmark.weekend[:go_flight]["dTime"]).strftime("%A") %> - <%= Time.parse(bookmark.weekend[:return_flight]["dTime"]).strftime("%A") %></h1> -->
+              </div>
 
 
             <!-- </div> -->
@@ -99,7 +103,7 @@
             <div class="bpk-ticket__notch">
               <div class="bpk-ticket__notch--left"></div>
               <div class="bpk-ticket__notch--right"></div>
-              <%= link_to(bookmark.weekend[:booking_link], class: "card-footer-wishlist") do%>
+              <%= link_to(bookmark.weekend[:booking_link], class: "card-footer-wishlist",target: :_blank) do%>
               <div class="price">
                 <h1><%= bookmark.weekend[:price] %> €</h1>
               </div>
