@@ -1,9 +1,10 @@
 <div class="filter-container">
   <div class="filter-form">
     <div class="filter-content">
+      <div class="filter-content-whithout-button">
       <div class="departure-filter">
         <div class="departure-title">
-          <b> DEPART </b><!-- de <b><%= @code_from %></b>
+          <%= image_tag("departures.png", size: "22") %> <!-- de <b><%= @code_from %></b>
  -->        </div>
         <div class="slider-content">
           <div class="day-dropdown">
@@ -37,7 +38,7 @@
     </div>
     <div class="departure-filter">
       <div class="departure-title">
-        <b> RETOUR </b><!-- depuis <b><%= @code_to %></b> -->
+       <%= image_tag("arrivals.png", size: "22") %> <!-- depuis <b><%= @code_to %></b> -->
       </div>
       <div class="slider-content">
         <div class="day-dropdown">
@@ -67,12 +68,13 @@
       <%= hidden_field_tag 'return_time_to', '', id: "return_time_to"%>
       </div>
     </div>
+    </div>
     <!--  Sauvegarde des params des villes de depart et d'arrivee -->
     <%= hidden_field_tag :code_from, @code_from %>
     <%= hidden_field_tag :code_to, @code_to %>
     <%= hidden_field_tag :format, @format %>
     <%= hidden_field_tag :pers, @num_passenger %>
-    <%= submit_tag "Appliquer", class: "research-button-filter" %>
+    <%= submit_tag "Appliquer les filtres", class: "research-button-filter" %>
     <% end %>
     </div>
   </div>
