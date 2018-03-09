@@ -39,6 +39,7 @@
   }
 }
 
+
 .wishlist_welcome_container {
   display: flex;
   flex-direction: column;
@@ -55,24 +56,17 @@
 }
 
 .trash_link {
-    position: absolute;
     background: none;
     border: none;
     color: $medium-gray;
     padding: none;
-    margin: 3px;
-    top: 2px;
-    right: 5px;
 }
 
 .share-user.fas.fa-user-plus {
-    position: absolute;
     background: none;
     border: none;
     color: $medium-gray;
-    margin: 3px;
-    top: 2px;
-    left: 0px;
+    padding: none;
 }
 
 .fa-trash-alt {
@@ -100,19 +94,50 @@
 }
 
 .card-title-wishlist-date {
+  // color: $dark-gray;
+  // font-size: 14px;
+  // font-weight: bolder;
+  // margin-top: 20px;
+  // margin-bottom: 6px;
   color: $dark-gray;
   font-size: 14px;
-  font-weight: bolder;
+  letter-spacing: 2px;
+  font-weight: normal;
+  // text-transform: uppercase;
+  // background-color: $yellow;
   margin-top: 20px;
   margin-bottom: 6px;
 }
 
+.card-title-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  width: 100%;
+  padding: 6px;
+  background-color: $light-gray;
+  border-top-right-radius: $border-radius-large;
+  border-top-left-radius: $border-radius-large;
+}
+
+.icons-wishlist {
+  display: flex;
+  margin-right: 5px;
+}
+
 .card-title-wishlist {
-  color: $green;
+
+  left: 0;
+  top: 0;
+  color: $yellow;
+  margin: 7px!important;
   font-size: 18px;
   font-weight: bolder;
-  margin-top: 20px;
   margin-bottom: 6px;
+}
+.card-title-wishlist:hover {
+  text-decoration: none;
 }
 
 .card-height-wrapper {
@@ -127,9 +152,13 @@
   justify-content: space-around;
   flex-direction: column;
   border-radius: $border-radius-large;
-  height: 220px;
-  margin: 0px auto 15px auto !important;
+  border-top-left-radius: $border-radius-large;
+  border-bottom-right-radius: $border-radius-large;
+  border-bottom-left-radius: $border-radius-large;
+  height: 230px;
+  margin: 0px 10px 15px 10px !important;
   background-color: #ffffff;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.07), 0 1px 0px 0 rgba(0, 0, 0, 0.03);
   h1 {
     margin-top: 15px;
     margin-bottom: 0;
@@ -139,14 +168,16 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    padding: 15px 0;
+    padding: 10px 0px 10px 0px;
 
     .card-body-element-wishlist{
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 15px;
-      padding: 10px 0;
+      padding: 8px 0;
+      // margin-top: 10px;
+      margin-bottom: 0px;
       p {
         margin-bottom: 0;
       }
@@ -154,8 +185,15 @@
       .column-one {
         flex: 0 0 25%;
         text-align: center;
+        font-family: "Roboto";
+        font-weight: 900;
+        font-size: 16px;
+        letter-spacing: 2.5px;
         :last-child {
           color: $medium-gray;
+          font-weight: 400;
+          font-size: 14px;
+          letter-spacing: 1px;
         }
 
       }
@@ -166,17 +204,24 @@
         padding: 0 10px;
 
         .airline-img {
-          height: 21px;
-          width: 21px;
-          border-radius: 50px;
-          border: 1px solid $medium-gray;
+          height: 20px;
+          width: 20px;
+          border-radius: 2px;
+          box-shadow: inset -3.5px 2.7px 7px -6.5px rgba(0,0,0,0.75);
         }
       }
       .column-three {
         flex: 0 0 25%;
         text-align: center;
+        font-family: "Roboto";
+        font-weight: 900;
+        font-size: 16px;
+        letter-spacing: 2.5px;
         :last-child {
           color: $medium-gray;
+          font-weight: 400;
+          font-size: 14px;
+          letter-spacing: 1px;
         }
       }
     }
@@ -193,11 +238,12 @@
     position: relative;
     transition: background-color 200ms linear;
     background-color: $white;
+    padding-top: 10px;
     .price h1 {
       color: $dark-gray;
-      font-size: 20px;
+      font-size: 25px;
       font-weight: bolder;
-      margin-top: 10px;
+      margin-top: 5px;
       height: 37px;
       margin-left: auto;
       margin-right: auto;
@@ -213,7 +259,7 @@
   .bpk-ticket__notch--left {
     position: absolute;
     left: -1px;
-    top: 172px;
+    top: 174px;
     z-index: 1;
     width: 6px;
     height: 10px;
@@ -230,7 +276,7 @@
   .bpk-ticket__notch--right {
     position: absolute;
     right: 0px;
-    top: 172px;
+    top: 174px;
     z-index: 1;
     width: 6px;
     height: 10px;
