@@ -3,13 +3,13 @@
   border-bottom: 1px solid $medium-gray;
   left: 0px;
   right: 0px;
-  top: 70px;
+  top: 61px;
   height: 70px;
   background-color: $white;
   padding: 10px 45px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   a {
       text-decoration:none;
    }
@@ -17,26 +17,26 @@
 
   .new-search-button {
       padding: 6px 22px;
-      color: $yellow;
+      color: $dark-gray;
       height: 39.5px;
-      border: 2px solid $yellow;
+      border: 1px solid $dark-gray;
       background-color: $white;
       text-decoration: none;
-      font-weight: bolder;
       font-size: 18px;
       margin-top: 0px;
       margin-right: 0px;
       border-radius: 5px;
       &:hover {
-        color: $medium-gray;
+        color: $yellow;
       }
     }
 
   .wishlist-filter-button-container {
     display: flex;
     background-color: $white;
-    color: $yellow;
-    border: 2px solid $yellow;
+    color: $dark-gray;
+    border: 1px solid $dark-gray;
+    margin-left: 5px;
     border-radius: 5px;
     margin-right: 15px;
   }
@@ -45,6 +45,7 @@
     border: none;
     height: 35px;
     padding: 2px 20px;
+    margin-left: 3px;
     background-color: $white;
     border-radius: 0px;
     appearance: none;
@@ -52,28 +53,22 @@
       outline: 0;
     }
     &:hover {
-      color: $medium-gray;
+      color: $yellow;
     }
   }
   .wishlish-research-button {
     border: none;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
     height: 35px;
     color: $white;
-    background-color: $yellow;
+    background-color: $dark-gray;
     p {
       margin: 0px;
     }
     &:hover {
-      color: $medium-gray;
+      color: $yellow;
     }
-  }
-  .wishlish_filter_by {
-    padding: 26px 0px;
-    font-size: 18px;
-    margin-bottom: 0px;
-    color : $dark-gray;
-    margin-right: 10px;
-    font-weight: bolder;
   }
 }
 

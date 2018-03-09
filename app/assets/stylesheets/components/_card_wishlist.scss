@@ -3,10 +3,11 @@
   background: #fdcb6e;
   transition: all 0.3s ease;
   padding: 0px 30px;
-  height: 70px;
+  height: 61px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
 
   .wishlist-title {
     h2 {
@@ -77,12 +78,12 @@
 .share-user.fas.fa-share-square {
     background: none;
     border: none;
-    color: $medium-gray;
+    color: $white;
     padding: none;
 }
 
 .fa-trash-alt {
-  color:$dark-gray!important;
+  color:$white!important;
 }
 .fa-trash-alt:hover {
     color: black;
@@ -118,17 +119,10 @@
 }
 
 .card-title-wishlist-date {
-  // color: $dark-gray;
-  // font-size: 14px;
-  // font-weight: bolder;
-  // margin-top: 20px;
-  // margin-bottom: 6px;
   color: $dark-gray;
   font-size: 14px;
   letter-spacing: 2px;
   font-weight: normal;
-  // text-transform: uppercase;
-  // background-color: $yellow;
   margin-top: 20px;
   margin-bottom: 6px;
 }
@@ -140,7 +134,7 @@
   top: 0;
   width: 100%;
   padding: 6px;
-  background-color: $light-gray;
+  background-color: $yellow;
   border-top-right-radius: $border-radius-large;
   border-top-left-radius: $border-radius-large;
 }
@@ -154,7 +148,7 @@
 
   left: 0;
   top: 0;
-  color: $yellow;
+  color: $white;
   margin: 7px!important;
   font-size: 18px;
   font-weight: bolder;
@@ -323,3 +317,20 @@
   }
 
 }
+
+.modal-btn {
+  padding: 6px 22px;
+  color: $white;
+  height: 39.5px;
+  border: 1px solid $yellow;
+  background-color: $yellow;
+  text-decoration: none;
+  font-size: 18px;
+  margin-top: 0px;
+  margin-right: 0px;
+  border-radius: 5px;
+  &:hover {
+    color: $dark-gray;
+  }
+}
+

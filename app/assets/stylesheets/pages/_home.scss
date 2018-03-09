@@ -48,8 +48,12 @@
     margin-bottom: 80px;
   }
 
-  .yellow {
-    color: $yellow;
+  // .yellow {
+  //   color: $yellow;
+  // }
+
+  .eekend {
+    padding-bottom: 5px;
   }
 }
 
@@ -129,4 +133,8 @@
     font-size: 20px;
     background-color: $yellow;
   }
+}
+
+.research-button:focus {
+  outline: 0;
 }
