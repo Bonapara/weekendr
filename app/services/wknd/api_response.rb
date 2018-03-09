@@ -89,6 +89,7 @@ flyFrom=#{@city_from}
         weekend_attr[:return_flight][:dTime]        = DateTime.strptime("#{weekend["route"][1]["dTime"]}",'%s')
         weekend_attr[:return_flight][:aTime]        = DateTime.strptime("#{weekend["route"][1]["aTime"]}",'%s')
         weekend_attr[:return_flight][:airline]      = weekend["route"][1]["airline"]
+        weekend_attr[:passenger_number]             = @num_passenger
       end
       return weekend_attr
     end

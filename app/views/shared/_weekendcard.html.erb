@@ -13,6 +13,7 @@
               <%= f.hidden_field :price, value: weekend[:price] %>
               <%= f.hidden_field :booking_token, value: weekend[:booking_token] %>
               <%= f.hidden_field :booking_link, value: weekend[:booking_link] %>
+              <%= f.hidden_field :passenger_number, value: weekend[:passenger_number] %>
               <%= f.hidden_field :go_flight, value: {
                 flight_no: weekend[:go_flight][:flight_no],
                 airport_from: weekend[:go_flight][:airport_from],
@@ -79,7 +80,7 @@
             <%= link_to(weekend[:booking_link], class: "card-footer",target: :_blank) do%>
             <div class="price">
               <% if num_passenger > 1 %>
-                <h1><%= weekend[:price]/num_passenger%> € /p</h1>
+                <h1><%= weekend[:price]/num_passenger%> € <span class="par-pers">/pers.</span></h1>
               <% else %>
                 <h1><%= weekend[:price] %> €</h1>
               <% end %>

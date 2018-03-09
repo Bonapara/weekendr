@@ -16,6 +16,9 @@
     margin-bottom: 0px;
     }
   }
+  .fas.fa-user {
+    font-size: 18px !important;
+  }
 
   .avatar {
     height: 45px;
@@ -72,7 +75,7 @@
     padding: none;
 }
 
-.share-user.fas.fa-user-plus {
+.share-user.fas.fa-share-square {
     background: none;
     border: none;
     color: $white;
@@ -90,6 +93,18 @@
   color: $red;
   &:hover {
     color: $red;
+  }
+}
+
+.par-pers{
+  padding-left: 5px;
+  font-size: 12px;
+  color: $medium-gray;
+}
+
+.lower-price {
+  .par-pers{
+    color: $white !important;
   }
 }
 
