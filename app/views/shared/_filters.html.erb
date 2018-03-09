@@ -1,8 +1,8 @@
 <div class="filter-container">
   <div class="filter-form">
     <div class="filter-content">
-<!--       <div class="filter-content-whithout-button">
- -->      <div class="departure-filter">
+      <div class="filter-content-whithout-button">
+      <div class="departure-filter">
         <div class="departure-title">
           <%= image_tag("departures.png", size: "22") %> <!-- de <b><%= @code_from %></b>
  -->        </div>
@@ -67,8 +67,8 @@
       <%= hidden_field_tag 'return_time_from', '', id: "return_time_from"%>
       <%= hidden_field_tag 'return_time_to', '', id: "return_time_to"%>
       </div>
-<!--     </div>
- -->    </div>
+    </div>
+    </div>
     <!--  Sauvegarde des params des villes de depart et d'arrivee -->
     <%= hidden_field_tag :code_from, @code_from %>
     <%= hidden_field_tag :code_to, @code_to %>
