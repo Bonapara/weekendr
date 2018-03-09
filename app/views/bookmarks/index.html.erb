@@ -107,14 +107,13 @@
               <div class="bpk-ticket__notch--right"></div>
               <%= link_to(bookmark.weekend[:booking_link], class: "card-footer-wishlist",target: :_blank) do%>
               <div class="price">
-                <% if bookmark.weekend[:passenger_number].nil? || bookmark.weekend[:passenger_number] < 1 %>
+                <% if bookmark.weekend[:passenger_number].nil? || bookmark.weekend[:passenger_number] == 1 %>
                 <% numerateur = 1 %>
                 <h1><%= bookmark.weekend[:price] / numerateur %> € </h1>
                 <% else %>
                 <% numerateur = bookmark.weekend[:passenger_number] %>
                 <h1><%= bookmark.weekend[:price] / numerateur %> € <span class="par-pers">/pers.</span></h1>
                 <% end %>
-
               </div>
               <%#= simple_form_for [bookmark, ListUser.new] do |f| %>
                   <%#= f.input :user %>
