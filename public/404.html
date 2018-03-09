@@ -386,7 +386,7 @@
 
 
      ErrorPage.prototype.handleStatusFetchSuccess = function (pageType, data) {
-       if (pageType == '503') {
+       if (pageType == '500') {
          $('#replace-with-fetched-data').html(data.status.description);
        } else {
          if (!!data.scheduled_maintenances.length) {
@@ -413,7 +413,7 @@
        var url = ''
          , self = this;
 
-       if (pageType == '503') {
+       if (pageType == '500') {
          url = pageUrl + '/api/v2/status.json';
        }
        else {
