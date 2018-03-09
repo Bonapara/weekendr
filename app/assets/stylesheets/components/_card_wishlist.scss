@@ -7,10 +7,35 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  .wishlist-title {
+    h2 {
+    color: $dark-gray;
+    text-align: center;
+    margin-bottom: 0px;
+    }
+  }
+
   .avatar {
     height: 45px;
     width: 45px;
     border-radius: 50%;
+  }
+  .wishlist-navbar-logo-container {
+    height: 70px;
+    width-max: 250px;
+    padding: 12px 0px;
+
+  }
+  .wishlist-navbar-logo {
+    color: $white;
+    font-family: "Lato";
+    font-size: 24px;
+    letter-spacing: 1px;
+    font-weight: 900;
+    margin:0px;
+    position: absolute;
+    left: 25px;
   }
 }
 
@@ -73,9 +98,17 @@
   width: 100%;
 }
 
-.card-title-wishlist {
+.card-title-wishlist-date {
   color: $dark-gray;
   font-size: 14px;
+  font-weight: bolder;
+  margin-top: 20px;
+  margin-bottom: 6px;
+}
+
+.card-title-wishlist {
+  color: $green;
+  font-size: 18px;
   font-weight: bolder;
   margin-top: 20px;
   margin-bottom: 6px;
@@ -94,7 +127,6 @@
   flex-direction: column;
   border-radius: $border-radius-large;
   height: 220px;
-  max-width: 150px;
   margin: 0px auto 15px auto !important;
   background-color: #ffffff;
   h1 {
