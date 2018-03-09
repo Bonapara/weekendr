@@ -2,11 +2,13 @@
     background: #fff;
     border-radius: 3px;
     padding: 12px;
-    margin: 40px auto 15px auto !important;
-    height: 210px;
+    margin: 41px auto 15px auto;
+    // margin: 40px auto 15px auto !important;
+    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.07), 0 1px 0px 0 rgba(0, 0, 0, 0.03);
 }
 
 @keyframes placeHolderShimmer{
