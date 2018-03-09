@@ -1,9 +1,11 @@
 <div class="navbar-wishlist">
   <!-- Left Logo -->
-   <%= link_to root_path do %>
-    <h1 class="navbar-logo">Weekend<span class="navbar_logo_r_color">R</span></h1>
-  <% end %>
   <div class="search_bar_container nav_search_bar_container">
+   <div class="wishlist-navbar-logo-container">
+    <%= link_to root_path do %>
+     <h1 class="wishlist-navbar-logo">Weekend<span class="navbar_logo_r_color">r</span></h1>
+    <% end %>
+   </div>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right">
     <% if user_signed_in? %>
