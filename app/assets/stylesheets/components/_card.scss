@@ -210,21 +210,6 @@
 }
 
 
-
-.higher-price {
-  // border: 3px solid $green;
-  background-color: white !important;
-  h1 {
-    color: $red !important;
-  }
-}
-
-.higher-price:hover {
-  h1 {
-    color: $dark-gray !important;
-  }
-}
-
 .lowprice {
   background-color: white !important;
   h1 {
@@ -241,7 +226,7 @@
 .mediumprice {
   background-color: white !important;
   h1 {
-    color: $yellow !important;
+    color: $dark-gray !important;
   }
 }
 

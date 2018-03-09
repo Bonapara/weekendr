@@ -33,45 +33,43 @@ function allPrice() {
     const listPrices = element.innerText;
     array.push(parseInt(listPrices));
   });
+
   array.sort(function (a, b) {  return a - b;  });
+
+  // console.log(prices);
+  // console.log('ici');
+  // console.log(array);
+  //console.log(array[0].parentNode);
+  // console.log('la');
+  //console.log(array[array.length - 1].parentNode);
+  const strip_classes = function(element){
+    element.parentNode.classList.remove("lower-price");
+    element.parentNode.classList.remove("lowprice");
+    element.parentNode.classList.remove("mediumprice");
+    element.parentNode.classList.remove("highprice");
+  };
+
   prices.forEach(function(element) {
     switch (parseInt(element.innerText)) {
     case array[0]:
+        strip_classes(element);
         element.parentNode.classList.add("lower-price");
         break;
     case array[1]:
+        strip_classes(element);
         element.parentNode.classList.add("lowprice");
         break;
     case array[2]:
+        strip_classes(element);
         element.parentNode.classList.add("lowprice");
         break;
-    case array[3]:
-        element.parentNode.classList.add("mediumprice");
-        break;
-    case array[4]:
-        element.parentNode.classList.add("mediumprice");
-        break;
-    case array[5]:
-        element.parentNode.classList.add("mediumprice");
-        break;
-    case array[6]:
-        element.parentNode.classList.add("mediumprice");
-        break;
-    case array[7]:
-        element.parentNode.classList.add("mediumprice");
-        break;
-    case array[8]:
-        element.parentNode.classList.add("mediumprice");
-        break;
-    case array[9]:
-        element.parentNode.classList.add("highprice");
-        break;
-    case array[10]:
-        element.parentNode.classList.add("highprice");
-        break;
     case array[array.length - 1]:
-        element.parentNode.classList.add("higher-price");
+        strip_classes(element);
+        element.parentNode.classList.add("highprice");
         break;
+    default:
+        strip_classes(element);
+        element.parentNode.classList.add("mediumprice");
       }
 
   });
