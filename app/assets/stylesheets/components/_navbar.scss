@@ -26,6 +26,7 @@
 .nav_search_bar_container {
   width: 800px;
   margin: auto;
+  padding-top: 10px !important;
 }
 
 .navbar-wagon {
@@ -100,6 +101,9 @@
   color: $white;
   font-size: 18px;
   padding-top: 10px;
+  // .fa-heart{
+  //   color: $red;
+  // }
 }
 .navbar-wagon-link:hover {
   color: $dark-gray;
