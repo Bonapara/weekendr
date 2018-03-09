@@ -71,8 +71,11 @@
   min-height: 240px;
 }
 
-
+.card:hover {
+  margin-bottom: 5px;
+}
 .card {
+  // transition: margin-bottom 0.5s ease-out;
   display: flex;
   position: relative;
   align-items: center;
@@ -106,7 +109,7 @@
 
       .column-one {
         flex: 0 0 25%;
-        text-align: left;
+        text-align: center;
         font-family: "Roboto";
         font-weight: 900;
         font-size: 16px;
@@ -135,6 +138,7 @@
       }
       .column-three {
         flex: 0 0 25%;
+        text-align: center;
         // display: flex;
         // flex-direction: column;
         // align-items: right;
@@ -234,11 +238,11 @@
   }
 }
 
-.lower-price:hover {
-  h1 {
-    color: $dark-gray !important;
-  }
-}
+// .lower-price:hover {
+//   h1 {
+//     color: $dark-gray !important;
+//   }
+// }
 
 
 .lowprice {
@@ -248,11 +252,11 @@
   }
 }
 
-.lowprice:hover {
-  h1 {
-    color: $dark-gray !important;
-  }
-}
+// .lowprice:hover {
+//   h1 {
+//     color: $dark-gray !important;
+//   }
+// }
 
 .mediumprice {
   background-color: white !important;
@@ -261,11 +265,11 @@
   }
 }
 
-.mediumprice:hover {
-  h1 {
-    color: $dark-gray !important;
-  }
-}
+// .mediumprice:hover {
+//   h1 {
+//     color: $dark-gray !important;
+//   }
+// }
 
 .highprice {
   background-color: white !important;
@@ -273,11 +277,11 @@
     color: $red !important;
   }
 }
-.highprice:hover {
-  h1 {
-    color: $dark-gray !important;
-  }
-}
+// .highprice:hover {
+//   h1 {
+//     color: $dark-gray !important;
+//   }
+// }
 
 .bookmark-trash {
   color: blue;

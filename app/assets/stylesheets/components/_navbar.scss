@@ -18,6 +18,8 @@
   margin:0px;
   position: absolute;
   left: 25px;
+  top: 17px;
+
   .navbar_logo_r_color {
     color: $white;
   }
@@ -77,7 +79,7 @@
 /* Right section */
 .navbar-wagon-right {
   position: absolute;
-  top: 12px;
+  top: 8px;
   right: 25px;
   display: flex;
   align-items: center;
@@ -100,7 +102,7 @@
   font-weight: 700;
   color: $white;
   font-size: 18px;
-  padding-top: 10px;
+  padding-top: 6px;
   // .fa-heart{
   //   color: $red;
   // }

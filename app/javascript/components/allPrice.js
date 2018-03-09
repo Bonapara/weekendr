@@ -52,24 +52,24 @@ function allPrice() {
   prices.forEach(function(element) {
     switch (parseInt(element.innerText)) {
     case array[0]:
-        strip_classes(element);
-        element.parentNode.classList.add("lower-price");
-        break;
+      strip_classes(element);
+      element.parentNode.classList.add("lower-price");
+      break;
     case array[1]:
-        strip_classes(element);
-        element.parentNode.classList.add("lowprice");
-        break;
+      strip_classes(element);
+      element.parentNode.classList.add("lowprice");
+      break;
     case array[2]:
-        strip_classes(element);
-        element.parentNode.classList.add("lowprice");
-        break;
+      strip_classes(element);
+      element.parentNode.classList.add("lowprice");
+      break;
     case array[array.length - 1]:
-        strip_classes(element);
-        element.parentNode.classList.add("highprice");
-        break;
+      strip_classes(element);
+      element.parentNode.classList.add("highprice");
+      break;
     default:
-        strip_classes(element);
-        element.parentNode.classList.add("mediumprice");
+      strip_classes(element);
+      element.parentNode.classList.add("mediumprice");
       }
 
   });
