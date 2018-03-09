@@ -56,7 +56,7 @@
   font-size: 14px;
   letter-spacing: 2px;
   font-weight: normal;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   // background-color: $yellow;
   margin-top: 20px;
   margin-bottom: 6px;
@@ -105,7 +105,7 @@
         font-family: "Roboto";
         font-weight: 900;
         font-size: 16px;
-        letter-spacing: 2px;
+        letter-spacing: 2.5px;
         :last-child {
           color: $medium-gray;
           font-weight: 400;
@@ -121,9 +121,9 @@
         padding: 0 10px;
 
         .airline-img {
-          height: 40px;
-          width: 40px;
-          border-radius: 3px;
+          height: 20px;
+          width: 20px;
+          border-radius: 2px;
           box-shadow: inset -3.5px 2.7px 7px -6.5px rgba(0,0,0,0.75);
 
         }
@@ -134,7 +134,7 @@
         font-family: "Roboto";
         font-weight: 900;
         font-size: 16px;
-        letter-spacing: 2px;
+        letter-spacing: 2.5px;
         :last-child {
           color: $medium-gray;
           font-weight: 400;
@@ -148,7 +148,7 @@
 
   .card-footer {
     background-color: white;
-    // border-top: 1px dotted $dark-blue;
+    border-top: 1px dotted $medium-gray;
     border-bottom-left-radius: $border-radius-large;
     border-bottom-right-radius: $border-radius-large;
     text-align: center;
