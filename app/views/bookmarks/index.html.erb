@@ -41,7 +41,7 @@
                         <div class="modal-body">
                           <%= simple_form_for [bookmark, ListUser.new] do |f| %>
                               <%= f.input :user, label: "Email du destinataire", required: false %>
-                              <%= f.submit "Partager ce weekend", class: "btn btn-primary btn-lg" do %>
+                              <%= f.submit "Partager ce weekend", class: "modal-btn" do %>
                                 <!-- <i class="fas fa-plus-circle"></i> -->
                               <% end %>
                             <% end %>
