@@ -1,18 +1,16 @@
 <div class="wishlist_filters_container">
   <!-- filter button -->
-  <p class="wishlish_filter_by">Filtrer par :</p>
   <div class="wishlist-filter-button-container">
     <%= form_tag bookmarks_path, method: :get do %>
         <%= select_tag 'sort_by', options_for_select(@sorted_options, params[:sort_by]),
         {:class => 'wishlist-button-filter'} %>
         <%= button_tag type: 'submit', class: "research-button filter wishlish-research-button" do %>
-        <p><i class="fas fa-search"></i></p>
+        <p><i class="fas fa-sort-amount-down"></i></p>
         <% end %>
       <% end %>
   </div>
   <!-- New search button -->
-  <p class="wishlish_filter_by">Ou :</p>
-    <%= link_to weekends_path do %>
-     <h1 class="new-search-button">Ajouter des vols</h1>
+    <%= link_to root_path do %>
+     <h1 class="new-search-button">Nouvelle recherche</h1>
     <% end %>
 </div>
