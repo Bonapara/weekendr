@@ -130,3 +130,7 @@
     background-color: $yellow;
   }
 }
+
+.research-button:focus {
+  outline: 0;
+}
