@@ -28,7 +28,7 @@
                 <%= bookmark.weekend[:city_to] %></h1>
               <div class="icons-wishlist">
                 <div class="card-body-element-wishlist">
-                  <button type="button" class="share-user fas fa-user-plus" data-toggle="modal" data-target="#myModal<%=bookmark.id%>">
+                  <button type="button" class="share-user fas fa-share-square" data-toggle="modal" data-target="#myModal<%=bookmark.id%>">
                   </button>
 
                   <!-- Modal -->
@@ -107,7 +107,12 @@
               <div class="bpk-ticket__notch--right"></div>
               <%= link_to(bookmark.weekend[:booking_link], class: "card-footer-wishlist",target: :_blank) do%>
               <div class="price">
-                <h1><%= bookmark.weekend[:price] %> €</h1>
+                <% if bookmark.weekend[:passenger_number].nil? || bookmark.weekend[:passenger_number] < 1 %>
+                <% numerateur = 1 %>
+                <% else %>
+                <% numerateur = bookmark.weekend[:passenger_number] %>
+                <% end %>
+                <h1><%= bookmark.weekend[:price] / numerateur %> € <span class="par-pers">/pers.</span></h1>
               </div>
               <%#= simple_form_for [bookmark, ListUser.new] do |f| %>
                   <%#= f.input :user %>

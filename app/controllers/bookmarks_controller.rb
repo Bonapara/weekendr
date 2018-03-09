@@ -34,6 +34,8 @@ class BookmarksController < ApplicationController
     price               = weekend_params_serialized[:price]
     booking_token       = weekend_params_serialized[:booking_token]
     booking_link        = weekend_params_serialized[:booking_link]
+    passenger_number    = weekend_params_serialized[:passenger_number]
+
 
 
     # construction de params adaptées à la table weekend => symbole + HASH go_flight & return_flight
@@ -44,7 +46,8 @@ class BookmarksController < ApplicationController
       country_to: country_to,
       price: price,
       booking_token: booking_token,
-      booking_link: booking_link
+      booking_link: booking_link,
+      passenger_number: passenger_number
     }
 
     weekend_params[:go_flight]      = go_flight_hash
@@ -56,11 +59,14 @@ class BookmarksController < ApplicationController
     weekend_params[:return_flight]["aTime"] = Time.parse(weekend_params[:return_flight]["aTime"])
     weekend_params[:return_flight]["dTime"] = Time.parse(weekend_params[:return_flight]["dTime"])
 
+    # binding.pry
     weekend = Weekend.new(weekend_params)
+
     weekend.save
     @bookmark = Bookmark.new
     # associer le weekend au bookmark
     @bookmark.weekend = weekend
+
 
     # associer le user au bookmark
     @bookmark.user = current_user
@@ -78,6 +84,6 @@ class BookmarksController < ApplicationController
   private
 
   def weekend_params_serialized
-    params.require(:bookmark).permit(:city_from, :country_from, :city_to, :country_to, :price, :booking_token, :booking_link, :go_flight, :return_flight)
+    params.require(:bookmark).permit(:city_from, :country_from, :city_to, :country_to, :price, :booking_token, :booking_link, :go_flight, :return_flight, :passenger_number)
   end
 end
