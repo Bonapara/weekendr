@@ -1,27 +1,20 @@
-
 <% if @wish_list_sorted.size < 1 %>
 <div class="wishlist_welcome_container">
   <h1 class ="wishlist_welcome">Bienvenue sur votre Wishlist.</h1>
   <h2 class="title_if_no_bookmarks"> Ajouter des bookmarks en appuyant sur le <i class="fas fa-heart"></i> en haut à droite des cartes.</h2>
 </div>
 <% else  %>
-  <h1 class= "wishlist-title"><%= @wish_list_sorted[0].user.first_name %> voici votre sélection de weekends</h1>
-
-
-      <%= form_tag bookmarks_path, method: :get do %>
-        <%= select_tag 'sort_by', options_for_select(@sorted_options, params[:sort_by]),
-        {:class => 'format-button-filter'} %>
-        <%= submit_tag "Trier", class: "research-button filter" %>
-      <% end %>
+  <%= render 'shared/wishlist_filters' %>
 
   <div class="weekend-container">
     <div class="row">
+      <h1 class= "wishlist-title"><%= @wish_list_sorted[0].user.first_name %> voici votre sélection de weekends</h1>
       <% @wish_list_sorted.each do |bookmark| %>
         <%#= render partial: "shared/weekendcard", locals: { weekend: weekend} %>
         <%#= render "folder/file" %>
         <div class="col-xs-6 col-sm-3 col-md-2">
           <div class="card-header-wishlist">
-            <h1 class="card-title-wishlist"><%= l(bookmark.weekend[:go_flight]["dTime"].to_date, format: (bookmark.weekend[:go_flight]["dTime"].to_date.month == bookmark.weekend[:return_flight]["dTime"].to_date.month ? '%d' : '%d %b')) %> au <%= l(bookmark.weekend[:return_flight]["dTime"].to_date, format: '%d %b').gsub(".","") %></h1>
+            <h1 class="card-title-wishlist-date"><%= l(bookmark.weekend[:go_flight]["dTime"].to_date, format: (bookmark.weekend[:go_flight]["dTime"].to_date.month == bookmark.weekend[:return_flight]["dTime"].to_date.month ? '%d' : '%d %b')) %> au <%= l(bookmark.weekend[:return_flight]["dTime"].to_date, format: '%d %b').gsub(".","") %></h1>
 
           </div>
 
@@ -29,7 +22,7 @@
           <div class="card-wishlist" data-from-card=<%= bookmark.weekend[:go_flight]["dTime"].to_date.strftime("%d/%m")%>>
             <!-- MODAL PARTAGER A UN AUTRE UTILISATEUR -->
             <div class="card-body-element-wishlist">
-              <button type="button" class="share-user fas fa fa-plus-circle" data-toggle="modal" data-target="#myModal<%=bookmark.id%>">
+              <button type="button" class="share-user fas fa-user-plus" data-toggle="modal" data-target="#myModal<%=bookmark.id%>">
               </button>
 
               <!-- Modal -->
