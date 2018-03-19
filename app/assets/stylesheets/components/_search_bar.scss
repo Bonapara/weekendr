@@ -22,16 +22,27 @@
     border-radius: 6px !important;
   }
 
-  .search-bar-item {
-    margin-bottom: 1px;
-  }
-  #search-from {
+  .search-bar-item-first, .search-bar-item-third {
+    border-bottom: 1px solid $medium-gray;
+    border-top: 7px solid $yellow;
     border-top-right-radius: 6px !important;
-  }
-
-  .first-icon {
     border-top-left-radius: 6px !important;
   }
+
+  .search-form-inline {
+    border-right: none !important;
+  }
+
+  #search-to {
+    margin-bottom: 15px;
+    border-bottom-right-radius: 6px !important;
+  }
+
+  .second-icon {
+    margin-bottom: 15px;
+    border-bottom-left-radius: 6px !important;
+  }
+
   .last-icon {
     border-bottom-left-radius: 6px !important;
   }
@@ -39,16 +50,86 @@
   #search-from, #search-to {
     width: 210px !important;
   }
+
+  .search-bar-item-parent {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 
 // Tablet design
-@media screen and (min-width : 480px) and (max-width: 768px)
+@media screen and (min-width : 480px) and (max-width: 900px)
 {
+  .search_bar_container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0px !important;
+  }
 
+  .search-bar-item-parent {
+    display: flex;
+    margin-bottom: 15px;
+  }
+
+  .search-bar-item-parent-first {
+    flex-direction: column;
+  }
+
+  .search-bar-item-first {
+    margin-bottom: 0px;
+  }
+
+  #search-from, #search-to {
+    width: 463px !important;
+  }
+
+  #search-to {
+    border-bottom-right-radius: 6px !important;
+  }
+
+  #format {
+    width: 207.5px !important;
+  }
+
+  #pers {
+    width: 200px !important;
+    border-bottom-right-radius: 6px !important;
+  }
+
+  .second-icon {
+    border-bottom-left-radius: 6px !important;
+  }
+
+  .third-icon {
+    border-bottom-left-radius: 6px !important;
+  }
+
+  .search-bar-item-first, .search-bar-item-parent-last {
+    border-top: 7px solid $yellow;
+    border-top-right-radius: 6px !important;
+    border-top-left-radius: 6px !important;
+  }
+
+  .search-bar-item-first {
+    border-bottom: 1px solid $medium-gray;
+  }
+
+  .research-button {
+    margin-top: 40px;
+    width: 220px !important;
+    border-radius: 6px !important;
+  }
 }
 
-
+// Design desktop
+@media screen and (min-width : 900px)
+{
+  .first-icon {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+  }
+}
 
 .search_bar_container {
   display: flex;
@@ -59,6 +140,13 @@
   margin-bottom: 30vh;
   // padding-top: 6vh;
   // box-shadow: 7px 9px 31px -13px rgba(0,0,0,0.75);
+
+  .search-bar-item-parent {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+  }
 
   .search-bar-item {
     display: flex;
@@ -75,7 +163,6 @@
     outline:none;
     padding: 14px 15px;
     opacity: 1;
-
   }
 
   .search-form-inline::placeholder {
@@ -197,10 +284,10 @@
   color: $medium-gray;
   height: 53px;
   padding: 14px;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
+  // border-top-left-radius: 0px;
+  // border-bottom-left-radius: 0px;
+  // border-top-right-radius: 0px;
+  // border-bottom-right-radius: 0px;
   i {
     color: $dark-gray;
     margin: none;
@@ -208,7 +295,6 @@
     z-index: 100;
   }
 }
-
 
 .fa-angle-down {
   color: $dark-gray;

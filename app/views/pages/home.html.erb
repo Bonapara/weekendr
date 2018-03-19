@@ -28,70 +28,74 @@
     </div>
     <!-- Search bar  -->
     <div class="search_bar_container">
-      <div class="search-bar-item">
-        <div class="icon first-icon">
-          <i class="fas fa-map-marker-alt"></i>
+      <div class="search-bar-item-parent search-bar-item-parent-first">
+        <div class="search-bar-item search-bar-item-first">
+          <div class="icon first-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="search_bar_from">
+            <%= form_tag weekends_path, method: :get do %>
+            <%= text_field_tag :from,
+            params[:from],
+            class: "search-form-inline",
+              id: "search-from",
+              autocomplete: "off",
+              placeholder: "Départ"
+              %>
+            <%= hidden_field_tag 'code_from', '', id: "iataFrom" %>
+          </div>
+          <ul id="results-from">
+          </ul>
         </div>
-        <div class="search_bar_from">
-          <%= form_tag weekends_path, method: :get do %>
-          <%= text_field_tag :from,
-          params[:from],
-          class: "search-form-inline",
-            id: "search-from",
-            autocomplete: "off",
-            placeholder: "Départ"
-            %>
-          <%= hidden_field_tag 'code_from', '', id: "iataFrom" %>
-        </div>
-        <ul id="results-from">
-        </ul>
-      </div>
-      <div class="search-bar-item">
-        <div class="icon">
-          <i class="fas fa-map-marker-alt"></i>
-        </div>
-        <div class="search_bar_to">
-          <%= text_field_tag :to,
-          params[:to],
-          class: "search-form-inline",
-            id: "search-to",
-            autocomplete: "off",
-            placeholder: "Où allez-vous ?"
-            %>
-          <%= hidden_field_tag 'code_to', '', id: "iataTo" %>
-        </div>
-        <ul id="results-to">
-        </ul>
-      </div>
-      <div class="search-bar-item">
-        <div class="icon">
-          <i class="fas fa-calendar-minus"></i>
-        </div>
-        <div class="search_options">
-          <%= select_tag 'format',
-          options_for_select([["2 jours", "2 jours"], ["3 jours", "3 jours"]]),
-          {:class => 'format-button'}
-          %>
+        <div class="search-bar-item">
+          <div class="icon second-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="search_bar_to">
+            <%= text_field_tag :to,
+            params[:to],
+            class: "search-form-inline",
+              id: "search-to",
+              autocomplete: "off",
+              placeholder: "Où allez-vous ?"
+              %>
+            <%= hidden_field_tag 'code_to', '', id: "iataTo" %>
+          </div>
+          <ul id="results-to">
+          </ul>
         </div>
       </div>
-      <div class="search-bar-item">
-        <div class="icon last-icon">
-          <i class="fas fa-user-plus"></i>
-        </div>
-        <div class="search_options">
-          <div class="select_people_num">
-            <%= select_tag 'pers',
-            options_for_select([['1 pers.', '1 pers.'], ['2 pers.', '2 pers.'], ['3 pers.', '3 pers.'], ['4 pers.', '4 pers.'], ['5 pers.', '5 pers.']],
-            {:class => 'format-button-option'} ),
+      <div class="search-bar-item-parent search-bar-item-parent-last">
+        <div class="search-bar-item search-bar-item-third">
+          <div class="icon third-icon">
+            <i class="fas fa-calendar-minus"></i>
+          </div>
+          <div class="search_options">
+            <%= select_tag 'format',
+            options_for_select([["2 jours", "2 jours"], ["3 jours", "3 jours"]]),
             {:class => 'format-button'}
             %>
           </div>
         </div>
-      </div>
-        <div class="research_button_container">
-          <%= submit_tag 'Rechercher', class: "research-button" %>
-          <% end %>
+        <div class="search-bar-item">
+          <div class="icon last-icon">
+            <i class="fas fa-user-plus"></i>
+          </div>
+          <div class="search_options">
+            <div class="select_people_num">
+              <%= select_tag 'pers',
+              options_for_select([['1 pers.', '1 pers.'], ['2 pers.', '2 pers.'], ['3 pers.', '3 pers.'], ['4 pers.', '4 pers.'], ['5 pers.', '5 pers.']],
+              {:class => 'format-button-option'} ),
+              {:class => 'format-button'}
+              %>
+            </div>
+          </div>
         </div>
+      </div>
+      <div class="research_button_container">
+        <%= submit_tag 'Rechercher', class: "research-button" %>
+        <% end %>
+      </div>
     </div>
     <!-- End of search bar  -->
   </div>
