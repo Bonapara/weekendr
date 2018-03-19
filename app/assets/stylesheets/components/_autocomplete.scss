@@ -1,3 +1,14 @@
+// Smartphone design
+@media screen and (max-width: 480px)
+{
+  #results-from, #results-to {
+    width: 253px !important;
+  }
+}
+
+
+
+
 #results-to, #results-from {
   z-index: 200;
   margin-top: 4px;
@@ -11,12 +22,12 @@
 }
 
 #results-from {
-  right: 518px;
+  left: 0px;
   top: 56px;
 }
 
 #results-to {
-  left: -512px;
+  left: 0px;
   top: 56px;
 }
 
