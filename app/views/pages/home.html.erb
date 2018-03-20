@@ -1,78 +1,102 @@
-<div class="home_container" style="background-image: linear-gradient(150deg, rgba(25, 42, 86, 0.5), rgba(25, 42, 86, 0.5)), url('https://images.unsplash.com/photo-1514913274516-4aa04f176f8c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a6940b0c53d64fc564bed31bb6aa8d9b&auto=format&fit=crop&w=1780&q=80');background-repeat:no-repeat; background-position: cover; ">
-  <div class="banner-title">
+<!-- Background image -->
+<div class="home-wrapper" style="background-image: linear-gradient(150deg, rgba(25, 42, 86, 0.5), rgba(25, 42, 86, 0.5)), url('https://images.unsplash.com/photo-1514913274516-4aa04f176f8c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a6940b0c53d64fc564bed31bb6aa8d9b&auto=format&fit=crop&w=1780&q=80')">
+  <!-- Logo and nav bar -->
+  <div class="navbar-home">
     <h1><%= image_tag('2.png', class: "img-logo-home") %><span class="eekend">eekendr</span></h1>
-    <h2>Trouvez le weekend le moins cher pour aller à&nbsp;<span id="banner-typed-text"></span></h2>
-  <div class="reassurance">
-    <div class="reassurance-container">
-      <i class="fas fa-paper-plane"></i>
-      <h3> 12 weekends. 12 vols.</h3>
-    </div>
-    <div class="reassurance-container">
-      <i class="fas fa-exchange-alt"></i>
-      <h3> 100 % de vols directs</h3>
-    </div>
-    <div class="reassurance-container">
-      <i class="fas fa-thumbs-up"></i>
-      <h3> 98 % de weekends réussis</h3>
-    </div>
   </div>
-  </div>
-  <div class="search_bar_container">
-    <div class="icon first-icon">
-      <i class="fas fa-map-marker-alt"></i>
+  <!-- Container with the banner title and the search bar -->
+  <div class="home-container">
+    <!-- Container with the Typescript title and the reassurance items -->
+    <div class="banner-title">
+      <!-- Typescript title  -->
+      <h2 id="title-home">Trouvez le weekend le moins cher pour aller à&nbsp;<span id="banner-typed-text"></span></h2>
+      <!-- Reassurance items  -->
+      <div class="reassurance">
+        <div class="reassurance-item">
+          <i class="fas fa-paper-plane"></i>
+          <h3> Pour les 12 prochains weekends, <br> les 12 vols les moins chers !</h3>
+        </div>
+        <div class="reassurance-item">
+          <i class="fas fa-thumbs-up"></i>
+          <h3> Du vendredi soir au dimanche soir, <br> horaires ajustables selon vos envies</h3>
+        </div>
+        <div class="reassurance-item">
+          <i class="fas fa-exchange-alt"></i>
+          <h3> 100 % de vols directs, <br> pour des trajets optimals</h3>
+        </div>
+      </div>
     </div>
-    <div class="search_bar_from">
-      <%= form_tag weekends_path, method: :get do %>
-      <%= text_field_tag :from,
-      params[:from],
-      class: "search-form-inline",
-        id: "search-from",
-        autocomplete: "off",
-        placeholder: "Départ"
-        %>
-      <%= hidden_field_tag 'code_from', '', id: "iataFrom" %>
+    <!-- Search bar  -->
+    <div class="search_bar_container">
+      <div class="search-bar-item-parent search-bar-item-parent-first">
+        <div class="search-bar-item search-bar-item-first">
+          <div class="icon first-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="search_bar_from">
+            <%= form_tag weekends_path, method: :get do %>
+            <%= text_field_tag :from,
+            params[:from],
+            class: "search-form-inline",
+              id: "search-from",
+              autocomplete: "off",
+              placeholder: "Départ"
+              %>
+            <%= hidden_field_tag 'code_from', '', id: "iataFrom" %>
+          </div>
+          <ul id="results-from">
+          </ul>
+        </div>
+        <div class="search-bar-item">
+          <div class="icon second-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="search_bar_to">
+            <%= text_field_tag :to,
+            params[:to],
+            class: "search-form-inline",
+              id: "search-to",
+              autocomplete: "off",
+              placeholder: "Où allez-vous ?"
+              %>
+            <%= hidden_field_tag 'code_to', '', id: "iataTo" %>
+          </div>
+          <ul id="results-to">
+          </ul>
+        </div>
+      </div>
+      <div class="search-bar-item-parent search-bar-item-parent-last">
+        <div class="search-bar-item search-bar-item-third">
+          <div class="icon third-icon">
+            <i class="fas fa-calendar-minus"></i>
+          </div>
+          <div class="search_options">
+            <%= select_tag 'format',
+            options_for_select([["2 jours", "2 jours"], ["3 jours", "3 jours"]]),
+            {:class => 'format-button'}
+            %>
+          </div>
+        </div>
+        <div class="search-bar-item">
+          <div class="icon last-icon">
+            <i class="fas fa-user-plus"></i>
+          </div>
+          <div class="search_options">
+            <div class="select_people_num">
+              <%= select_tag 'pers',
+              options_for_select([['1 pers.', '1 pers.'], ['2 pers.', '2 pers.'], ['3 pers.', '3 pers.'], ['4 pers.', '4 pers.'], ['5 pers.', '5 pers.']],
+              {:class => 'format-button-option'} ),
+              {:class => 'format-button'}
+              %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="research_button_container">
+        <%= submit_tag 'Rechercher', class: "research-button" %>
+        <% end %>
+      </div>
     </div>
-    <div class="icon">
-      <i class="fas fa-map-marker-alt"></i>
-    </div>
-    <div class="search_bar_to">
-      <%= text_field_tag :to,
-      params[:to],
-      class: "search-form-inline",
-        id: "search-to",
-        autocomplete: "off",
-        placeholder: "Où allez-vous ?"
-        %>
-      <%= hidden_field_tag 'code_to', '', id: "iataTo" %>
-    </div>
-    <div class="icon">
-      <i class="fas fa-calendar-minus"></i>
-    </div>
-    <div class="search_options">
-      <%= select_tag 'format',
-      options_for_select([["2 jours", "2 jours"], ["3 jours", "3 jours"]]),
-      {:class => 'format-button'}
-      %>
-    </div>
-    <div class="icon">
-      <i class="fas fa-user-plus"></i>
-    </div>
-     <div class="search_options">
-    <div class="select_people_num">
-      <%= select_tag 'pers',
-      options_for_select([['1 pers.', '1 pers.'], ['2 pers.', '2 pers.'], ['3 pers.', '3 pers.'], ['4 pers.', '4 pers.'], ['5 pers.', '5 pers.']],
-      {:class => 'format-button-option'} ),
-      {:class => 'format-button'}
-      %>
-    </div>
-  </div>
-    <div class="research_button_container">
-      <%= submit_tag 'Rechercher', class: "research-button" %>
-      <ul id="results-from">
-      </ul>
-      <ul id="results-to">
-      </ul>
-      <% end %>
-    </div>
+    <!-- End of search bar  -->
   </div>
 </div>

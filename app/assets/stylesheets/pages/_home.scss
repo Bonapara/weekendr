@@ -1,59 +1,155 @@
 // Specific CSS for your home-page
 
-.home_container {
+// Smartphone design
+@media screen and (max-width: 480px)
+{
+  .navbar-home {
+    text-align: center;
+    .img-logo-home {
+      margin-left: 0px !important;
+    }
+  }
+
+  .banner-title {
+    #title-home {
+      font-size: 22px;
+    }
+    h3 {
+      display: none;
+    }
+  }
+
+  .reassurance {
+    display: none;
+    i {
+      display: none;
+    }
+  }
+}
+
+// Tablet design
+@media screen and (min-width : 480px) and (max-width: 900px)
+{
+  .navbar-home {
+    text-align: center;
+    .img-logo-home {
+      margin-left: 0px !important;
+    }
+  }
+
+  .banner-title {
+    h3 {
+      display: none;
+    }
+  }
+
+  .reassurance {
+    display: none;
+    i {
+      display: none;
+    }
+  }
+}
+
+
+// Desktop design
+.home-wrapper {
+  width: 100%;
+  height: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.navbar-home {
+  text-align: center;
+  h1 {
+    padding-top: 20px;
+  }
+}
+
+.home-container {
   display: flex;
   flex-direction: column;
-  justify-content: left;
   align-items: center;
-  padding-top: 20vh;
-  height: 100vh;
-  background-size: cover;
+  justify-content: space-around;
+  height: calc(100vh - 70px);
+}
+
+.eekend {
+  color: $white;
+  font-family: "Lato";
+  font-size: 24px;
+  letter-spacing: 1px;
+  font-weight: 900;
+}
+
+.img-logo-home {
+  height: 32px;
+  margin-left: 20px;
 }
 
 .banner-title {
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: $white;
-  height: 90px;
-  margin-top: 1vh;
-  margin-bottom: 15vh;
+  // height: 90px;
+  // padding-top: 20px;
+  // margin-bottom: 15vh;
 
-  h1{
-    position: fixed;
-    top: 12px;
-    left: 25px;
-    color: $white;
-    font-family: "Lato";
-    font-size: 24px;
-    letter-spacing: 1px;
-    font-weight: 900;
-  }
   h2 {
+    margin-top: 0px;
     font-family: "Roboto";
     font-weight: 300;
     color: $white;
     font-weight: normal;
     opacity: 1;
     font-size: 30px;
+    text-align: center;
   }
+
   h3 {
     font-family: "Roboto";
-    font-weight: 300;
+    font-weight: normal;
     color: $white;
-    font-weight: bold;
-    opacity: 0.8;
+    opacity: 1;
     font-size: 18px;
-    margin-top: 20px;
-    margin-bottom: 80px;
+    // margin-top: 20px;
+    // margin-bottom: 80px;
+  }
+}
+
+.reassurance {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+
+.reassurance-item {
+  text-align: center;
+  width: 33%;
+  // margin: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // background-color: rgba(72, 72, 72, 0.6);
+  border-radius: 5px;
+  h3 {
+    color: $white;
+    font-size: 18px;
   }
 
-  // .yellow {
-  //   color: $yellow;
-  // }
-
-  .eekend {
-    padding-bottom: 5px;
+  .fa-paper-plane, .fa-thumbs-up, .fa-exchange-alt, {
+    color: #208DA9;
+    // margin-top: 30vh;
+    border-radius: 50%;
+    padding: 12px;
+    font-size: 20px;
+    background-color: $yellow;
   }
 }
 
@@ -68,6 +164,10 @@
   font-weight: normal;
 }
 
+.research-button:focus {
+  outline: 0;
+}
+
 .typed-cursor {
   color: $yellow;
   font-size: 28px;
@@ -79,6 +179,8 @@
     -moz-animation: blink 0.7s infinite;
     animation: blink 0.7s infinite;
 }
+
+// Typed cursor flashing
 @keyframes blink {
     0% { opacity: 1; }
     50% { opacity: 0; }
@@ -93,48 +195,4 @@
     0% { opacity: 1; }
     50% { opacity: 0; }
     100% { opacity: 1; }
-}
-
-.reassurance {
-  margin-top: 5vh;
-  display: flex;
-  justify-content: center;
-}
-
-.reassurance-container {
-  text-align: center;
-  width: 30vh;
-  margin: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  // background-color: rgba(72, 72, 72, 0.6);
-  border-radius: 5px;
-  h3 {
-    color: $white;
-    font-size: 18px;
-  }
-
-  i {
-    margin-left: 50px;
-    margin-right: 6px;
-  }
-
-  i:first-child {
-    margin-left: 0px;
-  }
-
-  .fa-paper-plane, .fa-thumbs-up, .fa-exchange-alt, {
-    color: #208DA9;
-    margin-top: 30vh;
-    border-radius: 50%;
-    padding: 12px;
-    font-size: 20px;
-    background-color: $yellow;
-  }
-}
-
-.research-button:focus {
-  outline: 0;
 }
